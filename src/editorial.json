@@ -1,0 +1,788 @@
+{
+  "version": "2.0-content-draft",
+  "project": "Europe Explorer — Дневник исследователя",
+  "audience": "6 класс, Германия / Klasse 6, Deutschland",
+  "scope": "Редакционный пакет. Не меняет игровые правила, значения данных, проверки ответов, карту, климатограмму или экспорт.",
+  "ru": {
+    "homepage": {
+      "eyebrow": "ГЕОГРАФИЯ · 6 КЛАСС",
+      "title": "Почему Европа меняется за одну поездку?",
+      "subtitle": "Пять экспедиций от Северного моря до Альп и Средиземноморья.",
+      "story": "Представь, что утром ты выезжаешь из Германии на юг. Сначала за окном равнины и поля. Потом появляются высокие горы. А за ними — другие растения, другая погода и совсем другие дороги. Ты не пересёк океан и не сменил материк. Что изменилось?",
+      "mission": "В этой игре ты будешь искать ответы, как настоящий географ: смотреть на карту, читать климатограмму, принимать решения на ферме, исследовать Альпы и выбирать маршрут. Каждая экспедиция поможет понять следующую.",
+      "rule": "Здесь можно ошибаться. Важно не угадать с первого раза, а заметить причину. После каждой экспедиции одно открытие появится в дневнике.",
+      "start": "Начать экспедицию",
+      "route": "Карта → Климат → Ферма → Альпы → Транспорт"
+    },
+    "chapters": [
+      {
+        "id": "map",
+        "nav": "Глава 01 · Европа вокруг нас",
+        "title": "Европа начинается рядом",
+        "subtitle": "Научись видеть на карте не только названия, но и связи между местами.",
+        "hook": "Между Германией и Италией нет океана. И всё же дорога на юг проходит через совсем разные ландшафты. Что скрывается между этими странами?",
+        "goal": "Разобраться, где находятся Германия, Австрия и Италия, и понять, почему направление пути важно.",
+        "explanations": [
+          {
+            "title": "Карта — вид сверху",
+            "text": "Представь, что ты поднялся очень высоко и видишь страны сверху. Карта показывает, где находятся суша, вода, города и границы. Она не обязана выглядеть так же, как вид из окна: её задача — помогать сравнивать расположение мест."
+          },
+          {
+            "title": "Север, юг и соседи",
+            "text": "На большинстве школьных карт север сверху, юг снизу. Германия находится севернее Италии. Между ними можно проехать, например, через Австрию. Но географ смотрит не только на названия: он замечает моря, горы и соседние страны."
+          },
+          {
+            "title": "Что мешает ехать прямо?",
+            "text": "На юге Германии и в соседних странах поднимаются Альпы. Это большая горная система. На карте расстояние между двумя точками может быть небольшим, а в жизни дорога идёт по долинам и через перевалы или тоннели."
+          }
+        ],
+        "activities": [
+          {
+            "prompt": "Найди на карте Германию, Австрию и Италию. Какая из этих трёх стран расположена между двумя другими?",
+            "hint": "Посмотри, что находится южнее Германии и севернее Италии.",
+            "success": "Верно: Австрия находится между Германией и Италией на одном из возможных маршрутов через Альпы.",
+            "retry": "Сравни страны по направлению север — юг, не по размеру и цвету."
+          },
+          {
+            "prompt": "Посмотри на путь от Германии к Италии. Какую крупную горную систему он может пересечь?",
+            "hint": "Горы тянутся дугой через Центральную и Южную Европу.",
+            "success": "Это Альпы. Они влияют на климат, расселение людей и транспорт.",
+            "retry": "Ищи не море и не государственную границу, а природное препятствие на юге."
+          },
+          {
+            "prompt": "Сравни положение Германии и Италии. Какая из них находится южнее?",
+            "hint": "Вспомни: на привычной школьной карте юг расположен внизу.",
+            "success": "Италия находится южнее Германии. Но одного направления недостаточно, чтобы точно описать климат — об этом следующая глава.",
+            "retry": "Обрати внимание на стороны света, а не на форму стран."
+          }
+        ],
+        "checkpoint": {
+          "question": "Почему кратчайшая линия на карте не всегда оказывается самой удобной дорогой?",
+          "answer": "Потому что на местности есть горы, реки и другие препятствия.",
+          "explain": "Географическая карта помогает увидеть не только расстояние, но и рельеф."
+        },
+        "takeaway": "Я умею находить страны, определять направление и замечать, как горы могут повлиять на маршрут.",
+        "bridge": "Мы нашли страны. Но почему в разных частях Европы неодинаковая погода? Посмотрим на данные о климате.",
+        "terms": [
+          [
+            "Стороны света",
+            "Himmelsrichtungen",
+            "Направления: север, юг, запад и восток."
+          ],
+          [
+            "Граница",
+            "Grenze",
+            "Линия, разделяющая территории государств."
+          ],
+          [
+            "Рельеф",
+            "Relief",
+            "Неровности земной поверхности: равнины, холмы и горы."
+          ]
+        ]
+      },
+      {
+        "id": "climate",
+        "nav": "Глава 02 · Лаборатория климата",
+        "title": "Можно ли увидеть климат на графике?",
+        "subtitle": "Температура и осадки рассказывают о месте больше, чем прогноз на завтра.",
+        "hook": "Сегодня в Берлине дождь, завтра солнце. Но почему в Италии лето часто суше и жарче, чем у Северного моря? Один день ответа не даст.",
+        "goal": "Научиться читать климатограмму и сравнивать, как меняются температура и осадки в течение года.",
+        "explanations": [
+          {
+            "title": "Погода — сегодня. Климат — много лет",
+            "text": "Погода может измениться за час: дождь закончился, поднялся ветер, стало холоднее. Климат описывает, какая погода обычно бывает в определённом месте в течение многих лет. Для этого учёные используют длительные ряды наблюдений."
+          },
+          {
+            "title": "Как читать климатограмму",
+            "text": "По горизонтали расположены месяцы года. Линия показывает среднюю температуру каждого месяца в градусах Цельсия. Столбики показывают количество осадков за месяц в миллиметрах. Сначала найди самый тёплый месяц, потом посмотри, когда выпадает больше дождя или снега."
+          },
+          {
+            "title": "Почему графики отличаются",
+            "text": "На климат влияют географическая широта, близость моря и океана, высота местности и движение воздушных масс. Поэтому два города на одном материке могут иметь разную температуру и разное количество осадков."
+          },
+          {
+            "title": "Не перепутай две шкалы",
+            "text": "Температура измеряется в °C, осадки — в мм. Эти величины нельзя сравнивать как одинаковые числа. На некоторых школьных климатограммах шкалы специально согласованы: 10 °C соответствуют 20 мм осадков. Это помогает замечать сухие месяцы."
+          }
+        ],
+        "activities": [
+          {
+            "prompt": "Найди на климатограмме самый тёплый месяц. Смотри на линию температуры.",
+            "hint": "Ищи точку, где линия расположена выше всего.",
+            "success": "Именно так. Самая высокая точка линии соответствует наибольшей средней температуре за месяц.",
+            "retry": "Высокие столбики показывают осадки, а не тепло. Для температуры нужна линия."
+          },
+          {
+            "prompt": "Определи, когда осадков больше всего. Теперь смотри на столбики.",
+            "hint": "Найди самый высокий столбик и прочитай месяц под ним.",
+            "success": "Верно. Высота столбика показывает, сколько осадков в среднем выпадает за этот месяц.",
+            "retry": "Не сравнивай столбики с температурной линией: у них разные единицы измерения."
+          },
+          {
+            "prompt": "Сравни две климатограммы. Где лето теплее и где осадки распределены иначе?",
+            "hint": "Сначала сравни температуру летом, потом — осадки по месяцам.",
+            "success": "Хорошее наблюдение. По форме линий и столбиков можно заметить особенности климата разных мест.",
+            "retry": "Сравнивай одинаковые месяцы: июль с июлем, январь с январём."
+          }
+        ],
+        "checkpoint": {
+          "question": "В июле в одном городе пошёл дождь. Доказывает ли это, что там дождливый климат?",
+          "answer": "Нет. Один день показывает погоду, а климат определяют по многолетним наблюдениям.",
+          "explain": "Для климата важны повторяющиеся закономерности, а не отдельный случай."
+        },
+        "takeaway": "Я различаю погоду и климат, читаю температуру по линии и осадки по столбикам, умею сравнивать месяцы.",
+        "bridge": "Температура и дождь влияют не только на одежду. От них зависит, что может вырасти на поле. Пора открыть ферму.",
+        "terms": [
+          [
+            "Погода",
+            "Wetter",
+            "Состояние атмосферы в определённом месте и в определённое время."
+          ],
+          [
+            "Климат",
+            "Klima",
+            "Типичные погодные условия местности по многолетним наблюдениям."
+          ],
+          [
+            "Климатограмма",
+            "Klimadiagramm",
+            "График температуры и осадков по месяцам."
+          ],
+          [
+            "Осадки",
+            "Niederschlag",
+            "Дождь, снег и другие виды воды, поступающие из атмосферы."
+          ]
+        ]
+      },
+      {
+        "id": "farm",
+        "nav": "Глава 03 · Европейская ферма",
+        "title": "Почему цитрусовые не растут на каждом поле?",
+        "subtitle": "Сравни тепло, влагу и урожай: климат становится решением на ферме.",
+        "hook": "Почему в одних регионах выращивают цитрусовые, а в других — пшеницу и кормовые травы? Попробуй стать агрономом и не забудь о воде.",
+        "goal": "Выбрать регион, культуру и полив, объяснить влияние тепла и осадков.",
+        "explanations": [
+          {
+            "title": "Растениям нужны условия",
+            "text": "Растение не читает прогноз погоды, но реагирует на температуру, свет и воду. Если холод длится слишком долго, одни культуры растут медленно. Если очень сухо, другим не хватает влаги. Важно и то, какая почва находится под корнями."
+          },
+          {
+            "title": "Север и юг — не одно и то же",
+            "text": "Оливковые деревья особенно характерны для Средиземноморья, где лето обычно тёплое и сухое, а зимы сравнительно мягкие. Картофель успешно выращивают и в более прохладных районах. Пшеница распространена по многим регионам Европы."
+          },
+          {
+            "title": "У каждого правила есть исключения",
+            "text": "Виноград растёт не только на юге: виноградники есть и в Германии, например в долине Рейна. На урожай влияют не только широта, но и склон холма, почва, солнечный свет и работа людей. Поэтому географ не решает всё по одному признаку."
+          }
+        ],
+        "activities": [
+          {
+            "prompt": "Выбери прохладный север и цитрусовые. Прочитай, какое препятствие возникает.",
+            "hint": "Полив добавляет воду, но может ли он защитить цитрусовые от морозов?",
+            "success": "Цитрусовые чувствительны к морозам. В прохладном северном регионе полив не заменяет тепло.",
+            "retry": "Сначала проверь температуру региона, а уже потом количество воды."
+          },
+          {
+            "prompt": "Переключи регион на Средиземноморье и выбери «Только дождь». Какой дефицит возникает летом?",
+            "hint": "Посмотри, совпадает ли жаркое лето с достаточным количеством осадков.",
+            "success": "Для Средиземноморья характерно сухое лето. Некоторым культурам может не хватать влаги, даже если тепло им подходит.",
+            "retry": "Проверь и регион, и способ полива."
+          },
+          {
+            "prompt": "Сравни дождевание и капельный полив. Какой способ направляет воду прямо к корням?",
+            "hint": "Выбери оба варианта по очереди и прочитай объяснение.",
+            "success": "Капельный полив подаёт воду к корням и может уменьшать потери на испарение. Но оборудование и источник воды всё равно нужны.",
+            "retry": "Обрати внимание не только на полив, но и на расход и доступность воды."
+          }
+        ],
+        "checkpoint": {
+          "question": "Почему нельзя утверждать, что виноград растёт только в Италии?",
+          "answer": "Потому что виноград выращивают и в других подходящих районах, в том числе в Германии.",
+          "explain": "Климат, рельеф и местные условия важнее простого деления стран на северные и южные."
+        },
+        "takeaway": "Я понял, что выращивание растений зависит от климата и других природных условий, и могу объяснить выбор культуры.",
+        "bridge": "А теперь отправимся в место, где температура заметно меняется даже без путешествия с севера на юг: в Альпы.",
+        "terms": [
+          [
+            "Сельское хозяйство",
+            "Landwirtschaft",
+            "Выращивание растений и разведение животных для получения продуктов."
+          ],
+          [
+            "Сельскохозяйственная культура",
+            "Nutzpflanze",
+            "Растение, которое люди специально выращивают."
+          ],
+          [
+            "Вегетационный период",
+            "Vegetationsperiode",
+            "Период года, когда условия позволяют растениям активно расти."
+          ],
+          [
+            "Засуха",
+            "Dürre",
+            "Длительный недостаток влаги, который может вредить растениям."
+          ]
+        ]
+      },
+      {
+        "id": "alps",
+        "nav": "Глава 04 · Экспедиция в Альпы",
+        "title": "Лето в долине, снег на вершине",
+        "subtitle": "Почему высота меняет погоду и куда в горах исчезают прямые дороги.",
+        "hook": "Представь: у подножия горы тепло, люди гуляют в футболках. Выше по склону прохладнее, а на вершинах может лежать снег. Как это возможно в одном и том же районе?",
+        "goal": "Узнать, как высота и горный рельеф влияют на температуру, осадки и жизнь людей.",
+        "explanations": [
+          {
+            "title": "Высота имеет значение",
+            "text": "С подъёмом вверх воздух в среднем становится холоднее. Для приблизительных школьных расчётов часто берут снижение температуры около 0,6 °C на каждые 100 метров подъёма. В реальной погоде это значение меняется, поэтому правило — ориентир, а не обещание точной температуры."
+          },
+          {
+            "title": "Горы встречают облака",
+            "text": "Когда влажный воздух поднимается по склону, он охлаждается. Из-за этого на наветренной стороне гор могут образовываться облака и выпадать осадки. За горным хребтом воздух иногда оказывается суше. Так рельеф влияет на климат соседних долин."
+          },
+          {
+            "title": "Жизнь в горах устроена иначе",
+            "text": "Крутые склоны оставляют меньше места для дорог, полей и крупных поселений. Люди чаще строят дома в долинах, используют горные пастбища, развивают туризм и прокладывают тоннели. Рельеф влияет на повседневную жизнь не меньше, чем погода."
+          }
+        ],
+        "activities": [
+          {
+            "prompt": "Сравни две точки на разной высоте. Где обычно холоднее при прочих равных условиях?",
+            "hint": "Представь подъём от долины к вершине.",
+            "success": "Как правило, выше холоднее. Но конкретная температура зависит и от текущих погодных условий.",
+            "retry": "Не сравнивай только север и юг. Здесь главное отличие — высота."
+          },
+          {
+            "prompt": "Подними путешественника на 2000 метров. Насколько изменилась температура по учебной модели?",
+            "hint": "Используй снижение на 0,6 °C на каждые 100 метров подъёма.",
+            "success": "За 2000 м температура по модели падает на 12 °C: с +18 °C в долине до +6 °C на этой высоте.",
+            "retry": "2000 ÷ 100 = 20 ступеней по 0,6 °C."
+          },
+          {
+            "prompt": "Открой лабораторию горообразования и увеличь сжатие пород. Что меняется в рисунке складок?",
+            "hint": "Сдвиг плит оказывает давление на слои горных пород.",
+            "success": "При сжатии слои образуют складки. Такая модель помогает представить одну из причин горообразования, хотя реальные процессы сложнее.",
+            "retry": "Следи за формой слоёв на рисунке при движении ползунка."
+          }
+        ],
+        "checkpoint": {
+          "question": "Почему на вершине может быть снег, когда в долине тепло?",
+          "answer": "С высотой воздух обычно становится холоднее, и условия на вершине отличаются от условий в долине.",
+          "explain": "Высота — один из факторов климата наряду с широтой и влиянием моря."
+        },
+        "takeaway": "Я знаю, что высота влияет на температуру, горы могут менять распределение осадков и направляют транспорт по долинам и перевалам.",
+        "bridge": "Теперь у нас есть всё для последней задачи: спланировать разумное путешествие по Европе.",
+        "terms": [
+          [
+            "Горный хребет",
+            "Gebirgskamm",
+            "Протяжённая цепь связанных горных вершин."
+          ],
+          [
+            "Долина",
+            "Tal",
+            "Понижение между горами или холмами."
+          ],
+          [
+            "Перевал",
+            "Pass",
+            "Относительно низкое место в горном хребте, через которое можно пройти или проехать."
+          ],
+          [
+            "Наветренный склон",
+            "Luvseite",
+            "Сторона горы, на которую движется воздушный поток."
+          ]
+        ]
+      },
+      {
+        "id": "transport",
+        "nav": "Глава 05 · Путешествия и транспорт",
+        "title": "От порта до горного курорта",
+        "subtitle": "Теперь ты видишь, как карты, климат и ресурсы влияют на транспорт и отдых.",
+        "hook": "Контейнер прибыл в Роттердам. Как доставить груз вглубь Европы? А если туристов в горном посёлке станет вдвое больше — хватит ли воды?",
+        "goal": "Сравнить железную дорогу, реку и грузовик, а затем оценить нагрузку туризма на горный посёлок.",
+        "explanations": [
+          {
+            "title": "Порт связывает море и материк",
+            "text": "В Роттердам приходят морские суда. Дальше контейнеры можно перевозить поездом, речным судном или грузовиком. Выбор зависит от маршрута, инфраструктуры и того, куда именно должен попасть груз."
+          },
+          {
+            "title": "Горы меняют дороги",
+            "text": "В Альпах транспортные пути проходят по долинам, через перевалы и тоннели. Прямая линия на карте не всегда подходит для реальной дороги. Поэтому при выборе транспорта учитывают не только расстояние, но и рельеф."
+          },
+          {
+            "title": "Туризм нуждается в ресурсах",
+            "text": "Когда в горный посёлок приезжает больше гостей, увеличивается потребность в воде, дорогах и вывозе отходов. Поезд с автобусом может сократить автомобильный поток, а экономия воды уменьшает нагрузку на местность."
+          }
+        ],
+        "activities": [
+          {
+            "prompt": "В порту Роттердама выбери поезд, речное судно и грузовик по очереди. Найди преимущество и ограничение каждого.",
+            "hint": "Поезд нуждается в путях, судно — в реке, а грузовик может доехать почти до двери.",
+            "success": "У каждого вида транспорта есть плюсы и ограничения. Географ учитывает инфраструктуру, груз и маршрут.",
+            "retry": "Посмотри на объяснения под списком способов перевозки."
+          },
+          {
+            "prompt": "Увеличь число гостей горного курорта с 100 до 500. Что происходит с суточным расходом воды?",
+            "hint": "Умножь число гостей на литры воды на одного человека.",
+            "success": "При одинаковом расходе на одного человека общий спрос растёт пропорционально числу гостей. На 500 гостей без экономии понадобится 75 000 л в сутки.",
+            "retry": "Сравни значения ползунка и число литров в результате."
+          },
+          {
+            "prompt": "Включи экономию воды и сравни прибытие на поезде с автобусом и на автомобиле. Какие два изменения помогают посёлку?",
+            "hint": "В модели экономия меняет литры на гостя, а транспорт — нагрузку на дороги и парковки.",
+            "success": "Экономия снижает суточную потребность в воде. Общественный транспорт может уменьшить количество автомобилей и парковок.",
+            "retry": "Сначала переключи экономию воды, затем выбери разные виды прибытия."
+          }
+        ],
+        "checkpoint": {
+          "question": "Почему при большом числе туристов горному посёлку нужно планировать расход воды и транспорт?",
+          "answer": "Потому что растёт спрос на ресурсы и нагрузка на дороги, жителей и природу.",
+          "explain": "Знание географии помогает учитывать возможности местности, а не только удобство поездки."
+        },
+        "takeaway": "Я могу сравнивать способы перевозки грузов и объяснять, почему туризм влияет на воду, дороги и природу.",
+        "bridge": "Все пять экспедиций связаны: местоположение, климат и рельеф влияют на решения людей. Открой дневник и собери свои открытия.",
+        "terms": [
+          [
+            "Маршрут",
+            "Route",
+            "Выбранный путь от одного места к другому."
+          ],
+          [
+            "Транспортный коридор",
+            "Verkehrskorridor",
+            "Важное направление, по которому проходит большой поток людей или грузов."
+          ],
+          [
+            "Тоннель",
+            "Tunnel",
+            "Подземный или горный проход для дороги или железной дороги."
+          ],
+          [
+            "Устойчивый транспорт",
+            "Nachhaltiger Verkehr",
+            "Транспорт с меньшим воздействием на окружающую среду при учёте всей поездки."
+          ]
+        ]
+      }
+    ],
+    "journal": {
+      "title": "Дневник исследователя",
+      "intro": "Здесь собраны не баллы, а открытия. Каждый раздел показывает, что ты заметил и научился объяснять.",
+      "my_findings": "Мои пять открытий",
+      "final_question": "Теперь ответь сам: почему Европа меняется, когда мы едем с севера на юг или поднимаемся в горы?",
+      "final_model": "Положение места, близость моря и высота влияют на климат. Климат и рельеф помогают понять, что выращивают люди и где проходят дороги. Поэтому разные части Европы устроены по-разному.",
+      "export_title": "Сохранить дневник",
+      "export_explain": "TXT — удобно прочитать или распечатать. JSON — удобно сохранить и позже восстановить прогресс в игре.",
+      "restore_title": "Восстановить прогресс",
+      "restore_explain": "Если ты раньше сохранил файл JSON из этой игры, используй его для восстановления. Обычный текстовый файл TXT для этого не подходит.",
+      "completed": "Экспедиция завершена. Теперь ты видишь за названиями стран причины и связи."
+    },
+    "feedback_common": {
+      "correct": "Верно. Посмотри, почему получилось именно так.",
+      "try_again": "Пока нет. Вернись к подсказке и проверь один признак.",
+      "show_why": "Почему это так?",
+      "next": "Дальше",
+      "back": "Назад",
+      "notes": "Записать открытие",
+      "hint": "Подсказка",
+      "explanation": "Объяснение",
+      "check": "Проверить"
+    }
+  },
+  "de": {
+    "homepage": {
+      "eyebrow": "ERDKUNDE · KLASSE 6",
+      "title": "Warum verändert sich Europa auf einer einzigen Reise?",
+      "subtitle": "Fünf Expeditionen von der Nordsee über die Alpen bis zum Mittelmeer.",
+      "story": "Stell dir vor, du fährst morgens in Deutschland los, immer Richtung Süden. Zuerst siehst du Ebenen und Felder. Dann tauchen hohe Berge auf. Dahinter wachsen andere Pflanzen, das Wetter ist anders und die Straßen verlaufen anders. Du hast keinen Ozean überquert und keinen Kontinent verlassen. Was hat sich verändert?",
+      "mission": "In diesem Spiel suchst du nach Antworten wie ein echter Geograf: Du liest Karten und Klimadiagramme, triffst Entscheidungen auf einem Bauernhof, erforschst die Alpen und planst eine Reise. Jede Expedition hilft dir bei der nächsten.",
+      "rule": "Fehler sind erlaubt. Entscheidend ist nicht, sofort richtig zu raten, sondern den Grund zu verstehen. Nach jeder Expedition landet eine neue Erkenntnis in deinem Reisetagebuch.",
+      "start": "Expedition starten",
+      "route": "Karte → Klima → Bauernhof → Alpen → Verkehr"
+    },
+    "chapters": [
+      {
+        "id": "map",
+        "nav": "Kapitel 01 · Europa um uns herum",
+        "title": "Europa beginnt ganz in der Nähe",
+        "subtitle": "Entdecke auf der Karte nicht nur Namen, sondern auch Zusammenhänge.",
+        "hook": "Zwischen Deutschland und Italien liegt kein Ozean. Trotzdem verändert sich die Landschaft auf einer Reise nach Süden deutlich. Was liegt zwischen den beiden Ländern?",
+        "goal": "Finde Deutschland, Österreich und Italien und erkenne, warum die Himmelsrichtung wichtig ist.",
+        "explanations": [
+          {
+            "title": "Eine Karte zeigt die Welt von oben",
+            "text": "Stell dir vor, du schwebst hoch über der Erde. Von dort erkennst du Länder, Wasserflächen, Städte und Grenzen. Eine Karte sieht nicht so aus wie der Blick aus dem Autofenster. Sie hilft dir, Orte und ihre Lage miteinander zu vergleichen."
+          },
+          {
+            "title": "Norden, Süden und Nachbarländer",
+            "text": "Auf den meisten Schulkarten liegt Norden oben und Süden unten. Deutschland liegt nördlich von Italien. Eine mögliche Reise führt durch Österreich. Geografen achten aber nicht nur auf Ländernamen, sondern auch auf Meere, Gebirge und Nachbarländer."
+          },
+          {
+            "title": "Warum geht es nicht immer geradeaus?",
+            "text": "Im Süden Deutschlands und in den Nachbarländern erheben sich die Alpen. Das ist ein großes Gebirge. Zwei Orte können auf der Karte nah beieinander liegen. In Wirklichkeit führt die Straße aber durch Täler, über Pässe oder durch Tunnel."
+          }
+        ],
+        "activities": [
+          {
+            "prompt": "Finde Deutschland, Österreich und Italien auf der Karte. Welches dieser drei Länder liegt zwischen den anderen beiden?",
+            "hint": "Schau nach, was südlich von Deutschland und nördlich von Italien liegt.",
+            "success": "Richtig: Österreich liegt auf einer möglichen Route durch die Alpen zwischen Deutschland und Italien.",
+            "retry": "Vergleiche die Lage der Länder von Norden nach Süden, nicht ihre Größe oder Farbe."
+          },
+          {
+            "prompt": "Betrachte den Weg von Deutschland nach Italien. Welches große Gebirge kann dabei überquert werden?",
+            "hint": "Dieses Gebirge zieht sich in einem Bogen durch Mittel- und Südeuropa.",
+            "success": "Das sind die Alpen. Sie beeinflussen das Klima, die Siedlungen und den Verkehr.",
+            "retry": "Suche kein Meer und keine Staatsgrenze, sondern ein natürliches Hindernis im Süden."
+          },
+          {
+            "prompt": "Vergleiche die Lage Deutschlands und Italiens. Welches Land liegt weiter südlich?",
+            "hint": "Denk daran: Auf einer üblichen Schulkarte liegt Süden unten.",
+            "success": "Italien liegt südlicher als Deutschland. Aber die Himmelsrichtung allein erklärt noch nicht das ganze Klima.",
+            "retry": "Achte auf die Himmelsrichtungen, nicht auf die Form der Länder."
+          }
+        ],
+        "checkpoint": {
+          "question": "Warum ist die kürzeste Linie auf der Karte nicht immer die einfachste Straße?",
+          "answer": "Weil es in der Landschaft Berge, Flüsse und andere Hindernisse gibt.",
+          "explain": "Eine geografische Karte zeigt nicht nur Entfernungen, sondern auch das Relief."
+        },
+        "takeaway": "Ich kann Länder finden, Himmelsrichtungen bestimmen und erkennen, wie Berge eine Route beeinflussen.",
+        "bridge": "Wir kennen die Lage der Länder. Aber warum ist das Wetter in Europa nicht überall gleich? Jetzt untersuchen wir das Klima.",
+        "terms": [
+          [
+            "Himmelsrichtungen",
+            "Himmelsrichtungen",
+            "Norden, Süden, Westen und Osten."
+          ],
+          [
+            "Grenze",
+            "Grenze",
+            "Linie zwischen den Gebieten zweier Staaten."
+          ],
+          [
+            "Relief",
+            "Relief",
+            "Formen der Erdoberfläche wie Ebenen, Hügel und Berge."
+          ]
+        ]
+      },
+      {
+        "id": "climate",
+        "nav": "Kapitel 02 · Klimalabor",
+        "title": "Kann man das Klima in einem Diagramm sehen?",
+        "subtitle": "Temperatur und Niederschlag erzählen mehr über einen Ort als die Vorhersage für morgen.",
+        "hook": "Heute regnet es in Berlin, morgen scheint die Sonne. Aber warum sind die Sommer in Teilen Italiens oft wärmer und trockener als an der Nordsee? Ein einzelner Tag verrät uns das nicht.",
+        "goal": "Lerne, ein Klimadiagramm zu lesen und Temperatur und Niederschlag im Jahresverlauf zu vergleichen.",
+        "explanations": [
+          {
+            "title": "Wetter ist heute. Klima betrachtet viele Jahre",
+            "text": "Das Wetter kann sich innerhalb einer Stunde ändern. Der Regen hört auf, Wind kommt auf, es wird kälter. Das Klima beschreibt, welches Wetter an einem Ort über viele Jahre typisch ist. Dafür nutzen Forschende lange Messreihen."
+          },
+          {
+            "title": "So liest du ein Klimadiagramm",
+            "text": "Unten stehen die Monate. Die Linie zeigt die durchschnittliche Temperatur eines Monats in Grad Celsius. Die Säulen zeigen den Niederschlag des Monats in Millimetern. Suche zuerst den wärmsten Monat. Prüfe dann, wann besonders viel Regen oder Schnee fällt."
+          },
+          {
+            "title": "Warum sehen Diagramme unterschiedlich aus?",
+            "text": "Das Klima hängt unter anderem von der geografischen Breite, der Entfernung zum Meer, der Höhenlage und den Luftströmungen ab. Deshalb können zwei Orte auf demselben Kontinent unterschiedliche Temperaturen und Niederschlagsmengen haben."
+          },
+          {
+            "title": "Achtung: zwei verschiedene Skalen",
+            "text": "Temperatur wird in °C gemessen, Niederschlag in mm. Diese Zahlen darf man nicht wie dieselbe Einheit vergleichen. Bei manchen Schulklimadiagrammen passen die Skalen zusammen: 10 °C entsprechen 20 mm Niederschlag. So erkennt man trockene Monate leichter."
+          }
+        ],
+        "activities": [
+          {
+            "prompt": "Finde den wärmsten Monat im Klimadiagramm. Achte auf die Temperaturkurve.",
+            "hint": "Suche die höchste Stelle der Linie.",
+            "success": "Genau. Der höchste Punkt der Linie zeigt die höchste durchschnittliche Monatstemperatur.",
+            "retry": "Hohe Säulen stehen für viel Niederschlag, nicht für Wärme. Die Temperatur zeigt die Linie."
+          },
+          {
+            "prompt": "In welchem Monat fällt am meisten Niederschlag? Betrachte jetzt die Säulen.",
+            "hint": "Suche die höchste Säule und lies den Monat darunter ab.",
+            "success": "Richtig. Die Säulenhöhe zeigt, wie viel Niederschlag im Durchschnitt in diesem Monat fällt.",
+            "retry": "Vergleiche die Säulen nicht direkt mit der Temperaturkurve: Die Einheiten sind verschieden."
+          },
+          {
+            "prompt": "Vergleiche zwei Klimadiagramme. Wo ist der Sommer wärmer und wie unterscheiden sich die Niederschläge?",
+            "hint": "Vergleiche zuerst die Sommertemperaturen, dann die Niederschläge Monat für Monat.",
+            "success": "Gut beobachtet. An der Form der Linien und Säulen erkennst du Besonderheiten des Klimas.",
+            "retry": "Vergleiche dieselben Monate: Juli mit Juli, Januar mit Januar."
+          }
+        ],
+        "checkpoint": {
+          "question": "In einer Stadt regnet es an einem Julitag. Bedeutet das, dass die Stadt ein regenreiches Klima hat?",
+          "answer": "Nein. Ein Tag beschreibt das Wetter. Klima untersucht man über viele Jahre.",
+          "explain": "Für das Klima zählen typische Muster, nicht einzelne Wetterereignisse."
+        },
+        "takeaway": "Ich kann Wetter und Klima unterscheiden und Temperaturkurven sowie Niederschlagssäulen lesen.",
+        "bridge": "Temperatur und Regen bestimmen nicht nur, welche Jacke du anziehst. Sie beeinflussen auch, was auf den Feldern wächst.",
+        "terms": [
+          [
+            "Wetter",
+            "Wetter",
+            "Zustand der Atmosphäre an einem Ort zu einer bestimmten Zeit."
+          ],
+          [
+            "Klima",
+            "Klima",
+            "Typische Wetterverhältnisse eines Ortes über viele Jahre."
+          ],
+          [
+            "Klimadiagramm",
+            "Klimadiagramm",
+            "Diagramm mit Temperatur und Niederschlag im Jahresverlauf."
+          ],
+          [
+            "Niederschlag",
+            "Niederschlag",
+            "Wasser aus der Atmosphäre, zum Beispiel Regen oder Schnee."
+          ]
+        ]
+      },
+      {
+        "id": "farm",
+        "nav": "Kapitel 03 · Europäischer Bauernhof",
+        "title": "Warum wachsen Zitrusfrüchte nicht auf jedem Feld?",
+        "subtitle": "Vergleiche Wärme, Wasser und Nutzpflanzen: Klima wird zur Entscheidung auf dem Hof.",
+        "hook": "Warum baut man mancherorts Zitrusfrüchte an, anderswo Weizen und Futtergras? Werde zum Landwirt und denke auch an das Wasser.",
+        "goal": "Wähle eine Region, Nutzpflanze und Bewässerung und begründe den Einfluss von Wärme und Niederschlag.",
+        "explanations": [
+          {
+            "title": "Pflanzen brauchen passende Bedingungen",
+            "text": "Eine Pflanze kann keine Wettervorhersage lesen. Aber sie reagiert auf Wärme, Licht und Wasser. Ist es lange kalt, wachsen manche Pflanzen langsam. Ist es sehr trocken, fehlt anderen Wasser. Auch der Boden ist wichtig."
+          },
+          {
+            "title": "Norden und Süden sind verschieden",
+            "text": "Olivenbäume sind typisch für den Mittelmeerraum. Dort sind die Sommer oft warm und trocken, die Winter vergleichsweise mild. Kartoffeln können auch in kühleren Gebieten gut wachsen. Weizen wird in vielen Regionen Europas angebaut."
+          },
+          {
+            "title": "Es gibt Ausnahmen",
+            "text": "Weintrauben wachsen nicht nur im Süden. Weinberge gibt es auch in Deutschland, etwa am Rhein. Neben der geografischen Lage sind sonnige Hänge, der Boden und die Arbeit der Menschen wichtig. Ein Geograf prüft deshalb mehrere Faktoren."
+          }
+        ],
+        "activities": [
+          {
+            "prompt": "Wähle den kühlen Norden und Zitrusfrüchte. Welches Problem zeigt das Modell?",
+            "hint": "Gießen hilft bei Wassermangel. Schützt das auch vor Frost?",
+            "success": "Zitrusfrüchte sind frostempfindlich. Im kühlen Norden ersetzt Bewässerung keine Wärme.",
+            "retry": "Prüfe zuerst die Temperatur, dann den Wasserbedarf."
+          },
+          {
+            "prompt": "Wechsle zum Mittelmeerraum und wähle „Nur Regen“. Was fehlt im Sommer?",
+            "hint": "Achte darauf, ob im heißen Sommer genug Niederschlag fällt.",
+            "success": "Im Mittelmeerraum ist der Sommer oft trocken. Selbst wärmeliebenden Nutzpflanzen kann Wasser fehlen.",
+            "retry": "Überprüfe die Region und die Bewässerungsart."
+          },
+          {
+            "prompt": "Vergleiche Beregnung und Tröpfchenbewässerung. Was bringt Wasser direkt zu den Wurzeln?",
+            "hint": "Wähle beide Möglichkeiten und lies die Erläuterung.",
+            "success": "Tröpfchenbewässerung bringt Wasser an die Wurzeln und kann Verdunstungsverluste verringern. Anlage und Wasserquelle werden trotzdem benötigt.",
+            "retry": "Beachte nicht nur die Wassermenge, sondern auch den Zugang zum Wasser."
+          }
+        ],
+        "checkpoint": {
+          "question": "Warum ist die Aussage „Wein wächst nur in Italien“ falsch?",
+          "answer": "Wein wird auch in anderen geeigneten Regionen angebaut, unter anderem in Deutschland.",
+          "explain": "Klima, Relief und lokale Bedingungen sind wichtiger als die einfache Einteilung in nördliche und südliche Länder."
+        },
+        "takeaway": "Ich verstehe, warum Nutzpflanzen bestimmte Klima- und Standortbedingungen brauchen, und kann meine Wahl begründen.",
+        "bridge": "Jetzt besuchen wir einen Ort, an dem sich die Temperatur ändert, obwohl wir gar nicht nach Norden reisen: die Alpen.",
+        "terms": [
+          [
+            "Landwirtschaft",
+            "Landwirtschaft",
+            "Anbau von Pflanzen und Haltung von Tieren zur Erzeugung von Lebensmitteln und anderen Produkten."
+          ],
+          [
+            "Nutzpflanze",
+            "Nutzpflanze",
+            "Pflanze, die Menschen gezielt anbauen."
+          ],
+          [
+            "Vegetationsperiode",
+            "Vegetationsperiode",
+            "Zeit im Jahr, in der Pflanzen unter passenden Bedingungen wachsen."
+          ],
+          [
+            "Dürre",
+            "Dürre",
+            "Länger anhaltender Mangel an Wasser."
+          ]
+        ]
+      },
+      {
+        "id": "alps",
+        "nav": "Kapitel 04 · Expedition in die Alpen",
+        "title": "Sommer im Tal, Schnee auf dem Gipfel",
+        "subtitle": "Entdecke, wie die Höhe das Wetter verändert und warum Straßen in den Bergen Kurven machen.",
+        "hook": "Im Tal laufen Menschen im T-Shirt herum. Weiter oben ist es kühl, auf hohen Gipfeln kann Schnee liegen. Wie kann das in derselben Gegend passieren?",
+        "goal": "Erfahre, wie Höhenlage und Gebirge Temperatur, Niederschläge und das Leben der Menschen beeinflussen.",
+        "explanations": [
+          {
+            "title": "Die Höhe macht einen Unterschied",
+            "text": "Mit zunehmender Höhe wird die Luft im Durchschnitt kälter. Für einfache Überschlagsrechnungen nimmt man oft etwa 0,6 °C weniger pro 100 Höhenmeter an. In der Wirklichkeit schwankt dieser Wert. Die Regel ist eine Orientierung, keine genaue Wettervorhersage."
+          },
+          {
+            "title": "Berge und Wolken",
+            "text": "Wenn feuchte Luft an einem Berghang aufsteigt, kühlt sie sich ab. Dabei können Wolken entstehen und Niederschläge fallen. Hinter dem Gebirgskamm ist es manchmal trockener. So kann ein Gebirge das Klima benachbarter Täler verändern."
+          },
+          {
+            "title": "Leben im Gebirge",
+            "text": "Steile Hänge bieten weniger Platz für Straßen, Felder und große Siedlungen. Viele Orte liegen deshalb in Tälern. Menschen nutzen Bergweiden, bauen Tunnel und leben auch vom Tourismus. Das Relief prägt ihren Alltag."
+          }
+        ],
+        "activities": [
+          {
+            "prompt": "Vergleiche zwei Orte auf unterschiedlicher Höhe. Wo ist es unter sonst ähnlichen Bedingungen meist kälter?",
+            "hint": "Stell dir vor, du steigst vom Tal zum Gipfel hinauf.",
+            "success": "Meist ist es in größerer Höhe kälter. Die tatsächliche Temperatur hängt aber auch von der Wetterlage ab.",
+            "retry": "Hier ist nicht Norden oder Süden entscheidend, sondern die Höhe."
+          },
+          {
+            "prompt": "Steige auf 2000 m über dem Tal. Wie verändert sich die Temperatur im Lernmodell?",
+            "hint": "Pro 100 Höhenmeter sinkt die Temperatur im Modell um 0,6 °C.",
+            "success": "Bei 2000 m sinkt die Modelltemperatur um 12 °C: von +18 °C im Tal auf +6 °C.",
+            "retry": "2000 ÷ 100 ergibt 20 Schritte mit je 0,6 °C."
+          },
+          {
+            "prompt": "Öffne das Labor zur Gebirgsbildung und erhöhe den Druck. Was geschieht mit den Gesteinsschichten?",
+            "hint": "Wenn Erdplatten zusammentreffen, werden Gesteinsschichten zusammengedrückt.",
+            "success": "Die Schichten bilden Falten. Das Modell veranschaulicht einen Teil der Gebirgsbildung, die in der Natur viel komplexer ist.",
+            "retry": "Beobachte die Formen der Schichten beim Verschieben des Reglers."
+          }
+        ],
+        "checkpoint": {
+          "question": "Warum kann auf einem Gipfel Schnee liegen, während es im Tal warm ist?",
+          "answer": "Weil es mit zunehmender Höhe im Durchschnitt kälter wird.",
+          "explain": "Die Höhenlage ist neben dem Meereseinfluss und der geografischen Breite ein wichtiger Klimafaktor."
+        },
+        "takeaway": "Ich weiß, wie Höhe, Luftströmungen und Relief das Wetter und den Verkehr in den Alpen beeinflussen.",
+        "bridge": "Jetzt ist alles bereit für die letzte Aufgabe: eine sinnvolle Reise durch Europa planen.",
+        "terms": [
+          [
+            "Gebirgskamm",
+            "Gebirgskamm",
+            "Längere Reihe zusammenhängender Berggipfel."
+          ],
+          [
+            "Tal",
+            "Tal",
+            "Tiefliegender Bereich zwischen Bergen oder Hügeln."
+          ],
+          [
+            "Pass",
+            "Pass",
+            "Vergleichsweise niedriger Übergang über einen Gebirgskamm."
+          ],
+          [
+            "Luvseite",
+            "Luvseite",
+            "Die Seite eines Berges, auf die der Wind trifft."
+          ]
+        ]
+      },
+      {
+        "id": "transport",
+        "nav": "Kapitel 05 · Reisen und Verkehr",
+        "title": "Vom Hafen zum Bergurlaubsort",
+        "subtitle": "Jetzt erkennst du, wie Karten, Klima und Ressourcen Verkehr und Tourismus prägen.",
+        "hook": "Ein Container kommt in Rotterdam an. Wie gelangt die Fracht ins Landesinnere? Und reicht das Wasser im Bergdorf, wenn doppelt so viele Gäste kommen?",
+        "goal": "Vergleiche Bahn, Binnenschiff und Lkw und untersuche den Einfluss des Tourismus auf ein Bergdorf.",
+        "explanations": [
+          {
+            "title": "Der Hafen verbindet Meer und Festland",
+            "text": "In Rotterdam legen Seeschiffe an. Container fahren dann mit der Bahn, mit Binnenschiffen oder Lkw weiter. Die Wahl hängt vom Zielort, von den Verkehrswegen und der verfügbaren Infrastruktur ab."
+          },
+          {
+            "title": "Gebirge lenken Verkehrswege",
+            "text": "In den Alpen führen Straßen und Bahnen oft durch Täler, über Pässe und durch Tunnel. Eine gerade Linie auf der Karte ist nicht automatisch eine geeignete Strecke. Das Relief beeinflusst die Wahl des Weges."
+          },
+          {
+            "title": "Tourismus braucht Ressourcen",
+            "text": "Mehr Urlaubsgäste benötigen mehr Wasser, Verkehrswege und Müllentsorgung. Bahn und Ortsbus können Autos einsparen, Wassersparmaßnahmen die Belastung für die Umgebung mindern."
+          }
+        ],
+        "activities": [
+          {
+            "prompt": "Wähle im Hafen Rotterdam nacheinander Bahn, Binnenschiff und Lkw. Finde für jedes Verkehrsmittel einen Vorteil und einen Nachteil.",
+            "hint": "Die Bahn benötigt Gleise, das Schiff einen Wasserweg und der Lkw kann oft direkt zum Ziel fahren.",
+            "success": "Jedes Verkehrsmittel hat Vor- und Nachteile. Die Wahl richtet sich nach Fracht, Verkehrswegen und Zielort.",
+            "retry": "Lies die Erläuterung unter der Auswahl der Transportmittel."
+          },
+          {
+            "prompt": "Erhöhe die Gästezahl im Bergurlaubsort von 100 auf 500. Was passiert mit dem Wasserbedarf pro Tag?",
+            "hint": "Multipliziere die Zahl der Gäste mit dem Verbrauch pro Person.",
+            "success": "Wenn der Verbrauch pro Person gleich bleibt, wächst der Gesamtbedarf entsprechend der Gästezahl. Bei 500 Gästen ohne Sparmaßnahmen sind es 75 000 Liter täglich.",
+            "retry": "Vergleiche den Schieberegler mit der angezeigten Literzahl."
+          },
+          {
+            "prompt": "Aktiviere Wassersparen und vergleiche Bahn + Ortsbus mit dem Auto. Welche zwei Maßnahmen helfen dem Ort?",
+            "hint": "Wassersparen verändert die Liter pro Gast, die Verkehrsmittel verändern den Straßen- und Parkplatzbedarf.",
+            "success": "Wassersparen reduziert den Wasserbedarf. Öffentliche Verkehrsmittel können die Zahl der Autos und Parkplätze verringern.",
+            "retry": "Schalte erst Wassersparen ein und wechsle danach das Verkehrsmittel."
+          }
+        ],
+        "checkpoint": {
+          "question": "Warum muss ein Bergurlaubsort bei steigender Gästezahl Wasser und Verkehr planen?",
+          "answer": "Weil Wasserbedarf und die Belastung für Straßen, Einwohner und Natur steigen.",
+          "explain": "Mit geografischem Wissen lassen sich die Möglichkeiten eines Ortes besser berücksichtigen."
+        },
+        "takeaway": "Ich kann Verkehrsmittel vergleichen und erklären, wie Tourismus Wasserbedarf, Straßen und Natur beeinflusst.",
+        "bridge": "Alle fünf Expeditionen hängen zusammen: Lage, Klima und Relief prägen menschliche Entscheidungen. Öffne dein Tagebuch und sammle deine Erkenntnisse.",
+        "terms": [
+          [
+            "Route",
+            "Route",
+            "Ausgewählter Weg von einem Ort zum anderen."
+          ],
+          [
+            "Verkehrskorridor",
+            "Verkehrskorridor",
+            "Wichtige Verbindung mit viel Personen- oder Güterverkehr."
+          ],
+          [
+            "Tunnel",
+            "Tunnel",
+            "Unterirdischer Durchgang für Straßen oder Bahnen."
+          ],
+          [
+            "Nachhaltiger Verkehr",
+            "Nachhaltiger Verkehr",
+            "Verkehr, der mit möglichst geringer Umweltbelastung organisiert wird."
+          ]
+        ]
+      }
+    ],
+    "journal": {
+      "title": "Reisetagebuch",
+      "intro": "Hier sammelst du nicht einfach Punkte, sondern Erkenntnisse. Nach jedem Kapitel kannst du sehen, was du entdeckt und verstanden hast.",
+      "my_findings": "Meine fünf Entdeckungen",
+      "final_question": "Kannst du jetzt erklären, warum Europa sich verändert, wenn man nach Süden reist oder in die Berge steigt?",
+      "final_model": "Die Lage eines Ortes, die Nähe zum Meer und die Höhe beeinflussen das Klima. Klima und Relief erklären mit, was Menschen anbauen und wo Straßen verlaufen. Deshalb unterscheiden sich die Regionen Europas.",
+      "export_title": "Tagebuch speichern",
+      "export_explain": "TXT kannst du leicht lesen oder ausdrucken. JSON eignet sich, um deinen Spielfortschritt zu speichern und später wiederherzustellen.",
+      "restore_title": "Fortschritt wiederherstellen",
+      "restore_explain": "Nutze eine JSON-Datei, die du zuvor aus diesem Spiel gespeichert hast. Mit einer TXT-Datei kann der Fortschritt nicht wiederhergestellt werden.",
+      "completed": "Expedition abgeschlossen! Jetzt erkennst du hinter den Ländernamen Zusammenhänge."
+    },
+    "feedback_common": {
+      "correct": "Richtig! Schau dir an, warum das so ist.",
+      "try_again": "Noch nicht. Lies den Hinweis und prüfe einen Punkt noch einmal.",
+      "show_why": "Warum ist das so?",
+      "next": "Weiter",
+      "back": "Zurück",
+      "notes": "Erkenntnis eintragen",
+      "hint": "Hinweis",
+      "explanation": "Erklärung",
+      "check": "Prüfen"
+    }
+  }
+}

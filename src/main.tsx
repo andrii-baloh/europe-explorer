@@ -164,11 +164,15 @@ function App() {
             <section className="story-hero art-hero" aria-label={locale.homepage.title}>
               <img className="hero-art" src={`${import.meta.env.BASE_URL}art/hero.webp`} alt={t(lang, "Юный исследователь Европы с картой, совой и горами", "Junger Europa-Entdecker mit Karte, Eule und Bergen")} fetchPriority="high" />
               <div className="hero-content">
-                <div className="hero-mark">🎒 {t(lang,"ПРИКЛЮЧЕНИЕ НАЧИНАЕТСЯ","DEIN ABENTEUER BEGINNT")} · 01—05</div>
+                <div className="hero-copy">
+                  <div className="hero-mark">🎒 {t(lang,"ПРИКЛЮЧЕНИЕ НАЧИНАЕТСЯ","DEIN ABENTEUER BEGINNT")} · 01—05</div>
                 <h1>{locale.homepage.title}</h1>
                 <p className="intro">{locale.homepage.subtitle}</p>
-                <p className="hero-story">{locale.homepage.story}</p>
+                </div>
+                <div className="hero-action">
+                  <p className="hero-story">{locale.homepage.story}</p>
                 <button className="primary hero-play" onClick={() => openChapter(0)}>🚀 {locale.homepage.start} <span aria-hidden="true">→</span></button>
+                </div>
               </div>
             </section>
             <section className="mission home-mission"><span>✧</span><div><b>{ui.goal}</b><p>{locale.homepage.mission}</p></div></section>
@@ -214,9 +218,19 @@ function App() {
               <div className="explanation-grid">
                 {lesson.explanations.map((item, i) => (
                   <article key={i} className={`explanation-card expl-${i % 4}`}>
-                    <div className="explanation-visual" aria-hidden="true"><span className="visual-icon">{stepSymbols[chapter][i % 4]}</span><span className="visual-orbit">✦</span><span className="visual-dots">• • •</span></div>
-                    <span className="card-number">{String(i+1).padStart(2,"0")}</span>
-                    <h3>{item.title}</h3><p>{item.text}</p>
+                    <div className="card-illustration-wrap">
+                      <img
+                        className={`card-illustration art-focus-${i % 4}`}
+                        src={`${import.meta.env.BASE_URL}art/${chapterArt[chapter]}.webp`}
+                        alt={item.title}
+                        loading="lazy"
+                      />
+                      <div className="explanation-visual" aria-hidden="true"><span className="visual-icon">{stepSymbols[chapter][i % 4]}</span><span className="visual-orbit">✦</span><span className="visual-dots">• • •</span></div>
+                      <span className="card-number">{String(i+1).padStart(2,"0")}</span>
+                    </div>
+                    <div className="card-copy">
+                      <h3>{item.title}</h3><p>{item.text}</p>
+                    </div>
                   </article>
                 ))}
               </div>
@@ -246,13 +260,19 @@ function App() {
               <div className="guided-list">
                 {lesson.activities.map((a, i) => (
                   <article className="guided-card" key={i}>
-                    <div className="guided-top"><span className="guided-icon">{stepSymbols[chapter][i % 4]}</span><div><small>{t(lang,"ЗАДАНИЕ","AUFGABE")} {i+1} / 3</small><p>{a.prompt}</p></div></div>
+                    <div className="guided-top">
+                      <span className="guided-icon">{stepSymbols[chapter][i % 4]}</span>
+                      <div>
+                        <small>{t(lang,"ЗАДАНИЕ","AUFGABE")} {i+1} / 3</small>
+                        <p>{a.prompt}</p>
+                      </div>
+                    </div>
                     <div className="guided-actions">
                       <button className="secondary small-action" aria-expanded={activeActivity === i} onClick={() => setActiveActivity(activeActivity === i ? null : i)}>{ui.hint}</button>
                       <button className="text-button" aria-expanded={showExplanations.includes(i)} onClick={() => toggleExplanation(i)}>{ui.reveal}</button>
                     </div>
                     {activeActivity === i && <p className="hint-text">{a.hint}</p>}
-                    {showExplanations.includes(i) && <div className="explain-result"><b>{ui.explanation}</b><p>{feedbackExplanation(a.success)}</p><small>{ui.explainNote}</small></div>}
+                    {showExplanations.includes(i) && <div className="explain-result"><img className={`guided-thumb art-focus-${i % 4}`} src={`${import.meta.env.BASE_URL}art/${chapterArt[chapter]}.webp`} alt="" loading="lazy" /><div><b>{ui.explanation}</b><p>{feedbackExplanation(a.success)}</p><small>{ui.explainNote}</small></div></div>}
                   </article>
                 ))}
               </div>

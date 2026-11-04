@@ -3,6 +3,8 @@ import Map from "ol/Map";
 import View from "ol/View";
 import GeoJSON from "ol/format/GeoJSON";
 import VectorLayer from "ol/layer/Vector";
+import TileLayer from "ol/layer/Tile";
+import XYZ from "ol/source/XYZ";
 import VectorSource from "ol/source/Vector";
 import { Fill, Stroke, Style, Text } from "ol/style";
 import { fromLonLat, transformExtent } from "ol/proj";
@@ -27,6 +29,10 @@ export default function MapScene({ lang }: { lang: Lang }) {
   const el = useRef<HTMLDivElement>(null);
   const mapRef = useRef<Map | null>(null);
   const source = useRef<VectorSource | null>(null);
+  const borderLayer = useRef<VectorLayer<VectorSource> | null>(null);
+  const terrainLayer = useRef<TileLayer<XYZ> | null>(null);
+  const terrainEnabled = useRef(true);
+  const [showTerrain, setShowTerrain] = useState(true);
   const selected = useRef("DEU");
   const [code, setCode] = useState("DEU");
   const [names, setNames] = useState<Record<string, string[]>>({});
@@ -35,15 +41,33 @@ export default function MapScene({ lang }: { lang: Lang }) {
     let alive = true;
     const src = new VectorSource();
     source.current = src;
+    // Esri World Physical Map displays landform height as a true geographical basemap.
+    // Natural Earth polygons sit above it with transparent fills, preserving country selection.
+    const relief = new TileLayer({
+      source: new XYZ({
+        url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}",
+        attributions: 'Terrain tiles © <a href="https://www.esri.com/" target="_blank" rel="noopener noreferrer">Esri</a> · Source: US National Park Service',
+        maxZoom: 8,
+        transition: 150,
+      }),
+      visible: true,
+    });
+    terrainLayer.current = relief;
     const layer = new VectorLayer({
       source: src,
       style: (f) =>
         new Style({
           fill: new Fill({
-            color:
-              f.get("ADM0_A3") === selected.current ? "#e5a858" : "#d4dfc5",
+            color: terrainEnabled.current
+              ? (f.get("ADM0_A3") === selected.current
+                  ? "rgba(255, 184, 68, 0.32)"
+                  : "rgba(255, 255, 255, 0.015)")
+              : (f.get("ADM0_A3") === selected.current ? "#e5a858" : "#d4dfc5"),
           }),
-          stroke: new Stroke({ color: "#638174", width: 1 }),
+          stroke: new Stroke({
+            color: f.get("ADM0_A3") === selected.current ? "#d46b19" : (terrainEnabled.current ? "rgba(32, 57, 78, 0.57)" : "#638174"),
+            width: f.get("ADM0_A3") === selected.current ? 2.5 : 1,
+          }),
           text: new Text({
             text: f.get("ADM0_A3") === selected.current ? f.get("NAME_DE") : "",
             font: "bold 14px sans-serif",
@@ -52,9 +76,10 @@ export default function MapScene({ lang }: { lang: Lang }) {
           }),
         }),
     });
+    borderLayer.current = layer;
     const map = new Map({
       target: el.current!,
-      layers: [layer],
+      layers: [relief, layer],
       view: new View({
         center: fromLonLat([15, 52]),
         zoom: 3.3,
@@ -65,7 +90,9 @@ export default function MapScene({ lang }: { lang: Lang }) {
     });
     mapRef.current = map;
     map.on("singleclick", (e) => {
-      const f = map.forEachFeatureAtPixel(e.pixel, (f) => f);
+      const f = map.forEachFeatureAtPixel(e.pixel, (f) => f, {
+        layerFilter: (candidate) => candidate === layer,
+      });
       if (f) {
         selected.current = f.get("ADM0_A3");
         setCode(selected.current);
@@ -102,10 +129,16 @@ export default function MapScene({ lang }: { lang: Lang }) {
       map.setTarget(undefined);
     };
   }, []);
+  function changeMapMode(relief: boolean) {
+    terrainEnabled.current = relief;
+    setShowTerrain(relief);
+    terrainLayer.current?.setVisible(relief);
+    borderLayer.current?.changed();
+  }
   function choose(c: string) {
     selected.current = c;
     setCode(c);
-    mapRef.current?.getLayers().item(0).changed();
+    borderLayer.current?.changed();
     const feature = source.current
       ?.getFeatures()
       .find((f) => f.get("ADM0_A3") === c);
@@ -119,6 +152,15 @@ export default function MapScene({ lang }: { lang: Lang }) {
   }
   return (
     <>
+      <div className="map-mode-switch" role="group" aria-label={t(lang,"Вид карты","Kartenansicht")}>
+        <button type="button" className={showTerrain ? "active" : ""} aria-pressed={showTerrain} onClick={() => changeMapMode(true)}>
+          🏔 {t(lang,"Рельеф и горы","Relief und Berge")}
+        </button>
+        <button type="button" className={!showTerrain ? "active" : ""} aria-pressed={!showTerrain} onClick={() => changeMapMode(false)}>
+          🧭 {t(lang,"Границы стран","Ländergrenzen")}
+        </button>
+        <span>{t(lang,"Найди Альпы — горную дугу к северу от Италии","Finde die Alpen — den Gebirgsbogen nördlich von Italien")}</span>
+      </div>
       <div
         className="map"
         ref={el}
@@ -127,7 +169,21 @@ export default function MapScene({ lang }: { lang: Lang }) {
       />
       {error && <p role="alert">{error}</p>}
       <div className="map-caption">
-        Natural Earth · 1:110m · {t(lang,"политическая карта · север сверху","politische Karte · Norden oben")}
+        {showTerrain
+          ? t(lang,"Физическая карта с настоящим рельефом · Альпы заметны по горной окраске","Physische Karte mit echtem Relief · die Alpen sind als Gebirge zu erkennen")
+          : t(lang,"Политическая карта с границами стран","Politische Karte mit Ländergrenzen")}
+        {" · "}{t(lang,"Границы: Natural Earth (1:110 млн) · Подложка: Esri","Grenzen: Natural Earth (1:110 Mio.) · Grundkarte: Esri")}
+      </div>
+      <div className="relief-helper" role="note" aria-label={t(lang,"Подсказка о рельефе","Relief-Hinweis")}>
+        <img
+          src={`${import.meta.env.BASE_URL}art/alps.webp`}
+          alt={t(lang,"Иллюстрация Альп между Центральной и Южной Европой","Illustration der Alpen zwischen Mittel- und Südeuropa")}
+          loading="lazy"
+        />
+        <div>
+          <b>{t(lang,"Найди настоящие Альпы!","Entdecke die echten Alpen!")}</b>
+          <p>{t(lang,"Включи «Рельеф и горы» и посмотри на коричнево-серую горную дугу между Швейцарией, Австрией и Италией. Выбери Австрию: большая часть её территории гористая. Сравни с равнинами Германии.","Aktiviere «Relief und Berge» und suche den braungrauen Gebirgsbogen zwischen der Schweiz, Österreich und Italien. Wähle Österreich: Ein großer Teil des Landes ist gebirgig. Vergleiche mit dem Norddeutschen Tiefland.")}</p>
+        </div>
       </div>
       <div className="grid2">
         <label>

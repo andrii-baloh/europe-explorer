@@ -4,7 +4,9 @@ import { lessons } from "./content";
 import editorialData from "./editorial.json";
 import { key, validateDiary, mergeDiaries } from "./model.mjs";
 import { type Lang, labels, t } from "./ui";
+import { chapterArt, chapterSymbols, chapterFacts, stepSymbols } from "./visuals";
 import "./style.css";
+import "./adventure.css";
 
 const MapScene = lazy(() => import("./MapScene"));
 const ClimateScene = lazy(() => import("./ClimateScene"));
@@ -12,6 +14,9 @@ const Farm = lazy(() => import("./Scenes").then((m) => ({ default: m.Farm })));
 const Alps = lazy(() => import("./Scenes").then((m) => ({ default: m.Alps })));
 const Travel = lazy(() => import("./Scenes").then((m) => ({ default: m.Travel })));
 const editorial = editorialData;
+function feedbackExplanation(text: string) {
+  return text.replace(/^(?:Верно|Точно|Именно так|Молодец|Отлично|Richtig|Genau|Sehr gut|Gut beobachtet|Хорошее наблюдение|Удачное решение)[.!:]?\s*/i, "");
+}
 type Entry = { chapter: number; text: string; date: string };
 type Diary = { version: number; entries: Entry[] };
 let storageWarning = false;
@@ -68,6 +73,7 @@ function App() {
   const [activeActivity, setActiveActivity] = useState<number | null>(null);
   const [showExplanations, setShowExplanations] = useState<number[]>([]);
   const [revealCheck, setRevealCheck] = useState(false);
+  const [openSecret, setOpenSecret] = useState<number | null>(null);
   const ui = labels[lang];
   const locale = editorial[lang];
   const lesson = locale.chapters[chapter];
@@ -92,6 +98,7 @@ function App() {
     setActiveActivity(null);
     setShowExplanations([]);
     setRevealCheck(false);
+    setOpenSecret(null);
     window.scrollTo({ top: 0, behavior: "instant" });
   }
   function openView(next: "home" | "diary" | "sources") {
@@ -117,7 +124,7 @@ function App() {
       <aside>
         <a href="#main" className="skip">{ui.skip}</a>
         <button className="brand brand-link" onClick={() => openView("home")} aria-label={ui.home}>
-          <span>◎</span><div>{ui.brand}<small>{ui.brandSubtitle}</small></div>
+          <span className="brand-emblem">🌍</span><div>{ui.brand}<small>{ui.brandSubtitle}</small></div>
         </button>
         <div className="aside-label">{ui.explore}</div>
         <nav aria-label={ui.explore}>
@@ -126,12 +133,13 @@ function App() {
           </button>
           {locale.chapters.map((l, i) => (
             <button key={l.id} aria-current={view === "lesson" && chapter === i ? "page" : undefined} onClick={() => openChapter(i)}>
-              <span className="nav-icon">{lessons[i].icon}</span>
+              <span className="nav-icon">{chapterSymbols[i]}</span>
               <span><small>{ui.chapter} 0{i + 1}</small>{l.nav.replace(/^Глава \d+ · |^Kapitel \d+ · /, "")}</span>
               <span aria-label={done.has(i) ? "✓" : undefined}>{done.has(i) ? "✓" : ""}</span>
             </button>
           ))}
         </nav>
+        <div className="aside-mascot" aria-hidden="true"><span>🦉</span><p>{t(lang, "Твои открытия ждут тебя!", "Deine Entdeckungen warten!")}</p></div>
         <div className="aside-bottom">
           <button className="diary-button" onClick={() => openView("diary")}>▤ {ui.journal} <b>{diary.entries.length}</b></button>
           <p>{done.size} / 5 {ui.done}</p><progress max="5" value={done.size} />
@@ -153,49 +161,76 @@ function App() {
         {view === "home" ? (
           <>
             <div className="eyebrow">{ui.grade} / EUROPE EXPLORER</div>
-            <section className="story-hero">
-              <div className="hero-mark">✦ 01 — 05</div>
-              <h1>{locale.homepage.title}</h1>
-              <p className="intro">{locale.homepage.subtitle}</p>
-              <p className="hero-story">{locale.homepage.story}</p>
+            <section className="story-hero art-hero" aria-label={locale.homepage.title}>
+              <img className="hero-art" src={`${import.meta.env.BASE_URL}art/hero.webp`} alt={t(lang, "Юный исследователь Европы с картой, совой и горами", "Junger Europa-Entdecker mit Karte, Eule und Bergen")} fetchPriority="high" />
+              <div className="hero-content">
+                <div className="hero-mark">🎒 {t(lang,"ПРИКЛЮЧЕНИЕ НАЧИНАЕТСЯ","DEIN ABENTEUER BEGINNT")} · 01—05</div>
+                <h1>{locale.homepage.title}</h1>
+                <p className="intro">{locale.homepage.subtitle}</p>
+                <p className="hero-story">{locale.homepage.story}</p>
+                <button className="primary hero-play" onClick={() => openChapter(0)}>🚀 {locale.homepage.start} <span aria-hidden="true">→</span></button>
+              </div>
             </section>
             <section className="mission home-mission"><span>✧</span><div><b>{ui.goal}</b><p>{locale.homepage.mission}</p></div></section>
             <p className="home-rule">{locale.homepage.rule}</p>
-            <div className="journey-line">{locale.homepage.route}</div>
+            <section className="journey-board" aria-label={t(lang,"Маршрут исследователя","Entdeckerroute")}>
+              <div className="eyebrow">🏅 {t(lang,"СОБЕРИ 5 ЗНАЧКОВ ИССЛЕДОВАТЕЛЯ","SAMMLE 5 ENTDECKER-ABZEICHEN")}</div>
+              <div className="stamp-track">
+                {locale.chapters.map((c,i) => <button key={c.id} className={`stamp ${done.has(i) ? "earned" : ""}`} onClick={() => openChapter(i)} aria-label={`${c.nav} · ${done.has(i) ? t(lang,"открыто","geschafft") : t(lang,"вперёд","weiter")}`}>
+                  <span className="stamp-icon">{chapterSymbols[i]}</span><b>{String(i+1).padStart(2,"0")}</b><small>{done.has(i) ? "✓" : "☆"}</small>
+                </button>)}
+              </div>
+              <p>{locale.homepage.route}</p>
+            </section>
             <div className="home-actions">
               <button className="primary" onClick={() => openChapter(0)}>{locale.homepage.start} →</button>
               {diary.entries.length > 0 && <button className="secondary" onClick={() => openView("diary")}>{ui.journal} ({diary.entries.length})</button>}
             </div>
             <div className="chapter-preview">
               {locale.chapters.map((c, i) => (
-                <button key={c.id} onClick={() => openChapter(i)}>
-                  <small>{ui.chapter} 0{i + 1}</small><b>{c.nav.replace(/^Глава \d+ · |^Kapitel \d+ · /, "")}</b><span>{c.goal}</span>
+                <button key={c.id} className={`chapter-tile tile-${i}`} onClick={() => openChapter(i)}>
+                  <span className="tile-image"><img src={`${import.meta.env.BASE_URL}art/${chapterArt[i]}.webp`} alt="" loading="lazy"/><span className="tile-emoji">{chapterSymbols[i]}</span></span>
+                  <span className="tile-body"><small>{ui.chapter} 0{i + 1} {done.has(i) ? "✓" : ""}</small><b>{c.nav.replace(/^Глава \d+ · |^Kapitel \d+ · /, "")}</b><span>{c.goal}</span><strong>{t(lang,"В экспедицию","Expedition starten")} ↗</strong></span>
                 </button>
               ))}
             </div>
           </>
         ) : view === "lesson" ? (
           <>
-            <div className="eyebrow">{ui.expedition} 0{chapter + 1} <span> / {lessons[chapter].de}</span></div>
-            <h1>{lesson.title}</h1>
-            <p className="intro">{lesson.subtitle}</p>
-            <p className="story-hook">{lesson.hook}</p>
-            <div className="mission"><span>✧</span><div><b>{ui.goal}</b><p>{lesson.goal}</p></div></div>
+            <section className={`lesson-banner banner-${chapter}`}>
+              <img className="chapter-banner-art" src={`${import.meta.env.BASE_URL}art/${chapterArt[chapter]}.webp`} alt={t(lang,"Красочная иллюстрация экспедиции: ","Farbiges Bild der Expedition: ") + lesson.title} />
+              <div className="lesson-banner-content">
+                <div className="hero-mark">{chapterSymbols[chapter]} {ui.expedition} 0{chapter + 1} / 05</div>
+                <h1>{lesson.title}</h1>
+                <p className="intro">{lesson.subtitle}</p>
+              </div>
+            </section>
+            <p className="illustration-note">🎨 {t(lang,"Это сюжетная иллюстрация. Для точных ответов используй интерактивную карту и графики ниже.","Das Bild erzählt eine Geschichte. Für genaue Antworten nutze die interaktive Karte und die Diagramme unten.")}</p>
+            <div className="story-hook"><span className="hook-icon">💡</span>{lesson.hook}</div>
+            <div className="mission"><span>🎯</span><div><b>{ui.goal}</b><p>{lesson.goal}</p></div></div>
 
             <section className="learning-before" aria-labelledby="why-head">
               <div className="eyebrow">{ui.intro}</div><h2 id="why-head">{t(lang, "От вопроса — к открытию", "Von der Frage zur Erkenntnis")}</h2>
               <div className="explanation-grid">
                 {lesson.explanations.map((item, i) => (
-                  <article key={i} className="explanation-card">
-                    <span className="card-number">0{i + 1}</span>
+                  <article key={i} className={`explanation-card expl-${i % 4}`}>
+                    <div className="explanation-visual" aria-hidden="true"><span className="visual-icon">{stepSymbols[chapter][i % 4]}</span><span className="visual-orbit">✦</span><span className="visual-dots">• • •</span></div>
+                    <span className="card-number">{String(i+1).padStart(2,"0")}</span>
                     <h3>{item.title}</h3><p>{item.text}</p>
                   </article>
                 ))}
               </div>
             </section>
 
+            <section className="owl-facts">
+              <div className="owl-facts-heading"><span className="owl-avatar" aria-hidden="true">🦉</span><div><div className="eyebrow">{t(lang,"СЕКРЕТЫ СОВЫ","EULEN-GEHEIMNISSE")}</div><h2>{t(lang,"Нажми на карточку — узнай больше!","Tippe auf eine Karte und entdecke mehr!")}</h2></div></div>
+              <div className="secret-grid">{chapterFacts[lang][chapter].map((fact,i) => <button type="button" key={`${chapter}-${i}`} className={`secret-card secret-${i} ${openSecret===i ? "revealed" : ""}`} aria-expanded={openSecret===i} onClick={() => setOpenSecret(openSecret===i ? null : i)}>
+                <span className="secret-icon">{fact.icon}</span><b>{fact.title}</b><span className="secret-arrow">{openSecret===i ? "−" : "+"}</span>
+                {openSecret===i && <p>{fact.text}</p>}
+              </button>)}</div>
+            </section>
             <section className="chapter-scene">
-              <div className="eyebrow">{ui.scene}</div><p>{ui.instructions}</p>
+              <div className="scene-heading"><span className="scene-badge">🎮 {t(lang,"ИГРАЕМ И ИССЛЕДУЕМ","SPIELEN & FORSCHEN")}</span><h2>{ui.scene}</h2></div><p>{ui.instructions}</p>
               <div className="scene" aria-label={ui.scene}>
                 <ErrorBoundary key={chapter} lang={lang}>
                   <Suspense fallback={<p className="loading">{ui.loading}</p>}>
@@ -211,20 +246,20 @@ function App() {
               <div className="guided-list">
                 {lesson.activities.map((a, i) => (
                   <article className="guided-card" key={i}>
-                    <div className="guided-top"><span>{String(i + 1).padStart(2, "0")}</span><p>{a.prompt}</p></div>
+                    <div className="guided-top"><span className="guided-icon">{stepSymbols[chapter][i % 4]}</span><div><small>{t(lang,"ЗАДАНИЕ","AUFGABE")} {i+1} / 3</small><p>{a.prompt}</p></div></div>
                     <div className="guided-actions">
                       <button className="secondary small-action" aria-expanded={activeActivity === i} onClick={() => setActiveActivity(activeActivity === i ? null : i)}>{ui.hint}</button>
                       <button className="text-button" aria-expanded={showExplanations.includes(i)} onClick={() => toggleExplanation(i)}>{ui.reveal}</button>
                     </div>
                     {activeActivity === i && <p className="hint-text">{a.hint}</p>}
-                    {showExplanations.includes(i) && <div className="explain-result"><b>{ui.explanation}</b><p>{a.success}</p><small>{ui.explainNote}</small></div>}
+                    {showExplanations.includes(i) && <div className="explain-result"><b>{ui.explanation}</b><p>{feedbackExplanation(a.success)}</p><small>{ui.explainNote}</small></div>}
                   </article>
                 ))}
               </div>
             </section>
 
             <section className="self-check">
-              <div className="eyebrow">{ui.check}</div><h2>{lesson.checkpoint.question}</h2>
+              <span className="check-medal" aria-hidden="true">🏆</span><div className="eyebrow">{ui.check}</div><h2>{lesson.checkpoint.question}</h2>
               <button className="secondary" aria-expanded={revealCheck} onClick={() => setRevealCheck(!revealCheck)}>{revealCheck ? t(lang, "Скрыть ответ", "Antwort verbergen") : ui.answer}</button>
               {revealCheck && <div className="check-answer"><p><b>{lesson.checkpoint.answer}</b></p><p>{lesson.checkpoint.explain}</p></div>}
             </section>
@@ -235,7 +270,8 @@ function App() {
               ))}</div>
             </section>
             <section className="journal">
-              <div><div className="eyebrow">{ui.takeaway}</div><h2>{lesson.takeaway}</h2><p>{ui.takeText}</p></div>
+              <span className="journal-stamp" aria-hidden="true">{chapterSymbols[chapter]}</span>
+              <div><div className="eyebrow">✨ {ui.takeaway}</div><h2>{lesson.takeaway}</h2><p>{ui.takeText}</p></div>
               <textarea value={note} maxLength={3000} onChange={(e) => setNote(e.target.value)} placeholder={lesson.takeaway} aria-label={ui.myNotes} />
               <div className="actions">
                 <button className="primary" onClick={() => {
@@ -252,8 +288,8 @@ function App() {
           </>
         ) : view === "diary" ? (
           <>
-            <div className="eyebrow">{t(lang,"ТВОЯ КОЛЛЕКЦИЯ НАБЛЮДЕНИЙ","DEINE SAMMLUNG VON ERKENNTNISSEN")}</div>
-            <h1>{locale.journal.title}</h1><p className="intro">{locale.journal.intro}</p>
+            <section className="diary-hero"><img src={`${import.meta.env.BASE_URL}art/hero.webp`} alt=""/><div><div className="eyebrow">🏆 {t(lang,"ТВОЯ КОЛЛЕКЦИЯ НАБЛЮДЕНИЙ","DEINE SAMMLUNG VON ERKENNTNISSEN")}</div><h1>{locale.journal.title}</h1><p className="intro">{locale.journal.intro}</p></div></section>
+            <div className="stamp-track diary-stamps">{locale.chapters.map((c,i)=><span key={c.id} className={`stamp ${done.has(i)?"earned":""}`} title={c.nav}><span className="stamp-icon">{chapterSymbols[i]}</span><b>{i+1}</b><small>{done.has(i)?"✓":"☆"}</small></span>)}</div>
             <section className="panel diary-final">
               <h2>{locale.journal.my_findings}</h2><p>{locale.journal.final_question}</p>
               <details><summary>{ui.answer}</summary><p>{locale.journal.final_model}</p></details>

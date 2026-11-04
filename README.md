@@ -62,3 +62,8 @@ Natural Earth source: https://github.com/nvkelso/natural-earth-vector/blob/maste
 Downloaded 2026-11-03. Run `python3 scripts/prepare-map.py /path/to/source.geojson` to regenerate the European subset. The script explicitly reattributes the source's separate Crimea polygon to Ukraine; it fails for unexpected topology. Natural Earth small-scale boundaries are generalized and not legal boundary guidance.
 
 See THIRD_PARTY.md for licenses and educational sources. Source code is formatted using Prettier before delivery.
+
+
+## Иллюстрированная версия
+
+В `public/art/*.webp` — оригинальные стилизованные изображения экспедиций с юным исследователем. Это сюжетные иллюстрации, а не точные географические карты или графики; учебные значения берутся только из интерактивных сцен. Фотографии ребёнка не включены в публичный репозиторий. Картинки содержат художественный образ, созданный по разрешению пользователя. Все ассеты локальные, без внешних запросов.

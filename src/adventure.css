@@ -332,3 +332,41 @@ footer span { color:#547299; }
   .hero-content h1 { font-size: 29px; }
   .map-mode-switch span { width:100%; }
 }
+
+/* Chapter 1: unique visual explanations instead of repeated decorative headers. */
+.explanation-card.chapter1-illustration {
+  padding: 0 0 23px;
+  border-radius: 20px;
+  border-color: #cbdcf5;
+}
+.chapter1-illustration .card-illustration-wrap {
+  min-height: 0;
+  aspect-ratio: 3 / 1;
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: #d9eff8;
+}
+.chapter1-illustration .card-illustration {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: none;
+}
+.chapter1-illustration .card-number {
+  position: absolute;
+  z-index: 1;
+  bottom: 12px;
+  left: 14px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+  box-shadow: 0 3px 10px #132a5680;
+}
+.chapter1-illustration .card-copy { padding: 10px 19px 0; }
+.chapter1-illustration h3 { margin-top: 11px; }
+.chapter1-illustration p { margin-top: 0; }
+@media(max-width:680px) {
+  .chapter1-illustration .card-illustration-wrap { aspect-ratio: 3 / 1; }
+}

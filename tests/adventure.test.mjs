@@ -15,9 +15,17 @@ test('all 6 illustrated chapter assets exist and are optimized locally', () => {
   }
 });
 
-test('no original photos of the child are deployed', () => {
-  const names = fs.readdirSync(path.join(root, 'public', 'art'));
-  assert.deepEqual(names.sort(), imageNames.map(x => x + '.webp').sort());
+test('only approved illustrations, not source photographs, are deployed', () => {
+  const folder = path.join(root, 'public', 'art');
+  const names = fs.readdirSync(folder, { withFileTypes: true });
+  assert.deepEqual(names.filter(x => x.isFile()).map(x => x.name).sort(), imageNames.map(x => x + '.webp').sort());
+  assert.deepEqual(names.filter(x => x.isDirectory()).map(x => x.name), ['cards']);
+  const cards = fs.readdirSync(path.join(folder, 'cards')).sort();
+  assert.deepEqual(cards, ['chapter1-alps.webp', 'chapter1-map.webp', 'chapter1-route.webp']);
+  for (const card of cards) {
+    const size = fs.statSync(path.join(folder, 'cards', card)).size;
+    assert.ok(size > 30_000 && size < 500_000, `${card} must be a real optimized illustration`);
+  }
 });
 
 test('illustrated experience has all five bilingual interactive secret facts', () => {

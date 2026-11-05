@@ -217,15 +217,15 @@ function App() {
               <div className="eyebrow">{ui.intro}</div><h2 id="why-head">{t(lang, "От вопроса — к открытию", "Von der Frage zur Erkenntnis")}</h2>
               <div className="explanation-grid">
                 {lesson.explanations.map((item, i) => (
-                  <article key={i} className={`explanation-card expl-${i % 4}`}>
+                  <article key={i} className={`explanation-card expl-${i % 4} ${chapter === 0 ? "chapter1-illustration" : ""}`}>
                     <div className="card-illustration-wrap">
                       <img
                         className={`card-illustration art-focus-${i % 4}`}
-                        src={`${import.meta.env.BASE_URL}art/${chapterArt[chapter]}.webp`}
+                        src={`${import.meta.env.BASE_URL}art/${chapter === 0 ? `cards/chapter1-${["map", "route", "alps"][i]}.webp` : `${chapterArt[chapter]}.webp`}`}
                         alt={item.title}
                         loading="lazy"
                       />
-                      <div className="explanation-visual" aria-hidden="true"><span className="visual-icon">{stepSymbols[chapter][i % 4]}</span><span className="visual-orbit">✦</span><span className="visual-dots">• • •</span></div>
+                      {chapter !== 0 && <div className="explanation-visual" aria-hidden="true"><span className="visual-icon">{stepSymbols[chapter][i % 4]}</span><span className="visual-orbit">✦</span><span className="visual-dots">• • •</span></div>}
                       <span className="card-number">{String(i+1).padStart(2,"0")}</span>
                     </div>
                     <div className="card-copy">

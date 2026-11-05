@@ -1,0 +1,3632 @@
+[
+  {
+    "id": "M02-01",
+    "layout": "route",
+    "categories": [
+      {
+        "ru": "Германия",
+        "de": "Deutschland"
+      },
+      {
+        "ru": "Австрия",
+        "de": "Österreich"
+      },
+      {
+        "ru": "Италия",
+        "de": "Italien"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Столица Берлин",
+          "de": "Hauptstadt Berlin"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Столица Вена",
+          "de": "Hauptstadt Wien"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Столица Рим",
+          "de": "Hauptstadt Rom"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Ты едешь поездом из Мюнхена в Верону через Инсбрук. Что придётся пересечь?",
+        "de": "Du fährst von München über Innsbruck nach Verona. Was überquerst du?"
+      },
+      "options": [
+        {
+          "ru": "Северное море",
+          "de": "Die Nordsee"
+        },
+        {
+          "ru": "Альпийские горы",
+          "de": "Die Alpen"
+        },
+        {
+          "ru": "Атлантический океан",
+          "de": "Den Atlantik"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Инсбрук находится в Альпах; маршрут пересекает горную область.",
+        "de": "Innsbruck liegt in den Alpen; die Route führt durch ein Gebirge."
+      }
+    }
+  },
+  {
+    "id": "M02-02",
+    "layout": "compare",
+    "categories": [
+      {
+        "ru": "Рельеф",
+        "de": "Relief"
+      },
+      {
+        "ru": "Политическая карта",
+        "de": "Politische Karte"
+      },
+      {
+        "ru": "Водная поверхность",
+        "de": "Wasserfläche"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Высоты Альп показаны оттенками",
+          "de": "Höhen der Alpen durch Farben"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Граница ФРГ и Франции",
+          "de": "Grenze zwischen Deutschland und Frankreich"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Северное море у побережья",
+          "de": "Nordsee an der Küste"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "На карте зелёные равнины и коричневые горы. Что означают разные оттенки?",
+        "de": "Grüne Ebenen, braune Gebirge: Was zeigen diese Farben?"
+      },
+      "options": [
+        {
+          "ru": "Разные языки",
+          "de": "Verschiedene Sprachen"
+        },
+        {
+          "ru": "Разную высоту местности",
+          "de": "Verschiedene Geländehöhen"
+        },
+        {
+          "ru": "Количество жителей",
+          "de": "Einwohnerzahl"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Гипсометрические цвета на физической карте обозначают высоты.",
+        "de": "Höhenfarben einer physischen Karte stehen für die Geländehöhe."
+      }
+    }
+  },
+  {
+    "id": "M02-03",
+    "layout": "compare",
+    "categories": [
+      {
+        "ru": "Фотоснимок",
+        "de": "Luftbild"
+      },
+      {
+        "ru": "Политическая карта",
+        "de": "Politische Karte"
+      },
+      {
+        "ru": "Физическая карта",
+        "de": "Physische Karte"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Можно различить отдельные крыши",
+          "de": "Einzelne Dächer erkennbar"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Обозначена граница государства",
+          "de": "Staatsgrenze eingezeichnet"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Видна высота гор",
+          "de": "Höhen der Gebirge sichtbar"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Нужно объяснить, почему дорога обходит гору. Какой источник полезнее?",
+        "de": "Du möchtest erklären, warum die Straße um einen Berg führt. Welche Darstellung hilft?"
+      },
+      "options": [
+        {
+          "ru": "Физическая карта с рельефом",
+          "de": "Physische Karte mit Relief"
+        },
+        {
+          "ru": "Список депутатов",
+          "de": "Liste von Abgeordneten"
+        },
+        {
+          "ru": "Фото потолка комнаты",
+          "de": "Foto einer Zimmerdecke"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Рельефная карта позволяет увидеть горные хребты и долины.",
+        "de": "Eine Reliefkarte zeigt Gebirgsketten und Täler."
+      }
+    }
+  },
+  {
+    "id": "M02-04",
+    "layout": "route",
+    "categories": [
+      {
+        "ru": "Долина",
+        "de": "Tal"
+      },
+      {
+        "ru": "Перевал",
+        "de": "Pass"
+      },
+      {
+        "ru": "Тоннель",
+        "de": "Tunnel"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Дорога вдоль реки между склонами",
+          "de": "Straße entlang des Flusses zwischen Hängen"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Место перехода через горный гребень",
+          "de": "Übergang über einen Gebirgskamm"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Проход сквозь горную породу",
+          "de": "Durchgang durch das Gestein"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Почему железнодорожные линии в Альпах часто используют тоннели?",
+        "de": "Warum nutzen Bahnstrecken in den Alpen oft Tunnel?"
+      },
+      "options": [
+        {
+          "ru": "Чтобы избегать всех остановок",
+          "de": "Um alle Halte zu vermeiden"
+        },
+        {
+          "ru": "Чтобы не подниматься по слишком крутым склонам",
+          "de": "Um starke Steigungen zu vermeiden"
+        },
+        {
+          "ru": "Чтобы море было ближе",
+          "de": "Damit das Meer näher ist"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Поезда ограничены допустимым уклоном; тоннели помогают пройти сквозь горы.",
+        "de": "Züge brauchen begrenzte Steigungen; Tunnel führen durch die Berge."
+      }
+    }
+  },
+  {
+    "id": "M02-05",
+    "layout": "route",
+    "categories": [
+      {
+        "ru": "Старт",
+        "de": "Start"
+      },
+      {
+        "ru": "Ориентир",
+        "de": "Orientierungspunkt"
+      },
+      {
+        "ru": "Цель",
+        "de": "Ziel"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Отправление: Кёльн",
+          "de": "Abfahrt: Köln"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Поворот у Рейна",
+          "de": "Abzweig am Rhein"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Прибытие: Бонн",
+          "de": "Ankunft: Bonn"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "У друга есть схема маршрута без стрелки севера. Что исправить первым?",
+        "de": "Auf dem Plan fehlt der Nordpfeil. Was ergänzt du zuerst?"
+      },
+      "options": [
+        {
+          "ru": "Только рисунок солнца",
+          "de": "Nur eine Sonne"
+        },
+        {
+          "ru": "Шкалу времени для фильма",
+          "de": "Zeitskala für einen Film"
+        },
+        {
+          "ru": "Стрелку севера и объяснение знаков",
+          "de": "Nordpfeil und Zeichenerklärung"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Направление и легенда делают маршрут понятным другому человеку.",
+        "de": "Nordpfeil und Legende helfen anderen, die Route zu lesen."
+      }
+    }
+  },
+  {
+    "id": "M03-01",
+    "layout": "compare",
+    "categories": [
+      {
+        "ru": "Городская застройка",
+        "de": "Städtische Bebauung"
+      },
+      {
+        "ru": "Сельский пейзаж",
+        "de": "Ländlicher Raum"
+      },
+      {
+        "ru": "Нельзя решить по одному признаку",
+        "de": "Ein Merkmal reicht nicht"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Много домов на малом участке",
+          "de": "Viele Häuser auf kleiner Fläche"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Поля между небольшими группами домов",
+          "de": "Felder zwischen Häusergruppen"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Один трёхэтажный дом без окружения",
+          "de": "Ein einzelnes dreistöckiges Haus ohne Umgebung"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "На фотографии видно несколько высотных зданий. Можно ли уверенно назвать поселение городом?",
+        "de": "Auf dem Foto sind mehrere Hochhäuser. Ist es sicher eine Stadt?"
+      },
+      "options": [
+        {
+          "ru": "Да, только высота определяет город",
+          "de": "Ja, nur die Höhe entscheidet"
+        },
+        {
+          "ru": "Нет, учитывают ещё функции и население",
+          "de": "Nein, auch Funktionen und Einwohner zählen"
+        },
+        {
+          "ru": "Это всегда деревня",
+          "de": "Das ist immer ein Dorf"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Тип поселения определяют совокупностью признаков, а не отдельным зданием.",
+        "de": "Siedlungstypen erkennt man an mehreren Merkmalen, nicht nur an einem Gebäude."
+      }
+    }
+  },
+  {
+    "id": "M03-02",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Работа",
+        "de": "Arbeit"
+      },
+      {
+        "ru": "Образование",
+        "de": "Bildung"
+      },
+      {
+        "ru": "Медицина",
+        "de": "Medizin"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Ежедневная поездка в городской офис",
+          "de": "Tägliche Fahrt ins Büro in die Stadt"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Школьный автобус в соседний посёлок",
+          "de": "Schulbus in den Nachbarort"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Автобус к районной клинике",
+          "de": "Bus zur Kreisklinik"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "В деревне нет больницы. Что наиболее важно для её жителей?",
+        "de": "Im Dorf gibt es kein Krankenhaus. Was hilft besonders?"
+      },
+      "options": [
+        {
+          "ru": "Надёжное сообщение с клиникой",
+          "de": "Zuverlässige Verbindung zur Klinik"
+        },
+        {
+          "ru": "Больше вывесок на фермах",
+          "de": "Mehr Schilder auf Bauernhöfen"
+        },
+        {
+          "ru": "Закрытие дороги",
+          "de": "Sperrung der Straße"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Доступность медицинской помощи зависит от транспорта и времени пути.",
+        "de": "Medizinische Versorgung hängt von Verkehrsverbindungen und Fahrtzeit ab."
+      }
+    }
+  },
+  {
+    "id": "M03-03",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Жильё",
+        "de": "Wohnen"
+      },
+      {
+        "ru": "Образование",
+        "de": "Bildung"
+      },
+      {
+        "ru": "Отдых",
+        "de": "Freizeit"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Кварталы с жилыми домами",
+          "de": "Häuser mit Wohnungen"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Школа и библиотека",
+          "de": "Schule und Bibliothek"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Парк и спортплощадка",
+          "de": "Park und Sportplatz"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "От дома до школы нет перехода через оживлённую улицу. Что нужно в первую очередь?",
+        "de": "Zwischen Wohnung und Schule fehlt ein sicherer Übergang. Was zuerst?"
+      },
+      "options": [
+        {
+          "ru": "Только новые магазины",
+          "de": "Nur neue Geschäfte"
+        },
+        {
+          "ru": "Безопасный переход",
+          "de": "Sicherer Überweg"
+        },
+        {
+          "ru": "Увеличить скорость машин",
+          "de": "Höhere Autogeschwindigkeit"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Доступность функций поселения включает безопасный путь к ним.",
+        "de": "Zur Erreichbarkeit gehört ein sicherer Weg."
+      }
+    }
+  },
+  {
+    "id": "M03-04",
+    "layout": "measure",
+    "categories": [
+      {
+        "ru": "Высокая плотность",
+        "de": "Hohe Dichte"
+      },
+      {
+        "ru": "Низкая плотность",
+        "de": "Geringe Dichte"
+      },
+      {
+        "ru": "Нужны данные о площади",
+        "de": "Fläche fehlt"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "1200 жителей на 1 км²",
+          "de": "1200 Menschen auf 1 km²"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "1200 жителей на 12 км²",
+          "de": "1200 Menschen auf 12 km²"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "В селе 1200 жителей, площадь неизвестна",
+          "de": "1200 Menschen im Ort, Fläche unbekannt"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "В районе A 800 человек на 2 км², в районе B 900 на 3 км². Где плотность выше?",
+        "de": "Gebiet A: 800 auf 2 km²; Gebiet B: 900 auf 3 km². Wo ist die Dichte höher?"
+      },
+      "options": [
+        {
+          "ru": "В районе A: 400 на км²",
+          "de": "In A: 400 je km²"
+        },
+        {
+          "ru": "В районе B: 300 на км²",
+          "de": "In B: 300 je km²"
+        },
+        {
+          "ru": "Равная",
+          "de": "Gleich hoch"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "800 ÷ 2 = 400, 900 ÷ 3 = 300; в A плотность выше.",
+        "de": "800 ÷ 2 = 400; 900 ÷ 3 = 300. A hat die höhere Dichte."
+      }
+    }
+  },
+  {
+    "id": "M03-05",
+    "layout": "balance",
+    "categories": [
+      {
+        "ru": "Преимущество города",
+        "de": "Vorteil der Stadt"
+      },
+      {
+        "ru": "Преимущество деревни",
+        "de": "Vorteil des Dorfs"
+      },
+      {
+        "ru": "Зависит от конкретного места",
+        "de": "Hängt vom Ort ab"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Частые линии городского транспорта",
+          "de": "Dichtes Nahverkehrsnetz"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Больше места возле дома в малом посёлке",
+          "de": "Mehr Platz ums Haus im kleinen Dorf"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Доступность врачей и школ",
+          "de": "Erreichbarkeit von Ärzten und Schulen"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Семья без автомобиля выбирает дом. Что сравнить раньше красивого вида?",
+        "de": "Eine Familie ohne Auto sucht ein Zuhause. Was ist zuerst wichtig?"
+      },
+      "options": [
+        {
+          "ru": "Цвет фасада",
+          "de": "Fassadenfarbe"
+        },
+        {
+          "ru": "Расписание транспорта и удалённость услуг",
+          "de": "Fahrplan und Entfernung zu Diensten"
+        },
+        {
+          "ru": "Число букв в названии",
+          "de": "Länge des Ortsnamens"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Без машины особенно важны реальные транспортные связи и близость услуг.",
+        "de": "Ohne Auto zählen Verkehrsverbindungen und die Nähe zu Angeboten."
+      }
+    }
+  },
+  {
+    "id": "M04-01",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Жильё",
+        "de": "Wohngebiet"
+      },
+      {
+        "ru": "Отдых",
+        "de": "Erholung"
+      },
+      {
+        "ru": "Производство",
+        "de": "Industrie"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Дома и дворы",
+          "de": "Wohnhäuser und Höfe"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Парк и площадки",
+          "de": "Park und Spielplätze"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Шумный промышленный цех",
+          "de": "Laute Produktionshalle"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Где разумно разместить шумное производство?",
+        "de": "Wo sollte eine laute Fabrik stehen?"
+      },
+      "options": [
+        {
+          "ru": "Вдали от спален и школы, с дорогой для грузовиков",
+          "de": "Fern von Wohnungen und Schule, mit Lkw-Zufahrt"
+        },
+        {
+          "ru": "На детской площадке",
+          "de": "Auf dem Spielplatz"
+        },
+        {
+          "ru": "Внутри библиотеки",
+          "de": "In der Bibliothek"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Планирование должно учитывать шум, безопасность и транспорт.",
+        "de": "Bei der Planung zählen Lärm, Sicherheit und Transport."
+      }
+    }
+  },
+  {
+    "id": "M04-02",
+    "layout": "route",
+    "categories": [
+      {
+        "ru": "Безопасный переход",
+        "de": "Sicherer Überweg"
+      },
+      {
+        "ru": "Опасный участок",
+        "de": "Gefährliche Stelle"
+      },
+      {
+        "ru": "Полезный ориентир",
+        "de": "Hilfreicher Orientierungspunkt"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Светофор перед школой",
+          "de": "Ampel vor der Schule"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Перебежать четыре полосы без перехода",
+          "de": "Vier Spuren ohne Überweg überqueren"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Библиотека у поворота",
+          "de": "Bibliothek an der Kreuzung"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Короткая дорога до школы пересекает трассу без светофора. Что выбрать?",
+        "de": "Die kürzeste Strecke zur Schule quert eine Straße ohne Ampel. Was ist besser?"
+      },
+      "options": [
+        {
+          "ru": "Всегда бежать по кратчайшей линии",
+          "de": "Immer die kürzeste Linie nehmen"
+        },
+        {
+          "ru": "Пойти по безопасному пути с переходом",
+          "de": "Den sicheren Weg mit Überweg nehmen"
+        },
+        {
+          "ru": "Идти по проезжей части",
+          "de": "Auf der Fahrbahn laufen"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Безопасность важнее минимального расстояния по прямой.",
+        "de": "Sicherheit ist wichtiger als die kürzeste Luftlinie."
+      }
+    }
+  },
+  {
+    "id": "M04-03",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Жильё",
+        "de": "Wohnen"
+      },
+      {
+        "ru": "Рабочее место",
+        "de": "Arbeitsort"
+      },
+      {
+        "ru": "Маятниковая поездка",
+        "de": "Pendeln"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Семья ночует в квартире",
+          "de": "Familie wohnt in der Wohnung"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Сотрудник работает в офисе",
+          "de": "Person arbeitet im Büro"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Каждое утро поездом до офиса",
+          "de": "Jeden Morgen mit dem Zug ins Büro"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "В город ежедневно въезжают тысячи работников. Что поможет уменьшить пробки?",
+        "de": "Täglich pendeln Tausende in die Stadt. Was entlastet Straßen?"
+      },
+      "options": [
+        {
+          "ru": "Отменить пешеходные дорожки",
+          "de": "Fußwege abschaffen"
+        },
+        {
+          "ru": "Дать всем только по автомобилю",
+          "de": "Nur Autos anbieten"
+        },
+        {
+          "ru": "Надёжный общественный транспорт",
+          "de": "Zuverlässiger Nahverkehr"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Транспорт для многих пассажиров снижает потребность в отдельных авто.",
+        "de": "ÖPNV kann viele einzelne Autofahrten vermeiden."
+      }
+    }
+  },
+  {
+    "id": "M04-04",
+    "layout": "balance",
+    "categories": [
+      {
+        "ru": "Массовый транспорт",
+        "de": "Öffentlicher Verkehr"
+      },
+      {
+        "ru": "Активная мобильность",
+        "de": "Aktive Mobilität"
+      },
+      {
+        "ru": "Автомобильная нагрузка",
+        "de": "Autoverkehr"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Автобус для 40 пассажиров",
+          "de": "Bus für 40 Fahrgäste"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Отдельная велодорожка",
+          "de": "Eigener Radweg"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Много автомобилей перед школой",
+          "de": "Viele Autos vor der Schule"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "В автобусе едут 30 школьников. Какое преимущество он даёт по сравнению с 30 машинами?",
+        "de": "Ein Bus bringt 30 Schulkinder. Vorteil gegenüber 30 Autos?"
+      },
+      "options": [
+        {
+          "ru": "Больше пробок",
+          "de": "Mehr Stau"
+        },
+        {
+          "ru": "Меньше места на дороге на одного пассажира",
+          "de": "Weniger Straßenraum pro Person"
+        },
+        {
+          "ru": "Больше парковок у школы",
+          "de": "Mehr Parkplätze"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Один автобус обычно занимает меньше места, чем много автомобилей.",
+        "de": "Ein Bus braucht meist weniger Platz als viele einzelne Autos."
+      }
+    }
+  },
+  {
+    "id": "M04-05",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Датчик",
+        "de": "Sensor"
+      },
+      {
+        "ru": "Управление",
+        "de": "Steuerung"
+      },
+      {
+        "ru": "Защита данных",
+        "de": "Datenschutz"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Счётчик потока на перекрёстке",
+          "de": "Verkehrszähler an der Kreuzung"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Светофор адаптирует длительность сигнала",
+          "de": "Ampel passt Grünphasen an"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Не хранить личные маршруты детей",
+          "de": "Keine persönlichen Schulwege speichern"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Город хочет сократить заторы. Какие данные действительно нужны светофору?",
+        "de": "Die Stadt will Staus reduzieren. Welche Daten braucht die Ampel?"
+      },
+      "options": [
+        {
+          "ru": "Имена всех школьников",
+          "de": "Namen aller Schulkinder"
+        },
+        {
+          "ru": "Количество машин, а не личности пассажиров",
+          "de": "Fahrzeuganzahl statt Personenidentität"
+        },
+        {
+          "ru": "Пароли жителей",
+          "de": "Passwörter der Bewohner"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Для регулирования потока достаточно агрегированных данных.",
+        "de": "Für Verkehrssteuerung genügen aggregierte Daten."
+      }
+    }
+  },
+  {
+    "id": "M05-01",
+    "layout": "flow",
+    "categories": [
+      {
+        "ru": "Выращивание",
+        "de": "Anbau"
+      },
+      {
+        "ru": "Переработка",
+        "de": "Verarbeitung"
+      },
+      {
+        "ru": "Продажа",
+        "de": "Verkauf"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Пшеница растёт в поле",
+          "de": "Weizen wächst auf dem Feld"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "На мельнице делают муку",
+          "de": "Die Mühle mahlt Mehl"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Хлеб продаётся в магазине",
+          "de": "Brot wird im Laden verkauft"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Пекарня закрылась из-за отсутствия муки. Какая часть цепочки нарушилась?",
+        "de": "Die Bäckerei hat kein Mehl mehr. Welcher Teil der Versorgungskette fehlt?"
+      },
+      "options": [
+        {
+          "ru": "Кинотеатр",
+          "de": "Kino"
+        },
+        {
+          "ru": "Мельница или поставщик муки",
+          "de": "Mühle oder Mehlzulieferung"
+        },
+        {
+          "ru": "Школьный спортзал",
+          "de": "Sporthalle"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Переработка зерна в муку — необходимый шаг в производстве хлеба.",
+        "de": "Die Verarbeitung von Korn zu Mehl ist ein notwendiger Schritt."
+      }
+    }
+  },
+  {
+    "id": "M05-02",
+    "layout": "route",
+    "categories": [
+      {
+        "ru": "Работа",
+        "de": "Arbeit"
+      },
+      {
+        "ru": "Образование",
+        "de": "Bildung"
+      },
+      {
+        "ru": "Отдых",
+        "de": "Urlaub"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Каждый день из деревни в офис",
+          "de": "Täglich vom Dorf ins Büro"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Пять дней в неделю в школу соседнего города",
+          "de": "Fünf Tage pro Woche zur Schule im Nachbarort"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Раз в год к морю на две недели",
+          "de": "Einmal jährlich für zwei Wochen ans Meer"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Когда в пригородах чаще бывают пробки из-за маятниковых поездок?",
+        "de": "Wann entstehen durch Pendler besonders viele Staus?"
+      },
+      "options": [
+        {
+          "ru": "Ночью в 3 часа",
+          "de": "Nachts um drei Uhr"
+        },
+        {
+          "ru": "Только в новогоднюю ночь",
+          "de": "Nur an Silvester"
+        },
+        {
+          "ru": "Утром и после окончания рабочего дня",
+          "de": "Morgens und nach Feierabend"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Дороги особенно загружены, когда многие едут на работу или возвращаются.",
+        "de": "Wenn viele zur Arbeit fahren oder zurückkehren, steigen die Verkehrsbelastungen."
+      }
+    }
+  },
+  {
+    "id": "M05-03",
+    "layout": "measure",
+    "categories": [
+      {
+        "ru": "Близко по времени",
+        "de": "Zeitlich nah"
+      },
+      {
+        "ru": "Далеко по времени",
+        "de": "Zeitlich weit"
+      },
+      {
+        "ru": "Недостаточно данных",
+        "de": "Angaben fehlen"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Школьный автобус: 12 минут",
+          "de": "Schulbus: 12 Minuten"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Автобус до врача: 70 минут",
+          "de": "Bus zum Arzt: 70 Minuten"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Расстояние до станции: 5 км, расписание неизвестно",
+          "de": "Zur Station 5 km, Fahrplan unbekannt"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Школа в 8 км, автобус идёт 15 минут; другая в 4 км, но дорога занимает 35 минут. Что доступнее по времени?",
+        "de": "Schule A: 8 km, 15 min. Schule B: 4 km, 35 min. Welche ist zeitlich besser erreichbar?"
+      },
+      "options": [
+        {
+          "ru": "А, потому что дорога занимает меньше времени",
+          "de": "A, weil die Fahrt kürzer dauert"
+        },
+        {
+          "ru": "Б, потому что километров меньше",
+          "de": "B, weil es weniger Kilometer sind"
+        },
+        {
+          "ru": "Одинаково",
+          "de": "Beide gleich"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Реальные минуты важнее километров для оценки доступности.",
+        "de": "Für Erreichbarkeit sind Reisezeiten wichtiger als Luftlinienkilometer."
+      }
+    }
+  },
+  {
+    "id": "M05-04",
+    "layout": "route",
+    "categories": [
+      {
+        "ru": "Учёба",
+        "de": "Bildung"
+      },
+      {
+        "ru": "Покупка",
+        "de": "Einkauf"
+      },
+      {
+        "ru": "Дом",
+        "de": "Zuhause"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Забрать ребёнка из школы",
+          "de": "Kind von der Schule abholen"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Купить продукты в магазине по пути",
+          "de": "Auf dem Weg einkaufen"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Возвратиться к дому",
+          "de": "Wieder zu Hause ankommen"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Семье нужно посетить школу, магазин рядом с ней и дом. Как уменьшить лишние поездки?",
+        "de": "Schule, Laden nebenan und Wohnung: Wie vermeidet die Familie Umwege?"
+      },
+      "options": [
+        {
+          "ru": "Сделать каждое дело отдельной поездкой",
+          "de": "Jeden Stopp einzeln anfahren"
+        },
+        {
+          "ru": "Сначала объехать весь город",
+          "de": "Erst durch die ganze Stadt fahren"
+        },
+        {
+          "ru": "Объединить остановки в один маршрут",
+          "de": "Mehrere Stopps auf einer Route verbinden"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Продуманное объединение целей экономит дорогу и время.",
+        "de": "Eine gebündelte Route spart Wege und Zeit."
+      }
+    }
+  },
+  {
+    "id": "M05-05",
+    "layout": "balance",
+    "categories": [
+      {
+        "ru": "Школа",
+        "de": "Schule"
+      },
+      {
+        "ru": "Мобильность",
+        "de": "Mobilität"
+      },
+      {
+        "ru": "Природа",
+        "de": "Natur"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Хорошая гимназия поблизости",
+          "de": "Gutes Gymnasium in der Nähe"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Регулярный автобус",
+          "de": "Regelmäßiger Bus"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Парк и лес за домом",
+          "de": "Park und Wald beim Haus"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Двум семьям подходит разное место. Почему обе могут быть правы?",
+        "de": "Zwei Familien bevorzugen unterschiedliche Wohnorte. Warum können beide recht haben?"
+      },
+      "options": [
+        {
+          "ru": "Нужды людей отличаются",
+          "de": "Die Bedürfnisse unterscheiden sich"
+        },
+        {
+          "ru": "Выбор зависит только от моды",
+          "de": "Nur Mode entscheidet"
+        },
+        {
+          "ru": "Везде одинаковые условия",
+          "de": "Alle Orte sind gleich"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Выбор места жизни зависит от состава семьи и важных ей услуг.",
+        "de": "Die Wahl des Wohnorts hängt von Bedürfnissen und Angeboten ab."
+      }
+    }
+  },
+  {
+    "id": "M06-01",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Свет и тепло",
+        "de": "Licht und Wärme"
+      },
+      {
+        "ru": "Вода",
+        "de": "Wasser"
+      },
+      {
+        "ru": "Питательные вещества",
+        "de": "Nährstoffe"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Рост замедлился из-за холода",
+          "de": "Wachstum stockt wegen Kälte"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Почва высохла во время засухи",
+          "de": "Der Boden ist bei Dürre ausgetrocknet"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "На бедной почве растения желтеют",
+          "de": "Pflanzen werden auf nährstoffarmem Boden gelb"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Фермер хочет выращивать помидоры зимой. Что может помочь?",
+        "de": "Der Landwirt will im Winter Tomaten anbauen. Was kann helfen?"
+      },
+      "options": [
+        {
+          "ru": "Оставить растения на морозе",
+          "de": "Die Pflanzen in der Kälte lassen"
+        },
+        {
+          "ru": "Теплица с подходящим светом и теплом",
+          "de": "Gewächshaus mit Licht und Wärme"
+        },
+        {
+          "ru": "Не поливать несколько месяцев",
+          "de": "Monatelang nicht gießen"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Теплица позволяет контролировать часть условий, но требует энергии и воды.",
+        "de": "Im Gewächshaus lassen sich Bedingungen steuern; es benötigt jedoch Energie und Wasser."
+      }
+    }
+  },
+  {
+    "id": "M06-02",
+    "layout": "flow",
+    "categories": [
+      {
+        "ru": "Подготовка и посев",
+        "de": "Vorbereitung und Aussaat"
+      },
+      {
+        "ru": "Уход",
+        "de": "Pflege"
+      },
+      {
+        "ru": "Сбор урожая",
+        "de": "Ernte"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Семена в подготовленную почву",
+          "de": "Saatgut in vorbereiteten Boden"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Проверить рост и потребность во влаге",
+          "de": "Wachstum und Feuchtigkeit prüfen"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Комбайном убрать зрелую пшеницу",
+          "de": "Reifen Weizen mit dem Mähdrescher ernten"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Пшеница ещё зелёная. Стоит ли сразу собирать урожай?",
+        "de": "Der Weizen ist noch grün. Soll man sofort ernten?"
+      },
+      "options": [
+        {
+          "ru": "Да, зрелость неважна",
+          "de": "Ja, Reife ist egal"
+        },
+        {
+          "ru": "Нет, урожай собирают при нужной зрелости",
+          "de": "Nein, man erntet zum passenden Reifezeitpunkt"
+        },
+        {
+          "ru": "Сначала продать зерно, которого нет",
+          "de": "Erst nicht vorhandenes Korn verkaufen"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Время сбора зависит от зрелости зерна и погодных условий.",
+        "de": "Die Erntezeit hängt von Reife und Wetter ab."
+      }
+    }
+  },
+  {
+    "id": "M06-03",
+    "layout": "flow",
+    "categories": [
+      {
+        "ru": "Фермер",
+        "de": "Landwirt"
+      },
+      {
+        "ru": "Мельница",
+        "de": "Mühle"
+      },
+      {
+        "ru": "Пекарня",
+        "de": "Bäckerei"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Собирает пшеницу",
+          "de": "Erntet Weizen"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Мелет зерно в муку",
+          "de": "Mahlt Korn zu Mehl"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Замешивает и печёт хлеб",
+          "de": "Knetet und backt Brot"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "После сбора зерна нет муки. Какой этап необходим до выпечки?",
+        "de": "Nach der Getreideernte gibt es noch kein Mehl. Welcher Schritt fehlt vor dem Backen?"
+      },
+      "options": [
+        {
+          "ru": "Перемолоть зерно на мельнице",
+          "de": "Korn in der Mühle mahlen"
+        },
+        {
+          "ru": "Расклеить рекламу",
+          "de": "Werbeplakate kleben"
+        },
+        {
+          "ru": "Продать несделанное тесто",
+          "de": "Nicht hergestellten Teig verkaufen"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Мельница превращает зерно в муку; из неё пекарь готовит тесто.",
+        "de": "Die Mühle erzeugt Mehl aus Korn; daraus macht der Bäcker Teig."
+      }
+    }
+  },
+  {
+    "id": "M06-04",
+    "layout": "flow",
+    "categories": [
+      {
+        "ru": "Производство",
+        "de": "Erzeugung"
+      },
+      {
+        "ru": "Охлаждение",
+        "de": "Kühlung"
+      },
+      {
+        "ru": "Магазин",
+        "de": "Verkauf"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Молоко от коровы на ферме",
+          "de": "Milch von der Kuh auf dem Hof"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Поддержание температуры при перевозке",
+          "de": "Temperatur während des Transports halten"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Покупка охлаждённого молока",
+          "de": "Gekühlte Milch im Laden kaufen"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Машина-рефрижератор сломалась в жару. Что под угрозой?",
+        "de": "Der Kühlwagen fällt bei Hitze aus. Was ist gefährdet?"
+      },
+      "options": [
+        {
+          "ru": "Красота упаковки",
+          "de": "Das Design der Verpackung"
+        },
+        {
+          "ru": "Количество рекламных листовок",
+          "de": "Die Zahl der Werbeprospekte"
+        },
+        {
+          "ru": "Соблюдение холодовой цепи",
+          "de": "Die Kühlkette"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Многие молочные продукты требуют непрерывного температурного режима.",
+        "de": "Viele Milchprodukte brauchen eine durchgängige Kühlkette."
+      }
+    }
+  },
+  {
+    "id": "M06-05",
+    "layout": "balance",
+    "categories": [
+      {
+        "ru": "Производство",
+        "de": "Herstellung"
+      },
+      {
+        "ru": "Хранение",
+        "de": "Lagerung"
+      },
+      {
+        "ru": "Перевозка",
+        "de": "Transport"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Оплата труда на ферме",
+          "de": "Lohnkosten auf dem Hof"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Охлаждаемый склад",
+          "de": "Gekühltes Lager"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Доставка грузовиком за 500 км",
+          "de": "Lieferung mit Lkw über 500 km"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Два одинаковых яблока по разным ценам. Можно ли определить причину только по ценнику?",
+        "de": "Zwei ähnliche Äpfel kosten unterschiedlich viel. Reicht der Preis zur Erklärung?"
+      },
+      "options": [
+        {
+          "ru": "Да, по цене сразу известны все расходы",
+          "de": "Ja, der Preis verrät alle Kosten"
+        },
+        {
+          "ru": "Нет, нужно знать производство, хранение и перевозку",
+          "de": "Nein, man muss Anbau, Lagerung und Transport vergleichen"
+        },
+        {
+          "ru": "Значит, одно яблоко не настоящее",
+          "de": "Dann ist ein Apfel unecht"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "На итоговую цену влияют несколько этапов производства и продажи.",
+        "de": "Mehrere Schritte beeinflussen den Endpreis."
+      }
+    }
+  },
+  {
+    "id": "M07-01",
+    "layout": "compare",
+    "categories": [
+      {
+        "ru": "Малая ферма",
+        "de": "Kleiner Hof"
+      },
+      {
+        "ru": "Крупное предприятие",
+        "de": "Großbetrieb"
+      },
+      {
+        "ru": "Оба типа",
+        "de": "Beide Betriebsformen"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Семья владеет несколькими гектарами",
+          "de": "Eine Familie bewirtschaftet wenige Hektar"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "У предприятия множество полей и сотрудников",
+          "de": "Viele Felder und Beschäftigte"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Нужно сохранять качество почвы",
+          "de": "Bodenfruchtbarkeit muss erhalten bleiben"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Кто обязательно экологичнее: маленькая ферма или крупное хозяйство?",
+        "de": "Wer ist grundsätzlich umweltfreundlicher: kleiner Hof oder Großbetrieb?"
+      },
+      "options": [
+        {
+          "ru": "Любой маленький хозяйство",
+          "de": "Jeder kleine Betrieb"
+        },
+        {
+          "ru": "Любой крупный агрохолдинг",
+          "de": "Jeder Großbetrieb"
+        },
+        {
+          "ru": "Нельзя судить без данных о методах и ресурсах",
+          "de": "Ohne Daten zu Methoden und Ressourcen kann man es nicht sagen"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Размер сам по себе не показывает расход воды, воздействие на почву и условия работы.",
+        "de": "Die Betriebsgröße allein sagt wenig über Wasserverbrauch und Bodenschutz aus."
+      }
+    }
+  },
+  {
+    "id": "M07-02",
+    "layout": "balance",
+    "categories": [
+      {
+        "ru": "Специализация",
+        "de": "Spezialisierung"
+      },
+      {
+        "ru": "Риск",
+        "de": "Risiko"
+      },
+      {
+        "ru": "Разнообразие",
+        "de": "Vielfalt"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Хозяйство выращивает только картофель",
+          "de": "Betrieb baut ausschließlich Kartoffeln an"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Болезнь уничтожила весь один вид урожая",
+          "de": "Krankheit zerstört die einzige Kultur"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Рядом растут зерно, овощи и бобовые",
+          "de": "Getreide, Gemüse und Hülsenfrüchte wachsen nebeneinander"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Что произойдёт, если цена единственной культуры резко упадёт?",
+        "de": "Was passiert, wenn der Preis der einzigen Anbaukultur stark fällt?"
+      },
+      "options": [
+        {
+          "ru": "Доход может сильно сократиться",
+          "de": "Das Einkommen kann stark sinken"
+        },
+        {
+          "ru": "Все риски исчезнут",
+          "de": "Alle Risiken verschwinden"
+        },
+        {
+          "ru": "Поля станут больше сами собой",
+          "de": "Die Felder wachsen von selbst"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Сильная зависимость от одной культуры делает доход уязвимым.",
+        "de": "Die Abhängigkeit von einer Kultur macht das Einkommen anfällig."
+      }
+    }
+  },
+  {
+    "id": "M07-03",
+    "layout": "flow",
+    "categories": [
+      {
+        "ru": "Причина эрозии",
+        "de": "Erosionsursache"
+      },
+      {
+        "ru": "Защита почвы",
+        "de": "Bodenschutz"
+      },
+      {
+        "ru": "Риск полива",
+        "de": "Bewässerungsrisiko"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Дождь смывает голую землю на склоне",
+          "de": "Regen spült nackten Hangboden weg"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Корни растений удерживают почву",
+          "de": "Pflanzenwurzeln halten den Boden fest"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Избыточная вода и засоление",
+          "de": "Zu viel Wasser kann versalzen"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "На поле склон и сильный дождь. Что поможет снизить размывание почвы?",
+        "de": "Ein Hangfeld bekommt Starkregen. Was mindert Bodenerosion?"
+      },
+      "options": [
+        {
+          "ru": "Удалить все растения",
+          "de": "Alle Pflanzen entfernen"
+        },
+        {
+          "ru": "Оставить землю без покрова",
+          "de": "Den Boden ganz offen lassen"
+        },
+        {
+          "ru": "Сохранять растительный покров",
+          "de": "Pflanzendecke erhalten"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Растения и их корни уменьшают скорость стока и удерживают почву.",
+        "de": "Pflanzen und Wurzeln bremsen den Abfluss und schützen den Boden."
+      }
+    }
+  },
+  {
+    "id": "M07-04",
+    "layout": "compare",
+    "categories": [
+      {
+        "ru": "Органические правила",
+        "de": "Ökologische Regeln"
+      },
+      {
+        "ru": "Данные о работе фермы",
+        "de": "Betriebsdaten"
+      },
+      {
+        "ru": "Рекламное обещание",
+        "de": "Werbeaussage"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Сертифицированные ограничения на средства защиты",
+          "de": "Zertifizierte Regeln für Pflanzenschutz"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Измеренный расход воды на гектар",
+          "de": "Gemessener Wasserverbrauch je Hektar"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Вывеска «самая зелёная ферма»",
+          "de": "Schild «grünster Hof»"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Две фермы называют себя экологичными. Как проверить?",
+        "de": "Zwei Höfe nennen sich nachhaltig. Wie prüfst du das?"
+      },
+      "options": [
+        {
+          "ru": "По одной фотографии",
+          "de": "Nur anhand eines Fotos"
+        },
+        {
+          "ru": "По измеримым показателям и подтверждённым правилам",
+          "de": "Anhand messbarer Daten und belegter Regeln"
+        },
+        {
+          "ru": "По величине логотипа",
+          "de": "Anhand der Logogröße"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Сравнение должно учитывать реальные данные и стандарты, а не маркетинг.",
+        "de": "Messdaten und Standards sind aussagekräftiger als Werbung."
+      }
+    }
+  },
+  {
+    "id": "M07-05",
+    "layout": "balance",
+    "categories": [
+      {
+        "ru": "Краткосрочная выгода",
+        "de": "Kurzfristiger Vorteil"
+      },
+      {
+        "ru": "Долгосрочная защита",
+        "de": "Langfristiger Schutz"
+      },
+      {
+        "ru": "Компромисс",
+        "de": "Kompromiss"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Собрать максимум за один сезон, истощив почву",
+          "de": "Einmaliger Höchstertrag auf Kosten des Bodens"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Чередовать культуры ради почвы",
+          "de": "Fruchtfolge zum Bodenschutz"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Экономить воду, сохраняя нужный урожай",
+          "de": "Wasser sparen und Ertrag sichern"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Что учитывать при выборе способа полива?",
+        "de": "Was ist bei der Wahl der Bewässerung wichtig?"
+      },
+      "options": [
+        {
+          "ru": "Только расходы сегодняшнего дня",
+          "de": "Nur die Kosten von heute"
+        },
+        {
+          "ru": "Только рекламу техники",
+          "de": "Nur Gerätewerbung"
+        },
+        {
+          "ru": "Урожай, расход воды и состояние почвы в будущем",
+          "de": "Ertrag, Wasser und langfristige Bodenqualität"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Ответственный фермер оценивает и прибыль, и ограниченность природных ресурсов.",
+        "de": "Eine gute Entscheidung berücksichtigt Einkommen und endliche Ressourcen."
+      }
+    }
+  },
+  {
+    "id": "M08-01",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Ресурсы",
+        "de": "Rohstoffe"
+      },
+      {
+        "ru": "Энергия",
+        "de": "Energie"
+      },
+      {
+        "ru": "Транспорт",
+        "de": "Transport"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Доставка древесины на фабрику",
+          "de": "Holz zur Fabrik liefern"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Электричество для станков",
+          "de": "Strom für Maschinen"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Железная дорога к покупателям",
+          "de": "Gleis zu den Abnehmern"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Фабрика производит много тяжёлых изделий. Что существенно при выборе участка?",
+        "de": "Eine Fabrik stellt schwere Produkte her. Was zählt bei der Standortwahl?"
+      },
+      "options": [
+        {
+          "ru": "Удобные пути доставки и ограничение вреда соседям",
+          "de": "Gute Transportwege und Schutz der Nachbarschaft"
+        },
+        {
+          "ru": "Только цвет забора",
+          "de": "Nur Zaunfarbe"
+        },
+        {
+          "ru": "Только вид с крыши",
+          "de": "Nur Dachausblick"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Транспорт, сырьё, энергия и последствия для жителей влияют на размещение.",
+        "de": "Transport, Rohstoffe, Energie und Nachbarschaft prägen die Standortwahl."
+      }
+    }
+  },
+  {
+    "id": "M08-02",
+    "layout": "flow",
+    "categories": [
+      {
+        "ru": "Сырьё",
+        "de": "Rohstoff"
+      },
+      {
+        "ru": "Обработка",
+        "de": "Verarbeitung"
+      },
+      {
+        "ru": "Изделие",
+        "de": "Produkt"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Железная руда",
+          "de": "Eisenerz"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Выплавка стали",
+          "de": "Stahlherstellung"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Стальная рама велосипеда",
+          "de": "Stahlrahmen am Fahrrad"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Почему из руды нельзя сразу ездить на велосипеде?",
+        "de": "Warum wird aus Erz nicht sofort ein fahrbares Fahrrad?"
+      },
+      "options": [
+        {
+          "ru": "Руда уже является готовым велосипедом",
+          "de": "Erz ist bereits ein fertiges Fahrrad"
+        },
+        {
+          "ru": "Нужны обработка и сборка деталей",
+          "de": "Verarbeitung und Montage sind nötig"
+        },
+        {
+          "ru": "Изделия растут в почве",
+          "de": "Fahrräder wachsen im Boden"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Руда превращается в материал, детали и только потом в готовый товар.",
+        "de": "Aus Erz entstehen Material und Teile, erst danach das Produkt."
+      }
+    }
+  },
+  {
+    "id": "M08-03",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Водный путь",
+        "de": "Wasserweg"
+      },
+      {
+        "ru": "Железная дорога",
+        "de": "Schienenverkehr"
+      },
+      {
+        "ru": "Автодорога",
+        "de": "Straßentransport"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Баржа везёт руду по реке",
+          "de": "Lastkahn transportiert Erz auf dem Fluss"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Товарный состав со сталью",
+          "de": "Güterzug mit Stahl"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Грузовик доставляет детали в магазин",
+          "de": "Lkw liefert Teile zum Laden"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Предприятию нужно получать тысячи тонн сырья. Какое условие особенно полезно?",
+        "de": "Ein Werk erhält Tausende Tonnen Rohstoffe. Was ist besonders hilfreich?"
+      },
+      "options": [
+        {
+          "ru": "Только пешеходная дорожка",
+          "de": "Nur Fußweg"
+        },
+        {
+          "ru": "Только велосипедная стоянка",
+          "de": "Nur Fahrradstellplatz"
+        },
+        {
+          "ru": "Связь с железной дорогой или портом",
+          "de": "Anschluss an Bahn oder Hafen"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Железная дорога и судоходство подходят для больших грузовых потоков.",
+        "de": "Bahn und Schifffahrt eignen sich für große Gütermengen."
+      }
+    }
+  },
+  {
+    "id": "M08-04",
+    "layout": "flow",
+    "categories": [
+      {
+        "ru": "Раньше",
+        "de": "Früher"
+      },
+      {
+        "ru": "Переходный этап",
+        "de": "Wandel"
+      },
+      {
+        "ru": "Сегодня",
+        "de": "Heute"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Шахты добывали уголь",
+          "de": "Zechen förderten Kohle"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Закрылись некоторые предприятия",
+          "de": "Einige Werke wurden geschlossen"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Развиваются университеты и услуги",
+          "de": "Hochschulen und Dienstleistungen wachsen"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "В бывшем цехе открылся музей. Что это показывает?",
+        "de": "Eine ehemalige Fabrikhalle wird zum Museum. Was zeigt das?"
+      },
+      "options": [
+        {
+          "ru": "Новый способ использования промышленного пространства",
+          "de": "Neue Nutzung einer Industriefläche"
+        },
+        {
+          "ru": "Возврат к доисторическому сельскому хозяйству",
+          "de": "Rückkehr zur Urzeit-Landwirtschaft"
+        },
+        {
+          "ru": "Изменение климата за сутки",
+          "de": "Wetterwechsel an einem Tag"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Промышленный регион может менять функции зданий и виды занятости.",
+        "de": "Industrieregionen können Gebäude und Arbeitsplätze neu nutzen."
+      }
+    }
+  },
+  {
+    "id": "M08-05",
+    "layout": "balance",
+    "categories": [
+      {
+        "ru": "Экономия ресурсов",
+        "de": "Ressourcensparen"
+      },
+      {
+        "ru": "Защита воздуха и воды",
+        "de": "Umweltschutz"
+      },
+      {
+        "ru": "Круговое использование",
+        "de": "Kreislauf"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Станок потребляет меньше электричества",
+          "de": "Maschine spart Strom"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Фильтр уменьшает вредные выбросы",
+          "de": "Filter senkt schädliche Emissionen"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Металл из старых деталей снова в производстве",
+          "de": "Metall aus Altteilen erneut nutzen"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Что уменьшит потребность в новом сырье?",
+        "de": "Was senkt den Bedarf an neuen Rohstoffen?"
+      },
+      "options": [
+        {
+          "ru": "Выбрасывать все детали",
+          "de": "Alle Bauteile wegwerfen"
+        },
+        {
+          "ru": "Повторно использовать и перерабатывать материалы",
+          "de": "Material wiederverwenden und recyceln"
+        },
+        {
+          "ru": "Увеличить объём отходов",
+          "de": "Abfallmenge erhöhen"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Повторное применение материалов снижает добычу нового сырья.",
+        "de": "Wiederverwendung kann den Rohstoffbedarf verringern."
+      }
+    }
+  },
+  {
+    "id": "M09-01",
+    "layout": "flow",
+    "categories": [
+      {
+        "ru": "Первичный сектор",
+        "de": "Primärer Sektor"
+      },
+      {
+        "ru": "Вторичный сектор",
+        "de": "Sekundärer Sektor"
+      },
+      {
+        "ru": "Третичный сектор",
+        "de": "Tertiärer Sektor"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Фермер выращивает зерно",
+          "de": "Landwirt baut Getreide an"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Пекарь выпекает хлеб",
+          "de": "Bäcker backt Brot"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Продавец продаёт хлеб",
+          "de": "Verkäufer verkauft Brot"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "К какому сектору относится парикмахер?",
+        "de": "Zu welchem Sektor gehört ein Friseurbetrieb?"
+      },
+      "options": [
+        {
+          "ru": "Первичный",
+          "de": "Zum primären"
+        },
+        {
+          "ru": "Вторичный",
+          "de": "Zum sekundären"
+        },
+        {
+          "ru": "Третичный — услуги",
+          "de": "Zum tertiären – Dienstleistungen"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Парикмахер оказывает услугу, а не добывает сырьё или производит товары.",
+        "de": "Friseure bieten Dienstleistungen an."
+      }
+    }
+  },
+  {
+    "id": "M09-02",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Коммунальное хозяйство",
+        "de": "Kommunale Versorgung"
+      },
+      {
+        "ru": "Образование",
+        "de": "Bildung"
+      },
+      {
+        "ru": "Здравоохранение",
+        "de": "Gesundheit"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Сбор бытового мусора",
+          "de": "Müllabfuhr"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Уроки в школе",
+          "de": "Unterricht in der Schule"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Приём врача",
+          "de": "Arzttermin"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "После сильного дождя засорена городская ливневая канализация. Какая служба нужна?",
+        "de": "Nach Starkregen ist die Entwässerung verstopft. Welche Stelle hilft?"
+      },
+      "options": [
+        {
+          "ru": "Коммунальная служба водоотведения",
+          "de": "Kommunaler Entwässerungsbetrieb"
+        },
+        {
+          "ru": "Зоопарк",
+          "de": "Zoo"
+        },
+        {
+          "ru": "Туристический музей",
+          "de": "Tourismusmuseum"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Инфраструктуру обслуживают городские коммунальные службы.",
+        "de": "Kommunale Betriebe betreuen die städtische Infrastruktur."
+      }
+    }
+  },
+  {
+    "id": "M09-03",
+    "layout": "compare",
+    "categories": [
+      {
+        "ru": "Промышленный регион",
+        "de": "Industrieregion"
+      },
+      {
+        "ru": "Туристический регион",
+        "de": "Tourismusregion"
+      },
+      {
+        "ru": "Аграрный регион",
+        "de": "Agrarregion"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Много фабрик и поставщиков деталей",
+          "de": "Viele Fabriken und Zulieferer"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Гостиницы, подъёмники и экскурсии",
+          "de": "Hotels, Seilbahnen und Ausflüge"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Поля и предприятия переработки урожая",
+          "de": "Felder und Ernteverarbeitung"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "На карте региона множество шахт и металлургических предприятий. Что можно предположить?",
+        "de": "Viele Zechen und Stahlwerke auf einer Karte. Was liegt nahe?"
+      },
+      "options": [
+        {
+          "ru": "Регион прежде всего океанический",
+          "de": "Vor allem Ozeanregion"
+        },
+        {
+          "ru": "Значительную роль играла промышленность",
+          "de": "Industrie spielte eine große Rolle"
+        },
+        {
+          "ru": "В регионе нет рабочих мест",
+          "de": "Es gibt keine Arbeitsplätze"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Специализация района видна по расположению и связям предприятий.",
+        "de": "Die Wirtschaftsstruktur zeigt sich an Betrieben und ihren Verbindungen."
+      }
+    }
+  },
+  {
+    "id": "M09-04",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Данные",
+        "de": "Daten"
+      },
+      {
+        "ru": "Полезная услуга",
+        "de": "Nützlicher Dienst"
+      },
+      {
+        "ru": "Конфиденциальность",
+        "de": "Datenschutz"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Датчик сообщает задержку автобуса",
+          "de": "Sensor meldet Busverspätung"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Табло показывает новое время прибытия",
+          "de": "Anzeige zeigt neue Ankunft"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Система не публикует личные поездки",
+          "de": "System veröffentlicht keine persönlichen Wege"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Приложение показывает местоположение автобусов. Какие сведения не нужны пассажирам?",
+        "de": "Eine App zeigt Buspositionen. Welche Daten brauchen Fahrgäste NICHT?"
+      },
+      "options": [
+        {
+          "ru": "Номер линии",
+          "de": "Liniennummer"
+        },
+        {
+          "ru": "Время прибытия",
+          "de": "Ankunftszeit"
+        },
+        {
+          "ru": "Домашние адреса пассажиров",
+          "de": "Privatadressen der Fahrgäste"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Для маршрута не нужны личные адреса пользователей.",
+        "de": "Für die Routenplanung sind Privatadressen nicht nötig."
+      }
+    }
+  },
+  {
+    "id": "M09-05",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Транспорт",
+        "de": "Verkehr"
+      },
+      {
+        "ru": "Торговля",
+        "de": "Handel"
+      },
+      {
+        "ru": "Медицина",
+        "de": "Medizin"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Автобус ездит в районный центр",
+          "de": "Bus fährt ins Kreiszentrum"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Магазин предлагает продукты",
+          "de": "Laden verkauft Lebensmittel"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Клиника принимает пациентов",
+          "de": "Klinik behandelt Patienten"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "В посёлке нет стоматолога, а многие жители пожилые. Что особенно важно?",
+        "de": "Im Ort gibt es keinen Zahnarzt, viele Menschen sind älter. Was hilft?"
+      },
+      "options": [
+        {
+          "ru": "Закрыть автобусную остановку",
+          "de": "Bushaltestelle schließen"
+        },
+        {
+          "ru": "Обеспечить доступный транспорт к лечению",
+          "de": "Gut erreichbare Fahrt zur Behandlung anbieten"
+        },
+        {
+          "ru": "Увеличить рекламные плакаты",
+          "de": "Mehr Werbeplakate"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Доступность услуги зависит и от физической возможности до неё добраться.",
+        "de": "Erreichbarkeit hängt von passenden Verkehrsangeboten ab."
+      }
+    }
+  },
+  {
+    "id": "M10-01",
+    "layout": "compare",
+    "categories": [
+      {
+        "ru": "Морской отдых",
+        "de": "Urlaub am Meer"
+      },
+      {
+        "ru": "Горный отдых",
+        "de": "Gebirgsurlaub"
+      },
+      {
+        "ru": "Городской туризм",
+        "de": "Städtetourismus"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Купание на пляже Северного моря",
+          "de": "Strand an der Nordsee"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Пеший маршрут через Альпы",
+          "de": "Wanderweg durch die Alpen"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Посещение музеев Берлина",
+          "de": "Museumsbesuch in Berlin"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Семья любит пешие походы с перепадом высот. Какое место логичнее выбрать?",
+        "de": "Die Familie möchte wandern und Höhenunterschiede erleben. Wohin passt es?"
+      },
+      "options": [
+        {
+          "ru": "Горный регион с отмеченными тропами",
+          "de": "Gebirge mit markierten Wanderwegen"
+        },
+        {
+          "ru": "Складская зона порта",
+          "de": "Lagergebiet des Hafens"
+        },
+        {
+          "ru": "Автомобильная парковка равнинного города",
+          "de": "Parkplatz in der Ebene"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Различные природные условия создают разные виды отдыха.",
+        "de": "Unterschiedliche Naturräume ermöglichen unterschiedliche Urlaubsformen."
+      }
+    }
+  },
+  {
+    "id": "M10-02",
+    "layout": "measure",
+    "categories": [
+      {
+        "ru": "Погода",
+        "de": "Wetter"
+      },
+      {
+        "ru": "Климат",
+        "de": "Klima"
+      },
+      {
+        "ru": "Высота",
+        "de": "Höhe"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Сегодня после обеда ожидается гроза",
+          "de": "Heute Nachmittag Gewitterwarnung"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Средняя летняя температура за много лет",
+          "de": "Mittlere Sommertemperatur über viele Jahre"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "На вершине обычно холоднее, чем в долине",
+          "de": "Auf dem Gipfel meist kälter als im Tal"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "В долине +20 °C, наверху на высоте 2000 м холоднее. Что взять в поход?",
+        "de": "Im Tal 20 °C, in 2000 m Höhe kühler. Was packst du ein?"
+      },
+      "options": [
+        {
+          "ru": "Только пляжные шлёпанцы",
+          "de": "Nur Badeschlappen"
+        },
+        {
+          "ru": "Тёплый слой и защиту от непогоды",
+          "de": "Warme Schicht und Wetterschutz"
+        },
+        {
+          "ru": "Только солнцезащитные очки",
+          "de": "Nur Sonnenbrille"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "В горах погода может быстро меняться, а температура обычно снижается с высотой.",
+        "de": "Im Gebirge wechselt das Wetter schnell; mit der Höhe sinkt meist die Temperatur."
+      }
+    }
+  },
+  {
+    "id": "M10-03",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Проживание",
+        "de": "Unterkunft"
+      },
+      {
+        "ru": "Водоснабжение",
+        "de": "Wasserversorgung"
+      },
+      {
+        "ru": "Отходы",
+        "de": "Abfall"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Гостиница с комнатами для гостей",
+          "de": "Hotel mit Gästezimmern"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Вода для душа и приготовления еды",
+          "de": "Wasser für Duschen und Küche"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Сбор и вывоз мусора с пляжа",
+          "de": "Abfallentsorgung vom Strand"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "На курорт приехало вдвое больше гостей, чем обычно. Что необходимо проверить заранее?",
+        "de": "Ein Ferienort bekommt doppelt so viele Gäste. Was sollte er vorher prüfen?"
+      },
+      "options": [
+        {
+          "ru": "Только количество сувениров",
+          "de": "Nur Souvenirs zählen"
+        },
+        {
+          "ru": "Только размер рекламного щита",
+          "de": "Nur Plakatgröße prüfen"
+        },
+        {
+          "ru": "Хватит ли воды, транспорта и вывоза мусора",
+          "de": "Reichen Wasser, Verkehr und Müllabfuhr?"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Туристический поток влияет на всю коммунальную инфраструктуру.",
+        "de": "Viele Gäste belasten die gesamte örtliche Infrastruktur."
+      }
+    }
+  },
+  {
+    "id": "M10-04",
+    "layout": "compare",
+    "categories": [
+      {
+        "ru": "Северное море",
+        "de": "Nordsee"
+      },
+      {
+        "ru": "Альпы",
+        "de": "Alpen"
+      },
+      {
+        "ru": "И там и там",
+        "de": "In beiden Regionen"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Приливы и отливы",
+          "de": "Ebbe und Flut"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Перевалы и высокогорные тропы",
+          "de": "Pässe und Höhenwege"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Есть туристы и природоохранные правила",
+          "de": "Touristen und Naturschutzregeln"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Туристы хотят попасть на приливную отмель. Что обязательно учитывать?",
+        "de": "Touristen wollen ins Watt laufen. Was müssen sie beachten?"
+      },
+      "options": [
+        {
+          "ru": "Время прилива и безопасный маршрут",
+          "de": "Gezeiten und sicheren Weg"
+        },
+        {
+          "ru": "Высоту горного перевала",
+          "de": "Höhe eines Gebirgspasses"
+        },
+        {
+          "ru": "Маршруты горных лыж",
+          "de": "Skipisten"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "В прибрежной зоне прилив может быстро сделать путь опасным.",
+        "de": "Bei Gezeiten kann ein Weg im Watt gefährlich werden."
+      }
+    }
+  },
+  {
+    "id": "M10-05",
+    "layout": "route",
+    "categories": [
+      {
+        "ru": "Бюджет",
+        "de": "Budget"
+      },
+      {
+        "ru": "Время",
+        "de": "Zeit"
+      },
+      {
+        "ru": "Экологическое воздействие",
+        "de": "Umweltauswirkung"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Сколько стоит вся поездка",
+          "de": "Gesamtkosten der Reise"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Сколько часов занимает дорога с пересадками",
+          "de": "Reisedauer mit Umstiegen"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Влияние выбранного транспорта",
+          "de": "Auswirkung des Verkehrsmittels"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "По прямой 150 км, но дорога через горы 220 км. Что брать для расчёта времени?",
+        "de": "Luftlinie 150 km, Bergstraße 220 km. Welche Strecke ist für die Fahrzeit wichtig?"
+      },
+      "options": [
+        {
+          "ru": "150 км по прямой",
+          "de": "150 km Luftlinie"
+        },
+        {
+          "ru": "Реальный маршрут и скорость транспорта",
+          "de": "Tatsächliche Route und Verkehrsmittel"
+        },
+        {
+          "ru": "Количество фотографий гор",
+          "de": "Anzahl der Bergfotos"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Реальное время зависит от доступных дорог и выбранного транспорта.",
+        "de": "Die Reisezeit hängt von der echten Route und dem Verkehrsmittel ab."
+      }
+    }
+  },
+  {
+    "id": "M11-01",
+    "layout": "balance",
+    "categories": [
+      {
+        "ru": "Доходы",
+        "de": "Einnahmen"
+      },
+      {
+        "ru": "Нагрузка",
+        "de": "Belastung"
+      },
+      {
+        "ru": "Сезонность",
+        "de": "Saisonalität"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Гостиницы продают больше ночёвок летом",
+          "de": "Hotels verkaufen im Sommer mehr Übernachtungen"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "На дорогах и у воды становится теснее",
+          "de": "Straßen und Wasserversorgung werden stärker genutzt"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Часть работы доступна только летом",
+          "de": "Manche Arbeitsplätze gibt es nur im Sommer"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Гостей зимой мало. Какой риск для местных работников?",
+        "de": "Im Winter kommen wenige Gäste. Welches Risiko entsteht für Beschäftigte?"
+      },
+      "options": [
+        {
+          "ru": "Все рабочие места становятся постоянными",
+          "de": "Alle Stellen werden ganzjährig"
+        },
+        {
+          "ru": "Погода перестаёт меняться",
+          "de": "Das Wetter bleibt gleich"
+        },
+        {
+          "ru": "Некоторые сезонные места исчезают",
+          "de": "Manche Saisonarbeitsplätze fallen weg"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Туристическая занятость часто меняется вместе с сезоном.",
+        "de": "Touristische Beschäftigung kann vom Reisezeitraum abhängen."
+      }
+    }
+  },
+  {
+    "id": "M11-02",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Прямая занятость",
+        "de": "Direkte Beschäftigung"
+      },
+      {
+        "ru": "Поставщики",
+        "de": "Zulieferer"
+      },
+      {
+        "ru": "Местная экономика",
+        "de": "Lokale Wirtschaft"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Сотрудник отеля принимает гостей",
+          "de": "Hotelmitarbeiter empfängt Gäste"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Ферма поставляет овощи в отель",
+          "de": "Bauernhof liefert Gemüse ans Hotel"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Туристы покупают билеты в музей",
+          "de": "Gäste kaufen Eintrittskarten im Museum"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Гостиница закупает хлеб у местной пекарни. Кто получает пользу?",
+        "de": "Ein Hotel kauft Brot bei einer örtlichen Bäckerei. Wer profitiert?"
+      },
+      "options": [
+        {
+          "ru": "Только туристы издалека",
+          "de": "Nur Gäste aus der Ferne"
+        },
+        {
+          "ru": "И гостиница, и местный поставщик",
+          "de": "Hotel und örtlicher Lieferant"
+        },
+        {
+          "ru": "Только аэропорт в другой стране",
+          "de": "Nur ein Flughafen im Ausland"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Расходы туристов поддерживают и основные предприятия, и поставщиков.",
+        "de": "Touristische Ausgaben wirken auch auf örtliche Zulieferer."
+      }
+    }
+  },
+  {
+    "id": "M11-03",
+    "layout": "balance",
+    "categories": [
+      {
+        "ru": "Риск для животных",
+        "de": "Risiko für Tiere"
+      },
+      {
+        "ru": "Риск для воды",
+        "de": "Risiko für Wasser"
+      },
+      {
+        "ru": "Защитная мера",
+        "de": "Schutzmaßnahme"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Шум возле гнездовья птиц",
+          "de": "Lärm nahe einem Vogelnest"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Мусор попал в ручей",
+          "de": "Müll landet im Bach"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Тропа закрыта во время размножения животных",
+          "de": "Weg in der Brutzeit gesperrt"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Посетители оставляют тропу и ходят по охраняемым лугам. Что может произойти?",
+        "de": "Besucher verlassen den Weg und laufen über geschützte Wiesen. Was kann geschehen?"
+      },
+      "options": [
+        {
+          "ru": "Воздействия никогда нет",
+          "de": "Es gibt nie Folgen"
+        },
+        {
+          "ru": "Это только повышает биоразнообразие",
+          "de": "Das fördert immer die Artenvielfalt"
+        },
+        {
+          "ru": "Почва и живые организмы могут пострадать",
+          "de": "Boden und Lebewesen können geschädigt werden"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Неправильное поведение туристов нарушает чувствительные местообитания.",
+        "de": "Abseits der Wege können empfindliche Lebensräume gestört werden."
+      }
+    }
+  },
+  {
+    "id": "M11-04",
+    "layout": "balance",
+    "categories": [
+      {
+        "ru": "Транспорт",
+        "de": "Verkehr"
+      },
+      {
+        "ru": "Местный доход",
+        "de": "Lokales Einkommen"
+      },
+      {
+        "ru": "Защита территории",
+        "de": "Gebietsschutz"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "До национального парка автобусом",
+          "de": "Mit dem Bus in den Nationalpark"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Посещение местной пекарни",
+          "de": "Einkauf in der örtlichen Bäckerei"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Не сходить с обозначенной тропы",
+          "de": "Auf markiertem Weg bleiben"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Как снизить автомобильные пробки в популярной горной долине?",
+        "de": "Wie verringert man Autostaus in einem beliebten Alpental?"
+      },
+      "options": [
+        {
+          "ru": "Построить парковку на каждом лугу",
+          "de": "Jede Wiese zum Parkplatz machen"
+        },
+        {
+          "ru": "Удобный общественный транспорт для гостей",
+          "de": "Gute Busangebote für Gäste"
+        },
+        {
+          "ru": "Запретить пешие прогулки повсюду",
+          "de": "Spaziergänge überall verbieten"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Удобные автобусные рейсы могут заменить многие отдельные поездки на машинах.",
+        "de": "Gute Busverbindungen können viele Autofahrten ersetzen."
+      }
+    }
+  },
+  {
+    "id": "M11-05",
+    "layout": "balance",
+    "categories": [
+      {
+        "ru": "Мнение жителей",
+        "de": "Sicht der Einwohner"
+      },
+      {
+        "ru": "Мнение бизнеса",
+        "de": "Sicht der Betriebe"
+      },
+      {
+        "ru": "Мнение защитников природы",
+        "de": "Sicht des Naturschutzes"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Нужно спокойствие возле жилых домов",
+          "de": "Ruhe in Wohngebieten ist wichtig"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Нужны доходы от гостей круглый год",
+          "de": "Einnahmen durch Gäste sind wichtig"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Нужно сохранить редкие виды",
+          "de": "Seltene Arten müssen geschützt werden"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "На новый подъёмник претендуют туроператор и защитники леса. Как принять решение?",
+        "de": "Für eine neue Seilbahn gibt es Streit zwischen Reiseunternehmen und Naturschutz. Wie entscheiden?"
+      },
+      "options": [
+        {
+          "ru": "Оценить рабочие места, жителей и экологический ущерб",
+          "de": "Arbeitsplätze, Einwohner und Umweltfolgen prüfen"
+        },
+        {
+          "ru": "Слушать только рекламу",
+          "de": "Nur Werbung anhören"
+        },
+        {
+          "ru": "Не спрашивать местных жителей",
+          "de": "Einwohner nicht fragen"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Хороший компромисс требует фактов и учёта интересов сторон.",
+        "de": "Ein Kompromiss braucht Fakten und berücksichtigt mehrere Interessen."
+      }
+    }
+  },
+  {
+    "id": "M12-01",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Наблюдение",
+        "de": "Beobachtung"
+      },
+      {
+        "ru": "Карта",
+        "de": "Karte"
+      },
+      {
+        "ru": "Источник",
+        "de": "Quelle"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Видел остановку во время прогулки",
+          "de": "Haltestelle beim Spaziergang gesehen"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Нашёл школу на плане района",
+          "de": "Schule auf der Ortskarte gefunden"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Записал дату и адрес справочной страницы",
+          "de": "Datum und Adresse einer Infoseite notiert"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Ты заметил новую стройку. Как проверить, какой объект там планируется?",
+        "de": "Du siehst eine Baustelle. Wie prüfst du, was dort geplant ist?"
+      },
+      "options": [
+        {
+          "ru": "Придумать назначение по цвету забора",
+          "de": "Aus der Zaunfarbe raten"
+        },
+        {
+          "ru": "Сравнить наблюдение с официальным планом",
+          "de": "Beobachtung mit amtlichem Plan vergleichen"
+        },
+        {
+          "ru": "Взять случайный комментарий за факт",
+          "de": "Beliebigen Kommentar als Fakt nehmen"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Наблюдение полезно, когда его проверяют независимым источником.",
+        "de": "Beobachtungen werden durch einen verlässlichen Plan besser überprüfbar."
+      }
+    }
+  },
+  {
+    "id": "M12-02",
+    "layout": "flow",
+    "categories": [
+      {
+        "ru": "Сырьё",
+        "de": "Rohstoff"
+      },
+      {
+        "ru": "Обработка",
+        "de": "Verarbeitung"
+      },
+      {
+        "ru": "Торговля",
+        "de": "Handel"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Пшеница с поля",
+          "de": "Weizen vom Feld"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Мука и выпечка",
+          "de": "Mehl und Backen"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Продажа хлеба покупателю",
+          "de": "Brot an Kunden verkaufen"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Ты изучаешь шоколадную плитку. Что нужно исследовать помимо магазина?",
+        "de": "Du untersuchst Schokolade. Was ist neben dem Laden wichtig?"
+      },
+      "options": [
+        {
+          "ru": "Только цвет полки",
+          "de": "Nur Regalfarbe"
+        },
+        {
+          "ru": "Только музыка в магазине",
+          "de": "Nur Ladenmusik"
+        },
+        {
+          "ru": "Происхождение какао, обработку и транспорт",
+          "de": "Herkunft von Kakao, Verarbeitung und Transport"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Товар связан с несколькими экономическими районами и профессиями.",
+        "de": "Ein Produkt verbindet verschiedene Wirtschaftsräume und Berufe."
+      }
+    }
+  },
+  {
+    "id": "M12-03",
+    "layout": "network",
+    "categories": [
+      {
+        "ru": "Жильё",
+        "de": "Wohnung"
+      },
+      {
+        "ru": "Образование",
+        "de": "Bildung"
+      },
+      {
+        "ru": "Зелёные пространства",
+        "de": "Grünfläche"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Квартиры у остановки",
+          "de": "Wohnungen bei der Haltestelle"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Школа с безопасным подходом",
+          "de": "Schule mit sicherem Schulweg"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Парк с деревьями",
+          "de": "Park mit Bäumen"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "На плане есть дома, но нет пешеходного перехода к школе. Чего не хватает?",
+        "de": "Im Stadtplan gibt es Häuser, aber keinen sicheren Schulweg. Was fehlt?"
+      },
+      "options": [
+        {
+          "ru": "Безопасной связи между функциями района",
+          "de": "Sicherer Verbindung zwischen Stadtfunktionen"
+        },
+        {
+          "ru": "Пятого фонтана",
+          "de": "Fünfter Brunnen"
+        },
+        {
+          "ru": "Ещё одной рекламной вывески",
+          "de": "Noch eines Werbeschildes"
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "ru": "Места должны быть не только на карте, но и доступны людям.",
+        "de": "Angebote müssen nicht nur vorhanden, sondern erreichbar sein."
+      }
+    }
+  },
+  {
+    "id": "M12-04",
+    "layout": "balance",
+    "categories": [
+      {
+        "ru": "Экономическая польза",
+        "de": "Wirtschaftlicher Nutzen"
+      },
+      {
+        "ru": "Влияние на природу",
+        "de": "Naturfolgen"
+      },
+      {
+        "ru": "Аргумент с данными",
+        "de": "Belegtes Argument"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Новая дорога сократит доставку на 20 минут",
+          "de": "Straße verkürzt Lieferung um 20 Minuten"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Дорога пересечёт участок леса",
+          "de": "Straße schneidet ein Waldstück"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Замеры показывают шум у жилых домов",
+          "de": "Messwerte zeigen Lärm an Wohnungen"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Один человек говорит: «Построим быстрее, потому что так хочется». Чего не хватает?",
+        "de": "Jemand sagt: «Bauen wir, weil ich es will». Was fehlt?"
+      },
+      "options": [
+        {
+          "ru": "Больше эмоций",
+          "de": "Mehr Gefühle"
+        },
+        {
+          "ru": "Данных о пользе, рисках и альтернативных маршрутах",
+          "de": "Daten zu Nutzen, Folgen und Alternativen"
+        },
+        {
+          "ru": "Громкого голоса",
+          "de": "Eine lautere Stimme"
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "ru": "Географическое решение должно учитывать проверяемые последствия и варианты.",
+        "de": "Eine geografische Entscheidung vergleicht belegte Folgen und Alternativen."
+      }
+    }
+  },
+  {
+    "id": "M12-05",
+    "layout": "flow",
+    "categories": [
+      {
+        "ru": "Вопрос",
+        "de": "Fragestellung"
+      },
+      {
+        "ru": "Доказательства",
+        "de": "Belege"
+      },
+      {
+        "ru": "Обоснованный вывод",
+        "de": "Begründetes Fazit"
+      }
+    ],
+    "samples": [
+      {
+        "label": {
+          "ru": "Почему автобусы в деревне ездят редко?",
+          "de": "Warum fahren Busse im Dorf selten?"
+        },
+        "answer": 0
+      },
+      {
+        "label": {
+          "ru": "Расписание, число пассажиров, карту маршрутов",
+          "de": "Fahrplan, Fahrgastzahlen und Linienkarte"
+        },
+        "answer": 1
+      },
+      {
+        "label": {
+          "ru": "Предложение новых рейсов со ссылкой на данные",
+          "de": "Vorschlag neuer Fahrten mit Datenbezug"
+        },
+        "answer": 2
+      }
+    ],
+    "decision": {
+      "question": {
+        "ru": "Дневник заполнен только картинками. Что нужно добавить в финальный проект?",
+        "de": "Im Tagebuch stehen nur Bilder. Was fehlt für das Abschlussprojekt?"
+      },
+      "options": [
+        {
+          "ru": "Только больше украшений",
+          "de": "Nur mehr Dekoration"
+        },
+        {
+          "ru": "Произвольное мнение без источников",
+          "de": "Beliebige Meinung ohne Belege"
+        },
+        {
+          "ru": "Вопрос, факты, объяснение и источник",
+          "de": "Frage, Fakten, Erklärung und Quelle"
+        }
+      ],
+      "answer": 2,
+      "why": {
+        "ru": "Финальный проект показывает не только результат, но и путь рассуждения.",
+        "de": "Ein Abschlussprojekt zeigt das Ergebnis und den begründeten Denkweg."
+      }
+    }
+  }
+]

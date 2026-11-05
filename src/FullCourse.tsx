@@ -4,6 +4,8 @@ import type { Lang } from './ui';
 import { getLessonVideo, type CourseVideo } from './courseVideos';
 import './fullCourse.css';
 import MapDetective from './MapDetective';
+import ExpeditionMission from './ExpeditionMissions';
+import { serializeCourseProgress, mergeCourseProgress } from './courseProgress.mjs';
 const ExistingEuropeMap = lazy(() => import('./MapScene'));
 
 type Lesson = (typeof course.lessons)[number];
@@ -111,10 +113,12 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
   const [choice, setChoice] = useState<number | null>(null);
   const [checked, setChecked] = useState(false);
   const [miniSolved, setMiniSolved] = useState(false);
+  const [missionSolved, setMissionSolved] = useState(false);
   const [showExistingMap, setShowExistingMap] = useState(false);
   const [note, setNote] = useState('');
   const [showWhy, setShowWhy] = useState(false);
   const [savedNotice, setSavedNotice] = useState(false);
+  const [backupNotice, setBackupNotice] = useState('');
   const completed = useMemo(() => new Set(progress.completed), [progress.completed]);
   const count = progress.completed.length;
   const image = (name: string) => `${import.meta.env.BASE_URL}art/${name}.webp`;
@@ -126,20 +130,43 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
   function home() { setScreen({ kind:'index' }); window.scrollTo({top:0,behavior:'smooth'}); }
   function module(index: number) { setScreen({kind:'module',module:index}); window.scrollTo({top:0,behavior:'smooth'}); }
   function lesson(index: number) {
-    setScreen({kind:'lesson',index}); setChoice(null); setChecked(false); setShowWhy(false); setMiniSolved(false); setShowExistingMap(false);
+    setScreen({kind:'lesson',index}); setChoice(null); setChecked(false); setShowWhy(false); setMiniSolved(false); setMissionSolved(false); setShowExistingMap(false);
     setNote(progress.notes[course.lessons[index].id] ?? ''); setSavedNotice(false);
     window.scrollTo({top:0,behavior:'smooth'});
   }
   function submit(l: Lesson) {
     if (choice === null) return;
     setChecked(true);
-    if (choice === l.answer && (l.moduleId !== 'M01' || miniSolved) && !completed.has(l.id)) persist({...progress,completed:[...progress.completed,l.id]});
+    if (choice === l.answer && (l.moduleId === 'M01' ? miniSolved : missionSolved) && !completed.has(l.id)) persist({...progress,completed:[...progress.completed,l.id]});
   }
   function completeMini(l: Lesson) {
     setMiniSolved(true);
     if (checked && choice === l.answer && !completed.has(l.id)) persist({...progress,completed:[...progress.completed,l.id]});
   }
+  function completeMission(l: Lesson) {
+    setMissionSolved(true);
+    if (checked && choice === l.answer && !completed.has(l.id)) persist({...progress,completed:[...progress.completed,l.id]});
+  }
   function saveNote(l: Lesson) { persist({...progress,notes:{...progress.notes,[l.id]: note.slice(0,1500)}}); setSavedNotice(true); }
+  function exportCourseJson() {
+    const content=serializeCourseProgress(progress);
+    const url=URL.createObjectURL(new Blob([content],{type:'application/json;charset=utf-8'}));
+    const link=document.createElement('a');link.href=url;link.download='europe-explorer-60-progress.json';link.click();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+    setBackupNotice(lang==='ru'?'Резервная копия курса сохранена':'Kurssicherung gespeichert');
+  }
+  async function importCourseJson(file: File) {
+    try {
+      if(file.size>1024*1024)throw Error('File too large');
+      const input=JSON.parse(await file.text());
+      const known=new Set(course.lessons.map(l=>l.id));
+      const merged=mergeCourseProgress(progress,input,known);
+      persist(merged);
+      setBackupNotice(lang==='ru'?'Прогресс и заметки успешно восстановлены без удаления существующих данных.':'Fortschritt und Notizen wurden ohne Verlust der bisherigen Daten zusammengeführt.');
+    } catch {
+      setBackupNotice(lang==='ru'?'Файл не подходит: проверь формат JSON резервной копии курса. Существующий прогресс сохранён.':'Ungültige JSON-Kurssicherung. Dein bisheriger Fortschritt bleibt erhalten.');
+    }
+  }
   function exportNotes() {
     const content = savedAsText(progress,lang);
     const url=URL.createObjectURL(new Blob([content],{type:'text/plain;charset=utf-8'}));
@@ -157,7 +184,17 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
         </div>
       </header>
       <div className="course-notice">📘 {t.basis}</div>
-      <div className="course-section-header"><h2>{t.overview}</h2><button className="course-outline-button" onClick={exportNotes}>📒 {t.export}</button></div>
+      <div className="course-section-header"><h2>{t.overview}</h2>
+        <div className="course-backup-actions">
+          <button className="course-outline-button" type="button" onClick={exportNotes}>📒 {t.export} (TXT)</button>
+          <button className="course-outline-button" type="button" onClick={exportCourseJson}>💾 {lang==='ru'?'Сохранить прогресс (JSON)':'Fortschritt sichern (JSON)'}</button>
+          <label className="course-import-label" htmlFor="course-backup-input">{lang==='ru'?'Восстановить из JSON':'JSON-Sicherung laden'}</label>
+          <input id="course-backup-input" className="course-import-input" type="file" accept=".json,application/json"
+            aria-label={lang==='ru'?'Выбрать JSON для восстановления':'JSON-Sicherung auswählen'}
+            onChange={e=>{const f=e.currentTarget.files?.[0];if(f)void importCourseJson(f);e.currentTarget.value='';}} />
+        </div>
+      </div>
+      {backupNotice && <p className="course-backup-notice" role="status">{backupNotice}</p>}
       <div className="course-modules">{course.modules.map((m,i) => {
         const doneCount=course.lessons.filter(l=>l.moduleId===m.id&&completed.has(l.id)).length;
         return <button className="course-module" key={m.id} onClick={()=>module(i)} style={{'--accent':m.color} as CSSProperties}>
@@ -217,7 +254,8 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
             {showExistingMap && <div><Suspense fallback={<p>…</p>}><ExistingEuropeMap lang={lang} /></Suspense></div>}
           </section>
         </>}
-        {video && <EmbeddedCourseVideo key={l.id} video={video} lang={lang} poster={image(m.image)} />}
+        {l.moduleId !== 'M01' && <ExpeditionMission key={`mission-${l.id}`} id={l.id} lang={lang} onMastered={() => completeMission(l)} />}
+        {video && <EmbeddedCourseVideo key={`video-${l.id}`} video={video} lang={lang} poster={image(m.image)} />}
         {resource && <section className="course-source-panel" aria-label={t.material}>
           <div><b>📚 {t.material}</b><p>{lang === 'ru' ? resource.noteRu : resource.noteDe}</p></div>
           <a href={resource.url} rel="noopener noreferrer" target="_blank">{resource.title} ↗</a>
@@ -231,8 +269,10 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
             </button>)}</div>
           {!checked ? <button className="course-primary-button" disabled={choice===null} onClick={()=>submit(l)}>{t.answer} →</button> :
             <div className={`course-answer-feedback ${isCorrect?'right':'wrong'}`} role="status"><strong>{isCorrect?'✅ '+t.correct:'💡 '+t.incorrect}</strong>
-              {isCorrect ? <p>{l.moduleId === 'M01' && !miniSolved
-                 ? (lang === 'ru' ? 'Верно! Теперь реши три задачи расследования выше, чтобы завершить урок.' : 'Richtig! Löse jetzt die drei Ermittlungsaufgaben oben, um die Lektion abzuschließen.')
+              {isCorrect ? <p>{(l.moduleId === 'M01' ? !miniSolved : !missionSolved)
+                 ? (l.moduleId === 'M01'
+                  ? (lang === 'ru' ? 'Верно! Теперь реши три задачи расследования выше, чтобы завершить урок.' : 'Richtig! Löse jetzt die drei Ermittlungsaufgaben oben, um die Lektion abzuschließen.')
+                  : (lang === 'ru' ? 'Верно! Теперь заверши четыре шага практической экспедиции выше.' : 'Richtig! Schließe nun die vier Schritte der Expedition oben ab.'))
                  : t.earned}</p> : <button onClick={()=>setShowWhy(!showWhy)}>{t.explain} {showWhy?'−':'+'}</button>}
               {showWhy && <p>{ll.concept}</p>}
               {!isCorrect && <button className="course-outline-button" onClick={()=>{setChoice(null);setChecked(false);setShowWhy(false)}}>{t.retry}</button>}

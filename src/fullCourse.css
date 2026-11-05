@@ -45,3 +45,12 @@
 .course-video-source{font-size:12px;margin:12px 0 0;text-align:right}.course-video-source a{color:#245f9f;font-weight:800;text-decoration:underline}
 .course-source-panel{background:linear-gradient(110deg,#fff8e6,#eff8ff);border:2px solid #d8e8ef;border-radius:14px;padding:14px 17px;display:flex;gap:13px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin:16px 0 24px}
 .course-source-panel b{font-size:13px;color:#254b76}.course-source-panel p{margin:5px 0 0;font-size:12px;color:#5b6f81}.course-source-panel a{max-width:100%;color:#1957a2;font-weight:900;text-decoration:underline;font-size:13px;overflow-wrap:anywhere}
+
+/* Portable, additive backups for the entire 60-lesson course. */
+.course-backup-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.course-import-label{padding:11px 15px;border:2px solid #b8cdeb;background:#f8fcff;color:#24548c;border-radius:11px;font-size:13px;font-weight:900}
+.course-import-input{max-width:190px;font-size:12px;color:#356283}
+.course-import-input::file-selector-button{border:1px solid #afcbe2;border-radius:9px;padding:8px 10px;margin-right:8px;background:#fff;color:#255d96;cursor:pointer}
+.course-import-input:focus-visible{outline:3px solid #f9a845;border-radius:6px}
+.course-backup-notice{padding:11px 15px;background:#edf9f1;color:#255d43;border:1px solid #aad9b7;border-radius:12px;font-size:13px}
+@media(max-width:750px){.course-backup-actions{justify-content:flex-start}.course-import-input{max-width:100%}}

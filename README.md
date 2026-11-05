@@ -2,6 +2,17 @@
 
 Browser-based geography course, grade 6: Russian explanations and German terms. React + TypeScript + Tailwind, OpenLayers, Recharts. No backend, accounts, analytics or runtime API keys.
 
+## Current educational course (NRW G9)
+
+- Public game: https://andrii-baloh.github.io/europe-explorer/?course
+- 12 modules and 60 bilingual episodes; original five interactive scenes preserved.
+- Module 1: 15 map-detective tasks + 5 lesson checkpoints.
+- Modules 2–12: 165 scenario classifications, 55 case decisions and 55 lesson checkpoints.
+- Progress counts only after the complete interactive practice and checkpoint.
+- Local progress, journal notes, portable JSON backup/restore, TXT export; no authentication.
+- Six types of topic-specific semantic diagrams and special exact numerical illustrations.
+- Video embeds load only after the learner agrees to start a source-hosted video.
+- Current alignment and important limits: docs/CURRICULUM_NRW_G9.md.
 ## Run
 
 Node.js 22.12+ or 24.
@@ -38,7 +49,7 @@ git remote add origin https://github.com/andrii-baloh/europe-explorer.git
 git push -u origin main
 ```
 
-The repository does not yet exist unless separately created. This archive does not establish a deployed URL.
+This repository is live at https://andrii-baloh.github.io/europe-explorer/ . The source is maintained on the main branch.
 
 ## What is included
 

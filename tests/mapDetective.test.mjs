@@ -26,7 +26,7 @@ test('scales and plan squares match the teaching tasks',()=>{
 test('old course is preserved and map investigations gate completion',()=>{
   assert.match(course,/ExistingEuropeMap = lazy/);
   assert.match(course,/MapDetective key=\{l.id\}/);
-  assert.match(course,/l\.moduleId !== 'M01' \|\| miniSolved/);
+  assert.match(course,/l\.moduleId === 'M01' \? miniSolved : missionSolved/);
   assert.match(course,/function completeMini/);
   assert.match(component,/onMastered\(\)/);
   assert.match(course,/EmbeddedCourseVideo/);

@@ -9,6 +9,7 @@ import "./style.css";
 import "./adventure.css";
 
 const MapScene = lazy(() => import("./MapScene"));
+const FullCourse = lazy(() => import("./FullCourse"));
 const ClimateScene = lazy(() => import("./ClimateScene"));
 const Farm = lazy(() => import("./Scenes").then((m) => ({ default: m.Farm })));
 const Alps = lazy(() => import("./Scenes").then((m) => ({ default: m.Alps })));
@@ -68,7 +69,7 @@ function App() {
   const [chapter, setChapter] = useState(0);
   const [diary, setDiary] = useState<Diary>(initialDiary);
   const [notice, setNotice] = useState(storageWarning ? "Сохранённый дневник недоступен. Скачивай JSON для резервной копии." : "");
-  const [view, setView] = useState<"home" | "lesson" | "diary" | "sources">("home");
+  const [view, setView] = useState<"home" | "course" | "lesson" | "diary" | "sources">(new URLSearchParams(window.location.search).has("course") ? "course" : "home");
   const [note, setNote] = useState("");
   const [activeActivity, setActiveActivity] = useState<number | null>(null);
   const [showExplanations, setShowExplanations] = useState<number[]>([]);
@@ -101,7 +102,7 @@ function App() {
     setOpenSecret(null);
     window.scrollTo({ top: 0, behavior: "instant" });
   }
-  function openView(next: "home" | "diary" | "sources") {
+  function openView(next: "home" | "course" | "diary" | "sources") {
     setView(next);
     window.scrollTo({ top: 0, behavior: "instant" });
   }
@@ -130,6 +131,9 @@ function App() {
         <nav aria-label={ui.explore}>
           <button aria-current={view === "home" ? "page" : undefined} onClick={() => openView("home")}>
             <span className="nav-icon">⌂</span><span>{ui.home}</span>
+          </button>
+          <button aria-current={view === "course" ? "page" : undefined} onClick={() => openView("course")}>
+            <span className="nav-icon">🎓</span><span><small>{t(lang,"ШКОЛЬНАЯ ПРОГРАММА", "SCHULKURS")}</small>{t(lang,"Большой курс · 60 уроков", "Großer Kurs · 60 Lektionen")}</span>
           </button>
           {locale.chapters.map((l, i) => (
             <button key={l.id} aria-current={view === "lesson" && chapter === i ? "page" : undefined} onClick={() => openChapter(i)}>
@@ -175,6 +179,12 @@ function App() {
                 </div>
               </div>
             </section>
+            <section className="big-course-promo">
+              <span aria-hidden="true">🎓</span><div><small>NRW G9 · ERDKUNDE 5–6</small>
+                <h2>{t(lang,"Большая школа исследователя: 60 уроков", "Die große Forscherakademie: 60 Lektionen")}</h2>
+                <p>{t(lang,"12 тематических модулей: города, сёла, карты, фермы, промышленность, туризм. С короткими видео, заданиями и настоящей проверкой ответа.","12 Module: Stadt, Dorf, Karten, Landwirtschaft, Industrie und Tourismus. Mit Filmen, Aufgaben und überprüfbaren Antworten.")}</p></div>
+              <button className="primary" onClick={() => openView("course")}>{t(lang,"Открыть полный курс", "Vollständigen Kurs öffnen")} →</button>
+            </section>
             <section className="mission home-mission"><span>✧</span><div><b>{ui.goal}</b><p>{locale.homepage.mission}</p></div></section>
             <p className="home-rule">{locale.homepage.rule}</p>
             <section className="journey-board" aria-label={t(lang,"Маршрут исследователя","Entdeckerroute")}>
@@ -199,6 +209,10 @@ function App() {
               ))}
             </div>
           </>
+        ) : view === "course" ? (
+          <Suspense fallback={<p className="loading">{ui.loading}</p>}>
+            <FullCourse lang={lang} openOldGame={() => openChapter(0)} />
+          </Suspense>
         ) : view === "lesson" ? (
           <>
             <section className={`lesson-banner banner-${chapter}`}>
@@ -337,6 +351,10 @@ function App() {
                 <li><a href="https://recharts.org/">Recharts</a> — MIT</li>
                 <li>React, Vite, Tailwind CSS — MIT; TypeScript — Apache-2.0</li></ul>
               <h3>{t(lang,"Образовательная основа","Lernmaterialien")}</h3>
+               <p>{t(lang,"Большой курс опирается на обязательные темы Kernlehrplan Erdkunde NRW G9 для 5–6 классов. Система из 60 уроков разработана нами, а не министерством.","Der große Kurs orientiert sich an den verbindlichen Inhalten des Kernlehrplans Erdkunde NRW G9 für die Klassen 5–6. Die 60 Mini-Lektionen sind unser Konzept, keine Vorgabe des Ministeriums.")}</p>
+               <ul><li><a target="_blank" rel="noopener noreferrer" href="https://www.schulentwicklung.nrw.de/lehrplaene/lehrplan/200/g9_ek_klp_%203408_2019_06_23.pdf">NRW Kernlehrplan Erdkunde G9 (2019)</a></li>
+                 <li><a target="_blank" rel="noopener noreferrer" href="https://www.planet-schule.de/schwerpunkt/stadt-land-fluss/index.html">Planet Schule: Stadt-Land-Fluss</a></li>
+                 <li><a target="_blank" rel="noopener noreferrer" href="https://www.planet-schule.de/schwerpunkt/weizen-sekundarstufe/index.html">Planet Schule: Weizen</a></li></ul>
               <ul><li><a href="https://www.prmrs.de/fileadmin/Redaktion/gemeinsame_Dateien/Realschule/Geo/Grundwissen_Geographie_6._Jgst.pdf">Grundwissen Geographie, 6. Jahrgangsstufe</a></li>
               <li><a href="https://www.planet-schule.de/schwerpunkt/total-phaenomenal-erde-und-klima/index.html">Planet Schule: Erde und Klima</a></li></ul>
               <h3>{t(lang,"Прогресс и приватность","Fortschritt und Datenschutz")}</h3>

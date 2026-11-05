@@ -370,3 +370,11 @@ footer span { color:#547299; }
 @media(max-width:680px) {
   .chapter1-illustration .card-illustration-wrap { aspect-ratio: 3 / 1; }
 }
+
+/* Route to the complete G9 geography course. */
+.big-course-promo { display:flex; align-items:center; flex-wrap:wrap; gap:18px; margin:22px 0; padding:21px;
+  border:3px solid #f1c75d; border-radius:22px; background:linear-gradient(105deg,#fff1c0,#e3f4ff);
+  box-shadow:0 8px 24px #24529b19; }
+.big-course-promo>span{font-size:52px}.big-course-promo>div{flex:1;min-width:230px}.big-course-promo h2{font-size:clamp(20px,2.3vw,26px);margin:6px 0;color:#163d71}
+.big-course-promo small{letter-spacing:1px;color:#386cb2;font-weight:900}.big-course-promo p{margin:5px 0;color:#58708c;font-size:13px}
+.big-course-promo .primary{min-width:180px;font-size:13px}

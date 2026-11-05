@@ -54,5 +54,5 @@ test('all old scenes, diary, course videos and no tracking survive',()=>{
 
 test('video and advanced exercise do not share a React sibling key',()=>{
   assert.match(main,/ExpeditionMission key=\{\`mission-\$\{l\.id\}\`\}/);
-  assert.match(main,/EmbeddedCourseVideo key=\{\`video-\$\{l\.id\}\`\}/);
+  assert.match(main,/EmbeddedCourseVideo key=\{\`video-\$\{lang\}-\$\{l\.id\}\`\}/);
 });

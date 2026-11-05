@@ -1,7 +1,7 @@
 import { lazy, Suspense, useMemo, useState, type CSSProperties } from 'react';
 import course from './fullCourse.json';
 import type { Lang } from './ui';
-import { getLessonVideo, type CourseVideo, curatedVideoCount } from './courseVideos';
+import { getLessonVideo, type CourseVideo, curatedVideoCountForLanguage } from './courseVideos';
 import { getModulePreview } from './courseModulePreviews';
 import './fullCourse.css';
 import MapDetective from './MapDetective';
@@ -61,40 +61,51 @@ const words = {
 };
 
 function EmbeddedCourseVideo({ video, lang, poster }: { video: CourseVideo; lang: Lang; poster: string }) {
-  // Two-click solution: YouTube receives no request until the learner explicitly starts playback.
   const [active, setActive] = useState(false);
   const title = lang === 'ru' ? 'Посмотри и найди ответ' : 'Schau zu und finde die Antwort';
-  const preview = lang === 'ru' ? 'Видео на немецком языке · воспроизведение внутри игры' : 'Deutschsprachiges Video · direkt im Spiel';
-  const consent = lang === 'ru'
-    ? 'При запуске видео установится соединение с YouTube. Плеер использует youtube-nocookie.com.'
-    : 'Beim Start wird eine Verbindung zu YouTube hergestellt. Der Player nutzt youtube-nocookie.com.';
-  const params = new URLSearchParams({ rel: '0', playsinline: '1', cc_lang_pref: 'de', cc_load_policy: '1' });
+  const preview = lang === 'ru' ? 'Видео на русском языке' : 'Deutschsprachiges Video';
+  const params = new URLSearchParams({ rel: '0', playsinline: '1', cc_lang_pref: lang });
   if (video.start !== undefined) params.set('start', String(video.start));
   if (video.end !== undefined) params.set('end', String(video.end));
-  return <section className="course-video-panel" aria-label={title}>
+  const source = video.id ? `https://www.youtube.com/watch?v=${video.id}` : video.url;
+  const playerSrc = video.id ? `https://www.youtube-nocookie.com/embed/${video.id}?${params.toString()}` : video.rutubeId ? `https://rutube.ru/play/embed/${video.rutubeId}` : null;
+  const platform = video.id ? 'YouTube' : video.rutubeId ? 'RUTUBE' : '';
+  return <section className="course-video-panel" aria-label={title} data-video-language={lang}>
     <div className="course-video-heading"><span className="course-video-symbol">🎬</span><div>
-      <span className="course-kicker">{title}</span><h2>{video.title}</h2>
+      <span className="course-kicker">{title}</span>
+      <h2>{video.title}</h2>
       <p>{preview}{video.duration ? ` · ${video.duration}` : ''}</p>
     </div></div>
-    <div className="course-video-frame">
-      {active ? <iframe
-        key={video.id}
-        title={video.title}
-        src={`https://www.youtube-nocookie.com/embed/${video.id}?${params.toString()}`}
-        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-        allowFullScreen
-        referrerPolicy="strict-origin-when-cross-origin"
-      /> : <div className="course-video-poster" style={{ backgroundImage: `linear-gradient(90deg, rgba(11,28,60,.72),rgba(11,28,60,.22)),url(${poster})` }}>
-        <span className="course-video-play-icon" aria-hidden="true">▶</span>
-        <button type="button" onClick={() => setActive(true)} aria-label={lang === 'ru' ? 'Воспроизвести видео внутри игры' : 'Video im Spiel abspielen'}>
-          ▶ {lang === 'ru' ? 'Смотреть видео' : 'Video ansehen'}
-        </button>
+    {playerSrc ?
+      <div className="course-video-frame">
+        {active ? <iframe
+          key={`${lang}-${video.id ?? video.rutubeId}`}
+          title={video.title}
+          src={playerSrc}
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+          allowFullScreen referrerPolicy="strict-origin-when-cross-origin"
+        /> : <div className="course-video-poster" style={{ backgroundImage: `linear-gradient(90deg, rgba(11,28,60,.72),rgba(11,28,60,.22)),url(${poster})` }}>
+          <span className="course-video-play-icon" aria-hidden="true">▶</span>
+          <button type="button" onClick={() => setActive(true)}>
+            ▶ {lang === 'ru' ? 'Смотреть на русском' : 'Video auf Deutsch ansehen'}
+          </button>
+        </div>}
+      </div>
+    : <div className="course-external-video">
+       <p>{lang==='ru' ? 'Русскоязычное видео откроется на сайте правообладателя.' : 'Das Video öffnet sich auf der Seite des Anbieters.'}</p>
+       {source && <a href={source} target="_blank" rel="noopener noreferrer">{lang==='ru'?'Смотреть видео на русском':'Video ansehen'} ↗</a>}
       </div>}
+    <div className="course-video-credit">
+      <span>© {video.channel}{platform ? ` · ${platform}` : ''}</span>
+      <span>{playerSrc
+        ? (active ? (lang==='ru'?'Русскоязычный ролик воспроизводится здесь.':'Das deutsche Video läuft hier.')
+          : (lang==='ru'?`${platform} подключается только после нажатия кнопки.`:`${platform} wird erst nach dem Klick verbunden.`))
+        : (lang==='ru'?'Откроется внешняя видеоплатформа.':'Externe Videoplattform.')}</span>
     </div>
-    <div className="course-video-credit"><span>© {video.channel} · YouTube</span>
-      <span>{active ? (lang === 'ru' ? 'Видео проигрывается на этой странице.' : 'Video läuft auf dieser Seite.') : consent}</span>
-    </div>
-    <p className="course-video-source"><a href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer">{lang === 'ru' ? 'Если плеер недоступен — открыть видео на YouTube' : 'Falls der Player nicht verfügbar ist – Video auf YouTube öffnen'} ↗</a></p>
+    {video.note&&<p className="course-video-note">{video.note}</p>}
+    {playerSrc && source && <p className="course-video-source"><a href={source} target="_blank" rel="noopener noreferrer">
+      {lang === 'ru' ? `Если плеер недоступен — открыть на ${platform}` : `Falls der Player nicht verfügbar ist – auf ${platform} öffnen`} ↗
+    </a></p>}
   </section>;
 }
 
@@ -184,7 +195,7 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
           <div className="course-counter"><span>🏅</span><div><b>{count} / 60</b><small>{t.progress}</small></div><progress value={count} max={60}/></div>
         </div>
       </header>
-      <div className="course-notice">📘 {t.basis}<p className="course-video-coverage">{lang === "ru" ? `🎬 Видео подобраны для ${curatedVideoCount} из 60 уроков; в остальных доступны учебные материалы и задания. Некоторые видеоролики повторяются в близких темах.` : `🎬 Videos sind ${curatedVideoCount} der 60 Lektionen zugeordnet; die anderen bieten Lernmaterial und Aufgaben. Manche Videos werden für verwandte Themen wiederverwendet.`}</p></div>
+      <div className="course-notice">📘 {t.basis}<p className="course-video-coverage">{lang === "ru" ? `🎬 Видео подобраны для ${curatedVideoCountForLanguage(lang)} из 60 уроков; в остальных доступны учебные материалы и задания. Некоторые видеоролики повторяются в близких темах.` : `🎬 Videos sind ${curatedVideoCountForLanguage(lang)} der 60 Lektionen zugeordnet; die anderen bieten Lernmaterial und Aufgaben. Manche Videos werden für verwandte Themen wiederverwendet.`}</p></div>
       <div className="course-section-header"><h2>{t.overview}</h2>
         <div className="course-backup-actions">
           <button className="course-outline-button" type="button" onClick={exportNotes}>📒 {t.export} (TXT)</button>
@@ -230,7 +241,7 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
       const l=course.lessons[screen.index];
       const m=course.modules[Math.floor(screen.index/5)];
       const ll=l[lang];
-      const video = getLessonVideo(l.id);
+      const video = getLessonVideo(l.id,lang);
       const resource = course.media[l.media as keyof typeof course.media];
       const isCorrect=checked&&choice===l.answer;
       return <>
@@ -256,7 +267,7 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
           </section>
         </>}
         {l.moduleId !== 'M01' && <ExpeditionMission key={`mission-${l.id}`} id={l.id} lang={lang} onMastered={() => completeMission(l)} />}
-        {video && <EmbeddedCourseVideo key={`video-${l.id}`} video={video} lang={lang} poster={image(m.image)} />}
+        {video && <EmbeddedCourseVideo key={`video-${lang}-${l.id}`} video={video} lang={lang} poster={image(m.image)} />}
         {resource && <section className="course-source-panel" aria-label={t.material}>
           <div><b>📚 {t.material}</b><p>{lang === 'ru' ? resource.noteRu : resource.noteDe}</p></div>
           <a href={resource.url} rel="noopener noreferrer" target="_blank">{resource.title} ↗</a>

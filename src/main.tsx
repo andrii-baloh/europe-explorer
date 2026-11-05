@@ -274,7 +274,7 @@ function App() {
               </div>
             </section>
 
-            <LessonFilm chapter={chapter} lang={lang} />
+            <LessonFilm key={`${lang}-${chapter}`} chapter={chapter} lang={lang} />
             <section className="owl-facts">
               <div className="owl-facts-heading"><span className="owl-avatar" aria-hidden="true">🦉</span><div><div className="eyebrow">{t(lang,"СЕКРЕТЫ СОВЫ","EULEN-GEHEIMNISSE")}</div><h2>{t(lang,"Нажми на карточку — узнай больше!","Tippe auf eine Karte und entdecke mehr!")}</h2></div></div>
               <div className="secret-grid">{chapterFacts[lang][chapter].map((fact,i) => <button type="button" key={`${chapter}-${i}`} className={`secret-card secret-${i} ${openSecret===i ? "revealed" : ""}`} aria-expanded={openSecret===i} onClick={() => setOpenSecret(openSecret===i ? null : i)}>

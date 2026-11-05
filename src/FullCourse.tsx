@@ -1,8 +1,10 @@
-import { useMemo, useState, type CSSProperties } from 'react';
+import { lazy, Suspense, useMemo, useState, type CSSProperties } from 'react';
 import course from './fullCourse.json';
 import type { Lang } from './ui';
 import { getLessonVideo, type CourseVideo } from './courseVideos';
 import './fullCourse.css';
+import MapDetective from './MapDetective';
+const ExistingEuropeMap = lazy(() => import('./MapScene'));
 
 type Lesson = (typeof course.lessons)[number];
 type Module = (typeof course.modules)[number];
@@ -108,6 +110,8 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
   const [progress, setProgress] = useState<Progress>(initialProgress);
   const [choice, setChoice] = useState<number | null>(null);
   const [checked, setChecked] = useState(false);
+  const [miniSolved, setMiniSolved] = useState(false);
+  const [showExistingMap, setShowExistingMap] = useState(false);
   const [note, setNote] = useState('');
   const [showWhy, setShowWhy] = useState(false);
   const [savedNotice, setSavedNotice] = useState(false);
@@ -122,14 +126,18 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
   function home() { setScreen({ kind:'index' }); window.scrollTo({top:0,behavior:'smooth'}); }
   function module(index: number) { setScreen({kind:'module',module:index}); window.scrollTo({top:0,behavior:'smooth'}); }
   function lesson(index: number) {
-    setScreen({kind:'lesson',index}); setChoice(null); setChecked(false); setShowWhy(false);
+    setScreen({kind:'lesson',index}); setChoice(null); setChecked(false); setShowWhy(false); setMiniSolved(false); setShowExistingMap(false);
     setNote(progress.notes[course.lessons[index].id] ?? ''); setSavedNotice(false);
     window.scrollTo({top:0,behavior:'smooth'});
   }
   function submit(l: Lesson) {
     if (choice === null) return;
     setChecked(true);
-    if (choice === l.answer && !completed.has(l.id)) persist({...progress,completed:[...progress.completed,l.id]});
+    if (choice === l.answer && (l.moduleId !== 'M01' || miniSolved) && !completed.has(l.id)) persist({...progress,completed:[...progress.completed,l.id]});
+  }
+  function completeMini(l: Lesson) {
+    setMiniSolved(true);
+    if (checked && choice === l.answer && !completed.has(l.id)) persist({...progress,completed:[...progress.completed,l.id]});
   }
   function saveNote(l: Lesson) { persist({...progress,notes:{...progress.notes,[l.id]: note.slice(0,1500)}}); setSavedNotice(true); }
   function exportNotes() {
@@ -200,11 +208,20 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
             </div>)}
           </div></div>
           <div className="course-mission-card"><h2>🧭 {t.mission}</h2><p>{ll.mission}</p><div className="course-action-note">📝 {t.notesHelp}</div></div></div>
+        {l.moduleId === 'M01' && <>
+          <MapDetective key={l.id} lessonIndex={l.index} lang={lang} onMastered={() => completeMini(l)} />
+          <section className="course-map-reuse">
+            <button type="button" onClick={() => setShowExistingMap(v => !v)}>
+              🗺️ {lang === 'ru' ? (showExistingMap ? 'Свернуть карту Европы' : 'Открыть настоящую интерактивную карту Европы') : (showExistingMap ? 'Europakarte schließen' : 'Interaktive Europakarte öffnen')}
+            </button>
+            {showExistingMap && <div><Suspense fallback={<p>…</p>}><ExistingEuropeMap lang={lang} /></Suspense></div>}
+          </section>
+        </>}
         {video && <EmbeddedCourseVideo key={l.id} video={video} lang={lang} poster={image(m.image)} />}
-        {resource && <aside className="course-source-panel" aria-label={t.material}>
+        {resource && <section className="course-source-panel" aria-label={t.material}>
           <div><b>📚 {t.material}</b><p>{lang === 'ru' ? resource.noteRu : resource.noteDe}</p></div>
           <a href={resource.url} rel="noopener noreferrer" target="_blank">{resource.title} ↗</a>
-        </aside>}
+        </section>}
         <section className="course-quiz" aria-labelledby="quiz-head">
           <div className="course-quiz-head"><small>🎯 {t.quiz}</small><h2 id="quiz-head">{ll.question}</h2><p>{t.quizHelp}</p></div>
           <div className="course-answers">{ll.options.map((op,j) =>
@@ -214,7 +231,9 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
             </button>)}</div>
           {!checked ? <button className="course-primary-button" disabled={choice===null} onClick={()=>submit(l)}>{t.answer} →</button> :
             <div className={`course-answer-feedback ${isCorrect?'right':'wrong'}`} role="status"><strong>{isCorrect?'✅ '+t.correct:'💡 '+t.incorrect}</strong>
-              {isCorrect ? <p>{t.earned}</p> : <button onClick={()=>setShowWhy(!showWhy)}>{t.explain} {showWhy?'−':'+'}</button>}
+              {isCorrect ? <p>{l.moduleId === 'M01' && !miniSolved
+                 ? (lang === 'ru' ? 'Верно! Теперь реши три задачи расследования выше, чтобы завершить урок.' : 'Richtig! Löse jetzt die drei Ermittlungsaufgaben oben, um die Lektion abzuschließen.')
+                 : t.earned}</p> : <button onClick={()=>setShowWhy(!showWhy)}>{t.explain} {showWhy?'−':'+'}</button>}
               {showWhy && <p>{ll.concept}</p>}
               {!isCorrect && <button className="course-outline-button" onClick={()=>{setChoice(null);setChecked(false);setShowWhy(false)}}>{t.retry}</button>}
             </div>}

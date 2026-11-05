@@ -102,6 +102,7 @@ function EmbeddedCourseVideo({ video, lang, poster }: { video: CourseVideo; lang
           : (lang==='ru'?`${platform} подключается только после нажатия кнопки.`:`${platform} wird erst nach dem Klick verbunden.`))
         : (lang==='ru'?'Откроется внешняя видеоплатформа.':'Externe Videoplattform.')}</span>
     </div>
+    {video.fit === "related" && <p className="course-video-note">{lang === "ru" ? "Дополнительный фильм по связанной теме. Основное объяснение смотри в тексте урока." : "Ergänzender Film zu einem verwandten Thema. Die zentrale Erklärung steht im Lektionstext."}</p>}
     {video.note&&<p className="course-video-note">{video.note}</p>}
     {playerSrc && source && <p className="course-video-source"><a href={source} target="_blank" rel="noopener noreferrer">
       {lang === 'ru' ? `Если плеер недоступен — открыть на ${platform}` : `Falls der Player nicht verfügbar ist – auf ${platform} öffnen`} ↗
@@ -195,7 +196,7 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
           <div className="course-counter"><span>🏅</span><div><b>{count} / 60</b><small>{t.progress}</small></div><progress value={count} max={60}/></div>
         </div>
       </header>
-      <div className="course-notice">📘 {t.basis}<p className="course-video-coverage">{lang === "ru" ? `🎬 Видео подобраны для ${curatedVideoCountForLanguage(lang)} из 60 уроков; в остальных доступны учебные материалы и задания. Некоторые видеоролики повторяются в близких темах.` : `🎬 Videos sind ${curatedVideoCountForLanguage(lang)} der 60 Lektionen zugeordnet; die anderen bieten Lernmaterial und Aufgaben. Manche Videos werden für verwandte Themen wiederverwendet.`}</p></div>
+      <div className="course-notice">📘 {t.basis}<p className="course-video-coverage">{lang === "ru" ? `🎬 Для всех ${curatedVideoCountForLanguage(lang)} уроков подобраны разные русскоязычные фильмы. Некоторые объясняют связанную тему; часть открывается на сайте автора.` : `🎬 Alle ${curatedVideoCountForLanguage(lang)} Lektionen haben unterschiedliche deutschsprachige Filme. Einige erläutern verwandte Themen oder öffnen sich auf der Originalseite.`}</p></div>
       <div className="course-section-header"><h2>{t.overview}</h2>
         <div className="course-backup-actions">
           <button className="course-outline-button" type="button" onClick={exportNotes}>📒 {t.export} (TXT)</button>

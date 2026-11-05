@@ -13,7 +13,7 @@ new Function('module','exports',js)(compiled,compiled.exports);
 const videos=compiled.exports;
 const course=JSON.parse(fs.readFileSync(path.join(root,'src/fullCourse.json'),'utf8'));
 
-test('exactly 35 of 60 lessons have curated Russian and German video sources',()=>{
+test('all 60 lessons have same-language video sources, with no German-only extras',()=>{
   let count=0;
   for(const lesson of course.lessons) {
     const r=videos.getLessonVideo(lesson.id,'ru');
@@ -25,13 +25,13 @@ test('exactly 35 of 60 lessons have curated Russian and German video sources',()
     assert.equal(g.language,'de');
     assert.ok(r.id||r.rutubeId||r.url,'Russian video missing: '+lesson.id);
     assert.ok(g.id||g.rutubeId||g.url,'German video missing: '+lesson.id);
-    assert.notEqual(r.id,g.id,'Same YouTube video in both languages: '+lesson.id);
+    assert.notEqual(r.id??r.rutubeId??r.url,g.id??g.rutubeId??g.url,'Same video source in both languages: '+lesson.id);
     assert.ok(r.title.length>4 && g.title.length>4);
     if(r.url) assert.match(r.url,/^https:\/\//);
   }
-  assert.equal(count,35);
-  assert.equal(videos.curatedVideoCountForLanguage('ru'),35);
-  assert.equal(videos.curatedVideoCountForLanguage('de'),35);
+  assert.equal(count,60);
+  assert.equal(videos.curatedVideoCountForLanguage('ru'),60);
+  assert.equal(videos.curatedVideoCountForLanguage('de'),60);
 });
 
 test('all five introductory chapters have original Russian video, not German soundtrack',()=>{
@@ -50,6 +50,9 @@ test('changing language swaps video sources and resets the actual embedded playe
  const main=fs.readFileSync(path.join(root,'src/main.tsx'),'utf8');
  const intro=fs.readFileSync(path.join(root,'src/LessonFilm.tsx'),'utf8');
  assert.match(full,/getLessonVideo\(l\.id,lang\)/);
+ assert.match(full,/data-material-language=\{lang\}/);
+ assert.match(full,/href=\{videoSource\}/);
+ assert.doesNotMatch(full,/href=\{resource\.url\}[^\n]*\{resource\.title\}/);
  assert.match(full,/key=\{\x60video-\$\{lang\}-\$\{l\.id\}\x60\}/);
  assert.match(main,/LessonFilm key=\{\x60\$\{lang\}-\$\{chapter\}\x60\}/);
  assert.match(intro,/getChapterRussianVideo\(chapter\)/);

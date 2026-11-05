@@ -243,6 +243,7 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
       const ll=l[lang];
       const video = getLessonVideo(l.id,lang);
       const resource = course.media[l.media as keyof typeof course.media];
+      const videoSource = video?.id ? `https://www.youtube.com/watch?v=${video.id}` : video?.url ?? (video?.rutubeId ? `https://rutube.ru/video/${video.rutubeId}/` : null);
       const isCorrect=checked&&choice===l.answer;
       return <>
         <button className="course-link-back" onClick={()=>module(Math.floor(screen.index/5))}>← {t.back}</button>
@@ -268,9 +269,17 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
         </>}
         {l.moduleId !== 'M01' && <ExpeditionMission key={`mission-${l.id}`} id={l.id} lang={lang} onMastered={() => completeMission(l)} />}
         {video && <EmbeddedCourseVideo key={`video-${lang}-${l.id}`} video={video} lang={lang} poster={image(m.image)} />}
-        {resource && <section className="course-source-panel" aria-label={t.material}>
-          <div><b>📚 {t.material}</b><p>{lang === 'ru' ? resource.noteRu : resource.noteDe}</p></div>
-          <a href={resource.url} rel="noopener noreferrer" target="_blank">{resource.title} ↗</a>
+        {video && videoSource && <section className="course-source-panel" aria-label={t.material} data-material-language={lang}>
+          <div><b>📚 {t.material}</b>
+            <p>{lang === 'ru' ? 'Видеоматериал на русском языке по теме урока. При необходимости открой его на сайте автора.' :
+              'Deutschsprachiges Video zum Thema. Bei Bedarf kannst du die Originalseite öffnen.'}</p>
+          </div>
+          <a href={videoSource} rel="noopener noreferrer" target="_blank">
+            🎬 {video.title} ↗
+          </a>
+          {resource?.kind === 'method' && <a href={resource.url} rel="noopener noreferrer" target="_blank">
+            {lang === 'ru' ? 'Методический материал (оригинал на немецком)' : 'Ergänzendes Unterrichtsmaterial'} ↗
+          </a>}
         </section>}
         <section className="course-quiz" aria-labelledby="quiz-head">
           <div className="course-quiz-head"><small>🎯 {t.quiz}</small><h2 id="quiz-head">{ll.question}</h2><p>{t.quizHelp}</p></div>

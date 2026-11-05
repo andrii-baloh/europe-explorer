@@ -1,0 +1,26 @@
+.lv-graphic{min-height:140px;padding:14px;border-radius:16px;border:1px solid #bad7e8;background:#eef7ff;color:#173c5c;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+.lv-graphic svg{width:100%;height:auto;display:block}
+.lv-tiles{display:flex;align-items:stretch;justify-content:space-around;gap:9px;min-height:104px}
+.lv-tile{flex:1;min-width:0;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border-radius:12px;background:#fff;box-shadow:0 2px 6px #143f5c12;text-align:center;padding:8px 4px}
+.lv-tile:nth-child(2){background:#fff9e6}
+.lv-tile:nth-child(3){background:#e9f8e9}
+.lv-icon{font-size:clamp(23px,3.3vw,34px);line-height:1.15}
+.lv-tile strong{font-size:clamp(11px,1.2vw,14px);line-height:1.23;overflow-wrap:anywhere}
+.lv-tile small{color:#45657a;font-size:clamp(9px,1vw,12px);line-height:1.22;overflow-wrap:anywhere}
+.lv-tile i{position:absolute;right:-12px;top:45%;z-index:2;font-size:22px;font-weight:800;color:#1c77a1;background:#fff;border-radius:15px;font-style:normal}
+.lv-note{margin:0!important;color:#2a5876!important;font-size:12px!important;line-height:1.35!important;text-align:center}
+.lv-compass{display:flex;justify-content:center;align-items:center;gap:22px}
+.lv-compass-rose{position:relative;flex:none;width:116px;height:116px;border:2px solid #6bb3d1;border-radius:50%;background:radial-gradient(#fff 25%,#d4effa 26%,#e7f5ff 100%)}
+.lv-compass-rose:before{content:'';position:absolute;left:57px;top:17px;bottom:17px;border-left:2px solid #90afca}
+.lv-compass-rose:after{content:'';position:absolute;top:57px;left:17px;right:17px;border-top:2px solid #90afca}
+.lv-compass-rose .axis{position:absolute;top:31px;left:30px;font-size:44px;z-index:1}
+.lv-compass-rose .n,.lv-compass-rose .s,.lv-compass-rose .w,.lv-compass-rose .e{position:absolute;font-weight:900;font-size:13px;color:#1f5978}
+.lv-compass-rose .n{top:0;left:51px}.lv-compass-rose .s{bottom:0;left:51px}.lv-compass-rose .w{left:3px;top:47px}.lv-compass-rose .e{right:3px;top:47px}
+.lv-compass-copy{display:grid;gap:3px;font-size:12px}.lv-compass-copy strong{font-size:14px}
+.lv-altitude{position:relative;overflow:hidden;border-radius:14px}
+.lv-altitude-values{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:end;padding:16px}
+.lv-altitude-values span{display:grid;gap:2px;border-radius:9px;background:#fffc;padding:5px 8px;text-align:center;box-shadow:0 2px 6px #214b6b29}
+.lv-altitude-values span:nth-child(2){align-self:center}
+.lv-altitude-values span:nth-child(3){align-self:flex-start}
+.lv-altitude-values b{font-size:11px}.lv-altitude-values strong{font-size:18px}
+@media(max-width:550px){.lv-graphic{padding:9px}.lv-tiles{gap:5px}.lv-tile{padding:6px 2px}.lv-tile i{right:-8px;font-size:15px}.lv-compass{gap:12px}.lv-altitude-values strong{font-size:14px}}

@@ -5,6 +5,8 @@ import editorialData from "./editorial.json";
 import { key, validateDiary, mergeDiaries } from "./model.mjs";
 import { type Lang, labels, t } from "./ui";
 import { chapterArt, chapterSymbols, chapterFacts, stepSymbols } from "./visuals";
+import LearningVisual from "./LearningVisuals";
+import LessonFilm from "./LessonFilm";
 import "./style.css";
 import "./adventure.css";
 
@@ -66,10 +68,16 @@ class ErrorBoundary extends React.Component<
 
 function App() {
   const [lang, setLang] = useState<Lang>("ru");
-  const [chapter, setChapter] = useState(0);
+  const [chapter, setChapter] = useState(() => {
+    const n = Number(new URLSearchParams(window.location.search).get('chapter'));
+    return Number.isInteger(n) && n >= 1 && n <= 5 ? n - 1 : 0;
+  });
   const [diary, setDiary] = useState<Diary>(initialDiary);
   const [notice, setNotice] = useState(storageWarning ? "Сохранённый дневник недоступен. Скачивай JSON для резервной копии." : "");
-  const [view, setView] = useState<"home" | "course" | "lesson" | "diary" | "sources">(new URLSearchParams(window.location.search).has("course") ? "course" : "home");
+  const [view, setView] = useState<"home" | "course" | "lesson" | "diary" | "sources">(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.has('course') ? 'course' : params.has('chapter') ? 'lesson' : 'home';
+  });
   const [note, setNote] = useState("");
   const [activeActivity, setActiveActivity] = useState<number | null>(null);
   const [showExplanations, setShowExplanations] = useState<number[]>([]);
@@ -82,6 +90,17 @@ function App() {
   const done = new Set(diary.entries.map((e) => e.chapter));
 
   useEffect(() => { document.documentElement.lang = lang; }, [lang]);
+  useEffect(() => {
+    const restoreUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const n = Number(params.get('chapter'));
+      if (params.has('course')) setView('course');
+      else if (Number.isInteger(n) && n >= 1 && n <= 5) { setChapter(n - 1); setView('lesson'); }
+      else setView('home');
+    };
+    window.addEventListener('popstate', restoreUrl);
+    return () => window.removeEventListener('popstate', restoreUrl);
+  }, []);
 
   function persist(next: Diary) {
     setDiary(next);
@@ -92,7 +111,16 @@ function App() {
       setNotice(ui.denied);
     }
   }
+  function updateBrowserUrl(target: 'home'|'course'|'lesson'|'diary'|'sources', i?: number) {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('course');
+    url.searchParams.delete('chapter');
+    if (target === 'course') url.searchParams.set('course','1');
+    if (target === 'lesson' && i !== undefined) url.searchParams.set('chapter', String(i + 1));
+    window.history.pushState(null, '', url.pathname + url.search + url.hash);
+  }
   function openChapter(i: number) {
+    updateBrowserUrl('lesson', i);
     setChapter(i);
     setView("lesson");
     setNote("");
@@ -103,6 +131,7 @@ function App() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }
   function openView(next: "home" | "course" | "diary" | "sources") {
+    updateBrowserUrl(next);
     setView(next);
     window.scrollTo({ top: 0, behavior: "instant" });
   }
@@ -215,6 +244,7 @@ function App() {
           </Suspense>
         ) : view === "lesson" ? (
           <>
+            <div className="course-return-banner"><div><strong>{t(lang,'🎓 Ищешь все 60 уроков?','🎓 Suchst du alle 60 Lektionen?')}</strong><span>{t(lang,'Это одна из 5 игровых экспедиций. Полный школьный курс находится в отдельном разделе.','Dies ist eine von 5 Spiele-Expeditionen. Der vollständige Kurs ist ein eigener Bereich.')}</span></div><button type="button" onClick={() => openView('course')}>{t(lang,'Открыть 60 уроков','60 Lektionen öffnen')} →</button></div>
             <section className={`lesson-banner banner-${chapter}`}>
               <img className="chapter-banner-art" src={`${import.meta.env.BASE_URL}art/${chapterArt[chapter]}.webp`} alt={t(lang,"Красочная иллюстрация экспедиции: ","Farbiges Bild der Expedition: ") + lesson.title} />
               <div className="lesson-banner-content">
@@ -232,14 +262,8 @@ function App() {
               <div className="explanation-grid">
                 {lesson.explanations.map((item, i) => (
                   <article key={i} className={`explanation-card expl-${i % 4} ${chapter === 0 ? "chapter1-illustration" : ""}`}>
-                    <div className="card-illustration-wrap">
-                      <img
-                        className={`card-illustration art-focus-${i % 4}`}
-                        src={`${import.meta.env.BASE_URL}art/${chapter === 0 ? `cards/chapter1-${["map", "route", "alps"][i]}.webp` : `${chapterArt[chapter]}.webp`}`}
-                        alt={item.title}
-                        loading="lazy"
-                      />
-                      {chapter !== 0 && <div className="explanation-visual" aria-hidden="true"><span className="visual-icon">{stepSymbols[chapter][i % 4]}</span><span className="visual-orbit">✦</span><span className="visual-dots">• • •</span></div>}
+                    <div className="card-illustration-wrap card-learning-visual">
+                      <LearningVisual chapter={chapter} index={i} lang={lang} />
                       <span className="card-number">{String(i+1).padStart(2,"0")}</span>
                     </div>
                     <div className="card-copy">
@@ -250,6 +274,7 @@ function App() {
               </div>
             </section>
 
+            <LessonFilm chapter={chapter} lang={lang} />
             <section className="owl-facts">
               <div className="owl-facts-heading"><span className="owl-avatar" aria-hidden="true">🦉</span><div><div className="eyebrow">{t(lang,"СЕКРЕТЫ СОВЫ","EULEN-GEHEIMNISSE")}</div><h2>{t(lang,"Нажми на карточку — узнай больше!","Tippe auf eine Karte und entdecke mehr!")}</h2></div></div>
               <div className="secret-grid">{chapterFacts[lang][chapter].map((fact,i) => <button type="button" key={`${chapter}-${i}`} className={`secret-card secret-${i} ${openSecret===i ? "revealed" : ""}`} aria-expanded={openSecret===i} onClick={() => setOpenSecret(openSecret===i ? null : i)}>
@@ -286,7 +311,7 @@ function App() {
                       <button className="text-button" aria-expanded={showExplanations.includes(i)} onClick={() => toggleExplanation(i)}>{ui.reveal}</button>
                     </div>
                     {activeActivity === i && <p className="hint-text">{a.hint}</p>}
-                    {showExplanations.includes(i) && <div className="explain-result"><img className={`guided-thumb art-focus-${i % 4}`} src={`${import.meta.env.BASE_URL}art/${chapterArt[chapter]}.webp`} alt="" loading="lazy" /><div><b>{ui.explanation}</b><p>{feedbackExplanation(a.success)}</p><small>{ui.explainNote}</small></div></div>}
+                    {showExplanations.includes(i) && <div className="explain-result"><div className="guided-thumb-educational" aria-hidden="true">{stepSymbols[chapter][i % 4]}</div><div><b>{ui.explanation}</b><p>{feedbackExplanation(a.success)}</p><small>{ui.explainNote}</small></div></div>}
                   </article>
                 ))}
               </div>

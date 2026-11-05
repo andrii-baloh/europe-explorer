@@ -1,0 +1,21 @@
+.lesson-film{display:flex;align-items:flex-start;flex-wrap:wrap;gap:13px;padding:20px;margin:21px 0;border:2px solid #c9def3;border-radius:18px;background:linear-gradient(110deg,#f0f8ff,#fff8e8);box-shadow:0 7px 18px #164a7a16}
+.lesson-film-main{display:flex;gap:14px;align-items:flex-start;flex:1;min-width:230px}
+.lesson-film-main>span{font-size:39px;background:#fff;border-radius:13px;padding:9px}
+.lesson-film h2{font-size:19px;color:#194778;margin:0 0 5px}
+.lesson-film strong{color:#26527b;font-size:16px}
+.lesson-film p{font-size:13px;color:#536e8b;margin:6px 0}
+.lesson-film-task{width:100%;padding:11px 13px;border-left:4px solid #4696c8;background:white;border-radius:9px;color:#285377;font-size:13px}
+.lesson-film a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:12px;background:#2767ad;padding:12px 18px;font-size:14px;font-weight:800;color:white}
+.lesson-film small{width:100%;font-size:11px;color:#55718e}
+.course-return-banner{margin:4px 0 17px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;background:#fff1c9;border:2px solid #e8b34b;border-radius:17px;padding:14px 18px;color:#214d7f}
+.course-return-banner>div{display:grid;gap:5px;max-width:580px}
+.course-return-banner strong{font-size:17px}
+.course-return-banner span{font-size:12px;line-height:1.4}
+.course-return-banner button{background:#225da4;border:0;border-radius:11px;color:white;padding:12px 17px;font-weight:900;font-size:14px;cursor:pointer}
+.card-learning-visual,.chapter1-illustration .card-learning-visual{height:auto;min-height:0;aspect-ratio:auto;overflow:visible;background:transparent;border-radius:14px}
+.card-learning-visual .lv-graphic{width:100%;min-height:145px;display:flex}
+.chapter1-illustration .card-learning-visual{margin:0}
+.card-learning-visual .card-number{top:8px;bottom:auto;left:8px;z-index:1;transform:scale(.84);transform-origin:top left}
+.guided-thumb-educational{flex:none;display:grid;place-items:center;width:72px;height:72px;border-radius:13px;background:#e0f1fc;border:2px solid #aed4e9;font-size:35px}
+.explain-result>div.guided-thumb-educational{display:grid;place-items:center}
+@media(max-width:650px){.course-return-banner button{width:100%}.lesson-film a{width:100%}.guided-thumb-educational{width:60px;height:60px}}

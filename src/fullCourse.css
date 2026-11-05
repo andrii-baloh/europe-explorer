@@ -54,3 +54,15 @@
 .course-import-input:focus-visible{outline:3px solid #f9a845;border-radius:6px}
 .course-backup-notice{padding:11px 15px;background:#edf9f1;color:#255d43;border:1px solid #aad9b7;border-radius:12px;font-size:13px}
 @media(max-width:750px){.course-backup-actions{justify-content:flex-start}.course-import-input{max-width:100%}}
+
+/* The twelve module tiles now teach three relevant concepts instead of repeating stock-like artwork. */
+.course-module-art{background:linear-gradient(115deg,#e6f6ff,#fff2d7)}
+.course-module-art:after{display:none}
+.course-module-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;align-items:stretch;height:100%;padding:13px 10px 39px}
+.course-module-stage{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-width:0;background:#fff;border:1px solid #d8e6eb;border-radius:10px;box-shadow:0 2px 5px #23446c10;padding:6px 2px;color:#204775}
+.course-module-art .course-module-stage span{position:static;bottom:auto;left:auto;display:block;z-index:auto;background:none;padding:0;border-radius:0;font-size:clamp(21px,2.6vw,30px);box-shadow:none;line-height:1.1}
+.course-module-stage strong{font-size:clamp(9px,0.94vw,12px);font-weight:900;text-align:center;line-height:1.2;overflow-wrap:anywhere}
+.course-module-art>span{bottom:7px;left:9px;font-size:20px;padding:3px 5px}
+.course-module-art>b{bottom:12px;right:10px;color:#2d65a6;font-size:13px}
+.course-video-coverage{margin:9px 0 0!important;font-size:12px;color:#3b5d77}
+@media(max-width:530px){.course-module-stage strong{font-size:12px}.course-module-art .course-module-stage span{font-size:31px}}

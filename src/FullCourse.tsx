@@ -1,7 +1,8 @@
 import { lazy, Suspense, useMemo, useState, type CSSProperties } from 'react';
 import course from './fullCourse.json';
 import type { Lang } from './ui';
-import { getLessonVideo, type CourseVideo } from './courseVideos';
+import { getLessonVideo, type CourseVideo, curatedVideoCount } from './courseVideos';
+import { getModulePreview } from './courseModulePreviews';
 import './fullCourse.css';
 import MapDetective from './MapDetective';
 import ExpeditionMission from './ExpeditionMissions';
@@ -183,7 +184,7 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
           <div className="course-counter"><span>🏅</span><div><b>{count} / 60</b><small>{t.progress}</small></div><progress value={count} max={60}/></div>
         </div>
       </header>
-      <div className="course-notice">📘 {t.basis}</div>
+      <div className="course-notice">📘 {t.basis}<p className="course-video-coverage">{lang === "ru" ? `🎬 Видео подобраны для ${curatedVideoCount} из 60 уроков; в остальных доступны учебные материалы и задания. Некоторые видеоролики повторяются в близких темах.` : `🎬 Videos sind ${curatedVideoCount} der 60 Lektionen zugeordnet; die anderen bieten Lernmaterial und Aufgaben. Manche Videos werden für verwandte Themen wiederverwendet.`}</p></div>
       <div className="course-section-header"><h2>{t.overview}</h2>
         <div className="course-backup-actions">
           <button className="course-outline-button" type="button" onClick={exportNotes}>📒 {t.export} (TXT)</button>
@@ -198,7 +199,7 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
       <div className="course-modules">{course.modules.map((m,i) => {
         const doneCount=course.lessons.filter(l=>l.moduleId===m.id&&completed.has(l.id)).length;
         return <button className="course-module" key={m.id} onClick={()=>module(i)} style={{'--accent':m.color} as CSSProperties}>
-          <div className="course-module-art"><img src={image(m.image)} alt="" loading="lazy"/><span>{m.icon}</span><b>{m.id}</b></div>
+          <div className="course-module-art"><div className="course-module-stages" role="img" aria-label={getModulePreview(m.id,lang).map(v=>v.text).join(" → ")}>{getModulePreview(m.id,lang).map((v,j)=><div className="course-module-stage" key={j}><span aria-hidden="true">{v.icon}</span><strong>{v.text}</strong></div>)}</div><span>{m.icon}</span><b>{m.id}</b></div>
           <div className="course-module-copy"><small>NRW {m.area} · {doneCount}/5</small>
             <strong>{m.title[lang]}</strong><p>{m.intro[lang]}</p>
             <div className="course-progress"><span style={{width:`${doneCount*20}%`}}/></div>

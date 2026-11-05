@@ -89,6 +89,7 @@ function EmbeddedCourseVideo({ video, lang, poster }: { video: CourseVideo; lang
     <div className="course-video-credit"><span>© {video.channel} · YouTube</span>
       <span>{active ? (lang === 'ru' ? 'Видео проигрывается на этой странице.' : 'Video läuft auf dieser Seite.') : consent}</span>
     </div>
+    <p className="course-video-source"><a href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer">{lang === 'ru' ? 'Если плеер недоступен — открыть видео на YouTube' : 'Falls der Player nicht verfügbar ist – Video auf YouTube öffnen'} ↗</a></p>
   </section>;
 }
 
@@ -184,6 +185,7 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
       const m=course.modules[Math.floor(screen.index/5)];
       const ll=l[lang];
       const video = getLessonVideo(l.id);
+      const resource = course.media[l.media as keyof typeof course.media];
       const isCorrect=checked&&choice===l.answer;
       return <>
         <button className="course-link-back" onClick={()=>module(Math.floor(screen.index/5))}>← {t.back}</button>
@@ -199,6 +201,10 @@ export default function FullCourse({ lang, openOldGame }: { lang: Lang; openOldG
           </div></div>
           <div className="course-mission-card"><h2>🧭 {t.mission}</h2><p>{ll.mission}</p><div className="course-action-note">📝 {t.notesHelp}</div></div></div>
         {video && <EmbeddedCourseVideo key={l.id} video={video} lang={lang} poster={image(m.image)} />}
+        {resource && <aside className="course-source-panel" aria-label={t.material}>
+          <div><b>📚 {t.material}</b><p>{lang === 'ru' ? resource.noteRu : resource.noteDe}</p></div>
+          <a href={resource.url} rel="noopener noreferrer" target="_blank">{resource.title} ↗</a>
+        </aside>}
         <section className="course-quiz" aria-labelledby="quiz-head">
           <div className="course-quiz-head"><small>🎯 {t.quiz}</small><h2 id="quiz-head">{ll.question}</h2><p>{t.quizHelp}</p></div>
           <div className="course-answers">{ll.options.map((op,j) =>
